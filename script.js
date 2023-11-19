@@ -1,5 +1,6 @@
 let wordPositions = {}; // Definir wordPositions en un alcance global
 let cellColorMap = new Map();
+let seed = 12345;
 
 document.addEventListener("DOMContentLoaded", function () {
   // Asumiendo que ya tienes una lista de palabras seleccionadas y validadas
@@ -33,12 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
     "USUARIO",
     "ACCESIBILIDAD",
     "RESPONSIVO",
-    "ESTILO",
-    "ELEMENTO",
-    "ETIQUETA",
     "ATRIBUTO"
   ];
-  const size = 20;
+  const size = 18;
   const grid = createGrid(size);
 
   // Ordena las palabras de mayor a menor longitud
@@ -130,45 +128,48 @@ function insertWords(grid, words, size) {
 
     return wordPositions;
 }
+function seededRandom() {
+    seed = (seed * 9301 + 49297) % 233280;
+    return seed / 233280;
+}
 function getRandomDirection() {
-  // Retorna un número entre 0 y 7 representando las 8 posibles direcciones
-  return Math.floor(Math.random() * 8);
+    return Math.floor(seededRandom() * 8);
 }
 
 function getRandomPosition(size, wordLength, direction) {
     let row, col;
     switch (direction) {
         case 0: // Horizontal hacia la derecha
-            row = Math.floor(Math.random() * size);
-            col = Math.floor(Math.random() * (size - wordLength + 1));
+            row = Math.floor(seededRandom() * size);
+            col = Math.floor(seededRandom() * (size - wordLength + 1));
             break;
         case 1: // Vertical hacia abajo
-            row = Math.floor(Math.random() * (size - wordLength + 1));
-            col = Math.floor(Math.random() * size);
+            row = Math.floor(seededRandom() * (size - wordLength + 1));
+            col = Math.floor(seededRandom() * size);
             break;
         case 2: // Diagonal hacia abajo y derecha
-            row = Math.floor(Math.random() * (size - wordLength + 1));
-            col = Math.floor(Math.random() * (size - wordLength + 1));
+            row = Math.floor(seededRandom() * (size - wordLength + 1));
+            col = Math.floor(seededRandom() * (size - wordLength + 1));
             break;
         case 3: // Diagonal hacia abajo y izquierda
-            row = Math.floor(Math.random() * (size - wordLength + 1));
-            col = Math.floor(Math.random() * (size - wordLength + 1)) + wordLength - 1;
+            row = Math.floor(seededRandom() * (size - wordLength + 1));
+            col = Math.floor(seededRandom() * (size - wordLength + 1)) + wordLength - 1;
             break;
         case 4: // Horizontal hacia la izquierda
-            row = Math.floor(Math.random() * size);
-            col = Math.floor(Math.random() * (size - wordLength + 1)) + wordLength - 1;
+            row = Math.floor(seededRandom() * size);
+            col = Math.floor(seededRandom() * (size - wordLength + 1)) + wordLength - 1;
             break;
         case 5: // Vertical hacia arriba
-            row = Math.floor(Math.random() * (size - wordLength + 1)) + wordLength - 1;
-            col = Math.floor(Math.random() * size);
+            row = Math.floor(seededRandom() * (size - wordLength + 1)) + wordLength - 1;
+            col = Math.floor(seededRandom() * size);
             break;
         case 6: // Diagonal hacia arriba y izquierda
-            row = Math.floor(Math.random() * (size - wordLength + 1)) + wordLength - 1;
-            col = Math.floor(Math.random() * (size - wordLength + 1)) + wordLength - 1;
+            row = Math.floor(seededRandom() * (size - wordLength + 1)) + wordLength - 1;
+            col = Math.floor(seededRandom() * (size - wordLength + 1)) + wordLength - 1;
             break;
         case 7: // Diagonal hacia arriba y derecha
-            row = Math.floor(Math.random() * (size - wordLength + 1)) + wordLength - 1;
-            col = Math.floor(Math.random() * (size - wordLength + 1));
+            row = Math.floor(seededRandom() * (size - wordLength + 1)) + wordLength - 1;
+            col = Math.floor(seededRandom() * (size - wordLength + 1));
             break;
         default:
             throw new Error('Dirección no válida');
