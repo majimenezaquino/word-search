@@ -177,7 +177,19 @@ function getRandomPosition(size, wordLength, direction) {
     return { row, col };
 }
 
-
+function getDirectionName(direction) {
+    switch (direction) {
+        case 0: return 'right';
+        case 1: return 'down';
+        case 2: return 'downright';
+        case 3: return 'downleft';
+        case 4: return 'left';
+        case 5: return 'up';
+        case 6: return 'upleft';
+        case 7: return 'upright';
+        default: return '';
+    }
+}
 
 function canPlaceWord(grid, word, row, col, direction, size) {
     for (let i = 0; i < word.length; i++) {
@@ -223,60 +235,88 @@ function canPlaceWord(grid, word, row, col, direction, size) {
   }
 
 function placeWord(grid, word, row, col, direction) {
-  let positions = [];
-  for (let i = 0; i < word.length; i++) {
-    let newRow = row;
-    let newCol = col;
+    let positions = [];
+    for (let i = 0; i < word.length; i++) {
+        let newRow = row;
+        let newCol = col;
 
-    // Ajustar newRow y newCol en función de la dirección
-    switch (direction) {
-      case 0: // Horizontal hacia la derecha
-        newCol += i;
-        break;
-      case 1: // Vertical hacia abajo
-        newRow += i;
-        break;
-      case 2: // Diagonal hacia abajo y derecha
-        newRow += i;
-        newCol += i;
-        break;
-      case 3: // Diagonal hacia abajo y izquierda
-        newRow += i;
-        newCol -= i;
-        break;
-      case 4: // Horizontal hacia la izquierda
-        newCol -= i;
-        break;
-      case 5: // Vertical hacia arriba
-        newRow -= i;
-        break;
-      case 6: // Diagonal hacia arriba y izquierda
-        newRow -= i;
-        newCol -= i;
-        break;
-      case 7: // Diagonal hacia arriba y derecha
-        newRow -= i;
-        newCol += i;
-        break;
+        switch (direction) {
+            case 0: // Horizontal hacia la derecha
+                newCol += i;
+                break;
+            case 1: // Vertical hacia abajo
+                newRow += i;
+                break;
+            case 2: // Diagonal hacia abajo y derecha
+                newRow += i;
+                newCol += i;
+                break;
+            case 3: // Diagonal hacia abajo y izquierda
+                newRow += i;
+                newCol -= i;
+                break;
+            case 4: // Horizontal hacia la izquierda
+                newCol -= i;
+                break;
+            case 5: // Vertical hacia arriba
+                newRow -= i;
+                break;
+            case 6: // Diagonal hacia arriba y izquierda
+                newRow -= i;
+                newCol -= i;
+                break;
+            case 7: // Diagonal hacia arriba y derecha
+                newRow -= i;
+                newCol += i;
+                break;
+        }
+        let cellClass = 'word-diagonal'; // Clase base para todas las celdas de palabras diagonales
+        if (i === 0) {
+            cellClass += ' word-start'; // Añade 'word-start' para la celda de inicio
+        } else if (i === word.length - 1) {
+            cellClass += ' word-end'; // Añade 'word-end' para la celda de fin
+        }
+        cellClass += ' ' + getDirectionClass(direction); // Añade la clase de dirección
+
+        grid[newRow][newCol] = { letter: word[i], class: cellClass };
+        positions.push({ row: newRow, col: newCol });
     }
-
-    // Verificar si la posición está fuera de los límites de la cuadrícula
-    if (
-      newRow < 0 ||
-      newRow >= grid.length ||
-      newCol < 0 ||
-      newCol >= grid[0].length
-    ) {
-      return []; // Devolver un arreglo vacío para indicar que la palabra no cabe en esta dirección
-    }
-
-    // Colocar la letra en la cuadrícula y añadir la posición al arreglo
-    grid[newRow][newCol] = word[i];
-    positions.push({ row: newRow, col: newCol });
-  }
-  return positions;
+    return positions;
 }
-
+function getDirectionClass(direction) {
+    // Esta función devuelve la clase basada en la dirección para su uso en CSS
+    let directionClass;
+    switch (direction) {
+        case 0:
+            directionClass = 'horizontal-right';
+            break;
+        case 1:
+            directionClass = 'vertical-down';
+            break;
+        case 2:
+            directionClass = 'diagonal-down-right';
+            break;
+        case 3:
+            directionClass = 'diagonal-down-left';
+            break;
+        case 4:
+            directionClass = 'horizontal-left';
+            break;
+        case 5:
+            directionClass = 'vertical-up';
+            break;
+        case 6:
+            directionClass = 'diagonal-up-left';
+            break;
+        case 7:
+            directionClass = 'diagonal-up-right';
+            break;
+        default:
+            directionClass = '';
+            break;
+    }
+    return directionClass;
+}
 function fillEmptySpaces(grid) {
   grid.forEach((row) => {
     row.forEach((cell, index) => {
@@ -288,20 +328,24 @@ function fillEmptySpaces(grid) {
 }
 
 function renderGrid(grid) {
-  const table = document.getElementById("wordSearchTable");
-  table.innerHTML = "";
-  grid.forEach((row, rowIndex) => {
-    let tr = document.createElement("tr");
-    row.forEach((cell, colIndex) => {
-      let td = document.createElement("td");
-      td.textContent = cell;
-      td.dataset.row = rowIndex;
-      td.dataset.col = colIndex;
-      tr.appendChild(td);
+    const table = document.getElementById("wordSearchTable");
+    table.innerHTML = "";
+    grid.forEach((row, rowIndex) => {
+        let tr = document.createElement("tr");
+        row.forEach((cell, colIndex) => {
+            let td = document.createElement("td");
+            td.textContent = typeof cell === 'object' ? cell.letter : cell;
+            if (typeof cell === 'object' && cell.class) {
+                td.className = cell.class; // Aplica las clases aquí
+            }
+            td.dataset.row = rowIndex;
+            td.dataset.col = colIndex;
+            tr.appendChild(td);
+        });
+        table.appendChild(tr);
     });
-    table.appendChild(tr);
-  });
 }
+
 
 function renderWordList(words) {
     const wordListDiv = document.getElementById("wordList");
@@ -362,9 +406,7 @@ function getColorForWord(word, wordPositions) {
     // Define una paleta de colores.
     const colors = [
         '#FFADAD', '#FFD6A5', '#FDFFB6', '#CAFFBF',
-        '#9BF6FF', '#A0C4FF', '#BDB2FF', '#FFC6FF',
-        '#FFFFFC', '#BEE1E6', '#FDFD96', '#FFB6C1',
-        '#FF69B4', '#FFA07A', '#FFD700', '#FF4500'
+        '#9BF6FF', '#A0C4FF', '#BDB2FF', '#FFC6FF'
     ];
 
     let colorIndex = Object.keys(wordPositions).indexOf(word) % colors.length;
