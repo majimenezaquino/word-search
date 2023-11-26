@@ -1,0 +1,126 @@
+.header {
+    margin: auto;
+    width: 7in;
+    padding: 20px 0;
+    text-align: center;
+}
+
+#contenido-para-pdf {
+    width: 8.5in;    /* Ancho: 8.5 pulgadas */
+    height: 11in;    /* Alto: 11 pulgadas */
+    padding: 0.35in; /* Espaciado interno de 0.35 pulgadas */
+    margin: auto;    /* Centrar en la página */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Opcional: sombra para visualización */
+    background: white; /* Fondo blanco para el contenido */
+    overflow: hidden; /* Ocultar contenido fuera de los límites */
+}
+
+#wordSearchTable {
+    border-collapse: collapse;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 7in;   
+    height: 7in;
+    border:1px #ccc solid;
+
+}
+.footer {
+    margin: auto;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    width: 7in;
+    align-items: start;
+}
+.barcode {
+    width: 50px;
+    height: 50px
+}
+
+.barcode img {
+    width: 100%;
+    height: 100%;
+}
+
+#wordList {
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 6in;/* Centra los elementos de la lista de palabras */
+    padding-top: 40px;
+    font-family: Arial, sans-serif;
+}
+#wordSearchTable td {
+    border: 0;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    position: relative; /* Para posicionar las pseudo-clases */
+    
+}
+
+
+
+.word-item {
+    cursor: pointer;
+    width: 1.5in;
+    text-align: left;
+ /* Opcional: bordes redondeados para los elementos de la lista */
+}
+
+.word-item:hover {
+    background-color: lightgray;
+}
+
+/* Estilos para bordes redondeados específicos de la dirección */
+.word-start.horizontal-right,
+.word-end.horizontal-left {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.word-end.horizontal-right,
+.word-start.horizontal-left {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.word-start.vertical-down,
+.word-end.vertical-up {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.word-end.vertical-down,
+.word-start.vertical-up {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Ajusta los siguientes estilos para manejar las palabras diagonales */
+.word-start.diagonal-down-right,
+.word-end.diagonal-up-left {
+    border-top-left-radius: 10px;
+}
+
+.word-end.diagonal-down-right,
+.word-start.diagonal-up-left {
+    border-bottom-right-radius: 10px;
+}
+
+/* Repite para las otras direcciones diagonales */
+.word-start.diagonal-down-left,
+.word-end.diagonal-up-right {
+    border-top-right-radius: 10px;
+}
+
+.word-end.diagonal-down-left,
+.word-start.diagonal-up-right {
+    border-bottom-left-radius: 10px;
+}
+
+/* Puedes añadir más estilos para las palabras que van hacia arriba o hacia la izquierda si es necesario */
