@@ -4,10 +4,14 @@
     padding: 20px 0;
     text-align: center;
 }
-
+.page{
+    width: 8.5in;
+    height: 11in;
+    overflow: hidden;
+    padding-top: 50px;
+}
 #contenido-para-pdf {
     width: 8.5in;    /* Ancho: 8.5 pulgadas */
-    height: 11in;    /* Alto: 11 pulgadas */
     padding: 0.35in; /* Espaciado interno de 0.35 pulgadas */
     margin: auto;    /* Centrar en la página */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Opcional: sombra para visualización */

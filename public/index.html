@@ -8,16 +8,21 @@
 </head>
 <body>
     <div id="contenido-para-pdf">
-        <div class="header">
+        <div class="page">
+            <div class="header">
         
-            <h3>The Large Print Word Search Puzzle Book for Seniors & Adults</h3>
-        </div>
-        <table id="wordSearchTable"></table>
-        <div class="footer">
-            <div class="barcode">
-                <img src="img/01.png" alt="Descripción de la imagen" />
+                <h3>The Large Print Word Search Puzzle Book for Seniors & Adults</h3>
             </div>
-            <div id="wordList"></div>
+            <table id="wordSearchTable"></table>
+            <div class="footer">
+                <div class="barcode">
+                    <img src="img/01.png" alt="Descripción de la imagen" />
+                </div>
+                <div id="wordList"></div>
+            </div>
+        </div>
+        <div class="page">
+            <h1>test</h1>
         </div>
         
      
@@ -26,26 +31,33 @@
     <button id="showSolutionsBtn">Mostrar Soluciones</button>
     <script src="script.js"></script>
     <script>
-function descargarPDF() {
-    const contenido = document.getElementById('contenido-para-pdf');
+        function descargarPDF() {
+            const contenido = document.getElementById('contenido-para-pdf');
+            html2canvas(contenido, {
+                scale: 2,
+                logging: true,
+                useCORS: true
+            }).then(canvas => {
+                const imgWidth = 8.5; // Ancho de la página en pulgadas
+                const imgHeight = canvas.height * imgWidth / canvas.width;
+                const pageHeight = 11;  // Altura de la página en pulgadas
+                let heightLeft = imgHeight;
+                let position = 0;
 
-    html2canvas(contenido, {
-        scale: 2, // Ajusta la escala si es necesario
-        logging: true, // Habilita el registro para depurar
-        useCORS: true // Intenta usar CORS para imágenes
-    }).then(canvas => {
-        var imgData = canvas.toDataURL('image/jpeg', 1.0);
-        var pdf = new jspdf.jsPDF({
-            orientation: 'portrait',
-            unit: 'in', // Cambia a pulgadas
-            format: [8.5, 11] // Formato personalizado de 8.5 x 11 pulgadas
-        });
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jspdf.jsPDF('p', 'in', 'letter');
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
 
-        pdf.addImage(imgData, 'JPEG', 0, 0, 8.5, 11);
-        pdf.save('documento.pdf');
-    });
-}
-
+                while (heightLeft > 0) {
+                    position = heightLeft - imgHeight;
+                    pdf.addPage();
+                    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                }
+                pdf.save('documento.pdf');
+            });
+        }
     </script>
 </body>
 </html>

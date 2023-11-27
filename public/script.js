@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "EJECUCION",
     "SINTAXIS",
       ];
-  const size = 18;
+  const size = 20;
   const grid = createGrid(size);
 
   // Ordena las palabras de mayor a menor longitud
