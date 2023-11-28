@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const grid = createGrid(size);
 
   // Ordena las palabras de mayor a menor longitud
-  words.sort((a, b) => b.length - a.length);
+//   words.sort((a, b) => b.length - a.length);
 
   try {
     validateWords(words, size); // Validación para asegurarse de que las palabras caben
