@@ -38,8 +38,8 @@
     align-items: start;
 }
 .barcode {
-    width: 50px;
-    height: 50px
+    width: 100px;
+    height: 100px
 }
 
 .barcode img {
@@ -51,7 +51,7 @@
     text-align: left;
     display: flex;
     flex-wrap: wrap;
-    max-width: 6in;/* Centra los elementos de la lista de palabras */
+    max-width: 5.5in;/* Centra los elementos de la lista de palabras */
     padding-top: 40px;
     font-family: Arial, sans-serif;
 }
@@ -71,8 +71,11 @@
 
 .word-item {
     cursor: pointer;
-    width: 1.5in;
+    min-width: 1.4in;
     text-align: left;
+    display: inline-block;
+    font-size: 15px;
+    text-transform: uppercase;
  /* Opcional: bordes redondeados para los elementos de la lista */
 }
 
@@ -127,4 +130,10 @@
     border-bottom-left-radius: 10px;
 }
 
+#qrcode{
+    display: none;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
 /* Puedes añadir más estilos para las palabras que van hacia arriba o hacia la izquierda si es necesario */
