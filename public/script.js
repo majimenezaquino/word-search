@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const grid = createGrid(size);
 
   // Ordena las palabras de mayor a menor longitud
-//   words.sort((a, b) => b.length - a.length);
+  words.sort((a, b) => b.length - a.length);
 
   try {
     generateQR('hfaofoaofaofoaofoof');
@@ -101,7 +101,7 @@ function getAxis(direction) {
 
 function insertWords(grid, words, size) {
     let wordPositions = {};
-    let maxAttempts = 100; // Número máximo de intentos para colocar una palabra
+    let maxAttempts = 200; // Número máximo de intentos para colocar una palabra
 
     words.forEach(word => {
         let placed = false;
@@ -327,12 +327,14 @@ function fillEmptySpaces(grid) {
 }
 
 function renderGrid(grid) {
-    const table = document.getElementById("wordSearchTable");
+    const table = document.querySelector(".word_search_container");
     table.innerHTML = "";
     grid.forEach((row, rowIndex) => {
-        let tr = document.createElement("tr");
+        let tr = document.createElement("div");
+        tr.className = "row";
         row.forEach((cell, colIndex) => {
-            let td = document.createElement("td");
+            let td = document.createElement("div");
+            td.className = "cell";
             td.textContent = typeof cell === 'object' ? cell.letter : cell;
             if (typeof cell === 'object' && cell.class) {
                 td.className = cell.class; // Aplica las clases aquí
@@ -365,14 +367,14 @@ function highlightWord(selectedWord) {
     console.log("Posiciones:", wordPositions[selectedWord]); // Para depuración
 
     // Restablecer estilos
-    document.querySelectorAll("#wordSearchTable td").forEach(td => {
+    document.querySelectorAll(".word_search_container .cell").forEach(td => {
         td.style.backgroundColor = ''; // Color de fondo original
     });
 
     // Resaltar la palabra seleccionada
     if (wordPositions[selectedWord]) {
         wordPositions[selectedWord].positions.forEach(pos => {
-            const cellSelector = `td[data-row="${pos.row}"][data-col="${pos.col}"]`;
+            const cellSelector = `div[data-row="${pos.row}"][data-col="${pos.col}"]`;
             const cell = document.querySelector(cellSelector);
             if (cell) {
                 cell.style.backgroundColor = 'yellow'; // Color de resaltado
@@ -392,7 +394,7 @@ function showSolutions(wordPositions) {
         const color = getColorForWord(word, wordPositions);
 
         positions.forEach((pos) => {
-            const cellSelector = `td[data-row="${pos.row}"][data-col="${pos.col}"]`;
+            const cellSelector = `div[data-row="${pos.row}"][data-col="${pos.col}"]`;
             const cell = document.querySelector(cellSelector);
             if (cell) {
                 cell.style.backgroundColor = color;

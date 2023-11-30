@@ -19,8 +19,7 @@
     overflow: hidden; /* Ocultar contenido fuera de los límites */
 }
 
-#wordSearchTable {
-    border-collapse: collapse;
+.word_search_container {
     margin: auto;
     padding: 20px;
     box-sizing: border-box;
@@ -55,20 +54,24 @@
     padding-top: 40px;
     font-family: Arial, sans-serif;
 }
-#wordSearchTable td {
-    border: 0;
-    width: 25px;
-    height: 25px;
-    text-align: center;
+.word_search_container .row {
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: start;
+}
+.word_search_container   .row > div {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     font-family: Arial, sans-serif;
     font-size: 16px;
     text-transform: uppercase;
-    position: relative; /* Para posicionar las pseudo-clases */
-    
+    text-align: center;
 }
-
-
 
 .word-item {
     cursor: pointer;
@@ -87,49 +90,49 @@
 /* Estilos para bordes redondeados específicos de la dirección */
 .word-start.horizontal-right,
 .word-end.horizontal-left {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-left: 1px solid #ccc;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-sizing: border-box;
 }
 
 .word-end.horizontal-right,
 .word-start.horizontal-left {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .word-start.vertical-down,
 .word-end.vertical-up {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .word-end.vertical-down,
 .word-start.vertical-up {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 /* Ajusta los siguientes estilos para manejar las palabras diagonales */
 .word-start.diagonal-down-right,
 .word-end.diagonal-up-left {
-    border-top-left-radius: 10px;
+    border-top-left-radius: 15px;
 }
 
 .word-end.diagonal-down-right,
 .word-start.diagonal-up-left {
-    border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 15px;
 }
 
 /* Repite para las otras direcciones diagonales */
 .word-start.diagonal-down-left,
 .word-end.diagonal-up-right {
-    border-top-right-radius: 10px;
+    border-top-right-radius: 15px;
 }
 
 .word-end.diagonal-down-left,
 .word-start.diagonal-up-right {
-    border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 15px;
 }
 
 #qrcode{
