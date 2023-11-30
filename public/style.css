@@ -57,12 +57,13 @@
 }
 #wordSearchTable td {
     border: 0;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     text-align: center;
     cursor: pointer;
     font-family: Arial, sans-serif;
-    font-size: 20px;
+    font-size: 16px;
+    text-transform: uppercase;
     position: relative; /* Para posicionar las pseudo-clases */
     
 }
@@ -88,6 +89,7 @@
 .word-end.horizontal-left {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    border-left: 1px solid #ccc;
 }
 
 .word-end.horizontal-right,

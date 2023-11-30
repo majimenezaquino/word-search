@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "EJECUCION",
     "SINTAXIS",
       ];
-  const size = 20;
+  const size = 18;
   const grid = createGrid(size);
 
   // Ordena las palabras de mayor a menor longitud
@@ -434,10 +434,10 @@ function generateQR(text) {
         // Cargar y dibujar la imagen en el centro del código QR
         var img = new Image();
         img.onload = function() {
-            var imageSize = 30; // Tamaño de la imagen
+            var imageSize = 50; // Tamaño de la imagen
             var imagePosition = (128 - imageSize) / 2; // Posición central
             context.drawImage(img, imagePosition, imagePosition, imageSize, imageSize);
         };
-        img.src = 'img/14.png'; // Ruta a tu imagen
+        img.src = 'img/06.png'; // Ruta a tu imagen
     }, 500);
 };
