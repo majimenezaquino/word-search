@@ -133,7 +133,7 @@
     border-bottom-left-radius: 15px;
 }
 
-#qrcode{
+.qrcode{
     display: none;
     width: 0;
     height: 0;
