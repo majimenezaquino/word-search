@@ -1,66 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Sopa de Letras</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-</head>
-<body>
-    <div id="contenido-para-pdf">
-        <div class="page">
-            <div class="header">
-        
-                <h3>The Large Print Word Search Puzzle Book for Seniors & Adults  Book for Seniors & Adults</h3>
-            </div>
-            <div class="word_search_container"></div>
-            <div class="footer">
-                <div class="barcode">
-                    <!-- <img src="img/01.png" alt="Descripción de la imagen" /> -->
-                    <div id="qrcode"></div>
-    <canvas id="canvas" width="128" height="128"></canvas>
-                </div>
-                <div id="wordList"></div>
-            </div>
-        </div>
-        <!-- <div class="page">
-            <h1>test</h1>
-        </div> -->
-        
-     
+  </head>
+  <body>
+    <div>
+        <button id="donwload_pdf">Descargar PDF</button>
+        <button id="btn_soluctions">Mostrar Soluciones</button>
     </div>
-    <button onclick="descargarPDF()">Descargar PDF</button>
-    <button id="showSolutionsBtn">Mostrar Soluciones</button>
+    <div id="contenido-para-pdf">
+      <div class="page">
+        <div class="header">
+          <h3>
+            The Large Print Word Search Puzzle Book for Seniors & Adults Book
+            for Seniors & Adults
+          </h3>
+        </div>
+        <div class="word_search_container"></div>
+        <div class="footer">
+          <div class="barcode">
+            <!-- <img src="img/01.png" alt="Descripción de la imagen" /> -->
+            <div id="qrcode"></div>
+            <canvas id="canvas" width="128" height="128"></canvas>
+          </div>
+          <div id="wordList"></div>
+        </div>
+      </div>
+    </div>
+  
     <script src="script.js"></script>
-    <script>
-        function descargarPDF() {
-            const contenido = document.getElementById('contenido-para-pdf');
-            html2canvas(contenido, {
-                scale: 2,
-                logging: true,
-                useCORS: true
-            }).then(canvas => {
-                const imgWidth = 8.5; // Ancho de la página en pulgadas
-                const imgHeight = canvas.height * imgWidth / canvas.width;
-                const pageHeight = 11;  // Altura de la página en pulgadas
-                let heightLeft = imgHeight;
-                let position = 0;
-
-                const imgData = canvas.toDataURL('image/png');
-                const pdf = new jspdf.jsPDF('p', 'in', 'letter');
-                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                heightLeft -= pageHeight;
-
-                while (heightLeft > 0) {
-                    position = heightLeft - imgHeight;
-                    pdf.addPage();
-                    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                    heightLeft -= pageHeight;
-                }
-                pdf.save('documento.pdf');
-            });
-        }
-    </script>
-</body>
+    <script src="donwload-pdf.js"></script>
+  </body>
 </html>

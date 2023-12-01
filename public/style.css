@@ -21,11 +21,12 @@
 
 .word_search_container {
     margin: auto;
-    padding: 20px;
     box-sizing: border-box;
     width: 7in;   
     height: 7in;
     border:1px #ccc solid;
+    display: flex;
+    flex-wrap: wrap;
 
 }
 .footer {
@@ -55,14 +56,11 @@
     font-family: Arial, sans-serif;
 }
 .word_search_container .row {
-    display: flex;
-    flex-wrap: wrap;
-    width: auto;
-    justify-content: start;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(20, 1fr);
 }
 .word_search_container   .row > div {
-    width: 35px;
-    height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;

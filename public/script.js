@@ -30,11 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
     "PROGRAMACION",
     "ALGORITMO",
     "DEPURACION",
-    "COMPILADOR",
-    "EJECUCION",
-    "SINTAXIS",
+    "COMPILADOR"
       ];
-  const size = 18;
+  const size = 20;
   const grid = createGrid(size);
 
   // Ordena las palabras de mayor a menor longitud
@@ -48,8 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
     renderGrid(grid);
     renderWordList(words);
 
-    const showSolutionsBtn = document.getElementById("showSolutionsBtn");
-    showSolutionsBtn.addEventListener("click", function () {
+    const btn_soluctions = document.getElementById("btn_soluctions");
+    btn_soluctions.addEventListener("click", function () {
       showSolutions(wordPositions);
     });
   } catch (error) {
