@@ -47,7 +47,7 @@
     height: 100%;
 }
 
-#wordList {
+.container_words {
     text-align: left;
     display: flex;
     flex-wrap: wrap;

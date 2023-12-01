@@ -53,6 +53,7 @@ function init() {
 
   for(const  [index, page] of pages.entries()){
     const pageId = `page_${index}`;
+    const container_words_id = `list_words_${index}`;
     const contentPage =  document.createElement("div");
     contentPage.classList.add("page");
     contentPage.setAttribute("id", pageId);
@@ -69,7 +70,7 @@ function init() {
         <div class="qrcode"></div>
         <canvas class="canvas" width="128" height="128" id="canvas_qr_${index}"></canvas>
       </div>
-      <div id="wordList"></div>
+      <div class="container_words" id="${container_words_id}"></div>
     </div>
     `
     document.querySelector("#contenido-para-pdf").appendChild(contentPage);
@@ -83,7 +84,7 @@ function init() {
       wordPositions = insertWords(grid, words, size);
       fillEmptySpaces(grid);
       renderGrid(grid);
-      renderWordList(words);
+      rendercontainer_words(container_words_id,words);
       const btn_soluctions = document.getElementById("btn_soluctions");
       btn_soluctions.addEventListener("click", function () {
         showSolutions(wordPositions);
@@ -412,16 +413,16 @@ function renderGrid(grid) {
   });
 }
 
-function renderWordList(words) {
-  const wordListDiv = document.getElementById("wordList");
-  wordListDiv.innerHTML = "";
+function rendercontainer_words(elementId,words) {
+  const container_wordsDiv = document.getElementById(elementId);
+  container_wordsDiv.innerHTML = "";
   words = words.sort();
   words.forEach((word) => {
     let wordDiv = document.createElement("div");
     wordDiv.textContent = word;
     wordDiv.classList.add("word-item");
     wordDiv.addEventListener("click", () => highlightWord(word));
-    wordListDiv.appendChild(wordDiv);
+    container_wordsDiv.appendChild(wordDiv);
   });
 }
 
