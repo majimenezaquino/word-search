@@ -1,4 +1,4 @@
-let wordPositions = {}; // Definir wordPositions en un alcance global
+let wordPositions = [{}]; // Definir wordPositions en un alcance global
 let cellColorMap = new Map();
 let seed = 12345;
 
@@ -41,6 +41,18 @@ function getData() {
         "COMPILADOR",
       ],
     },
+    {
+      sumary: "Sopa de letras de programación 2",
+      size: 20,
+      words: [
+        "Mountain", "Eclipse", "Guitar", "Ocean", "Dragonfly", 
+        "Rainbow", "Quartz", "Galaxy", "Elephant", "Orchid", 
+        "Kaleidoscope", "Blizzard", "Butterfly", "Sapphire", "Aurora", 
+        "Violin", "Cactus", "Labyrinth", "Flamingo", "Waterfall", 
+        "Amethyst", "Bonsai", "Volcano", "Sunflower", "Diamond", 
+        "Hurricane", "Bat", "Emerald"
+    ],
+    },
   ];
 }
 function init() {
@@ -81,16 +93,18 @@ function init() {
       
       generateQR(pageId,`pagina ${index}`);
       validateWords(words, size); // Validación para asegurarse de que las palabras caben
-      wordPositions = insertWords(grid, words, size);
+      wordPositions[index] = insertWords(grid, words, size);
       fillEmptySpaces(grid);
-      renderGrid(grid);
-      rendercontainer_words(container_words_id,words);
-      const btn_soluctions = document.getElementById("btn_soluctions");
-      btn_soluctions.addEventListener("click", function () {
-        showSolutions(wordPositions);
-      });
+      renderGrid(pageId,grid);
+      rendercontainer_words(pageId,index,container_words_id,words);
+  
   
   }
+
+  const btn_soluctions = document.getElementById("btn_soluctions");
+  btn_soluctions.addEventListener("click", function () {
+    showSolutions(wordPositions);
+  });
 
 
 }
@@ -140,7 +154,7 @@ function getAxis(direction) {
 }
 
 function insertWords(grid, words, size) {
-  let wordPositions = {};
+  let _wordPositions = {};
   let maxAttempts = 200; // Número máximo de intentos para colocar una palabra
 
   words.forEach((word) => {
@@ -153,7 +167,7 @@ function insertWords(grid, words, size) {
       if (canPlaceWord(grid, word, row, col, direction, size)) {
         const positions = placeWord(grid, word, row, col, direction);
         if (positions && positions.length > 0) {
-          wordPositions[word] = {
+          _wordPositions[word] = {
             positions: positions,
             axis: getAxis(direction),
           };
@@ -170,7 +184,7 @@ function insertWords(grid, words, size) {
     }
   });
 
-  return wordPositions;
+  return _wordPositions;
 }
 function seededRandom() {
   seed = (seed * 9301 + 49297) % 233280;
@@ -392,8 +406,8 @@ function fillEmptySpaces(grid) {
   });
 }
 
-function renderGrid(grid) {
-  const table = document.querySelector(".word_search_container");
+function renderGrid(pageId, grid) {
+  const table = document.querySelector(`#${pageId} .word_search_container`);
   table.innerHTML = "";
   grid.forEach((row, rowIndex) => {
     let tr = document.createElement("div");
@@ -413,7 +427,7 @@ function renderGrid(grid) {
   });
 }
 
-function rendercontainer_words(elementId,words) {
+function rendercontainer_words(pageId,index,elementId,words) {
   const container_wordsDiv = document.getElementById(elementId);
   container_wordsDiv.innerHTML = "";
   words = words.sort();
@@ -421,24 +435,24 @@ function rendercontainer_words(elementId,words) {
     let wordDiv = document.createElement("div");
     wordDiv.textContent = word;
     wordDiv.classList.add("word-item");
-    wordDiv.addEventListener("click", () => highlightWord(word));
+    wordDiv.addEventListener("click", () => highlightWord(pageId,index,word));
     container_wordsDiv.appendChild(wordDiv);
   });
 }
 
-function highlightWord(selectedWord) {
-  console.log("Palabra seleccionada:", selectedWord); // Para depuración
-  console.log("Posiciones:", wordPositions[selectedWord]); // Para depuración
+function highlightWord(pageId,index,selectedWord) {
+  console.log("Palabra seleccionada in table:" ,pageId, selectedWord); // Para depuración
+  console.log("Posiciones:", wordPositions[index][selectedWord]); // Para depuración
 
   // Restablecer estilos
-  document.querySelectorAll(".word_search_container .cell").forEach((td) => {
+  document.querySelectorAll(`#${pageId} .word_search_container .cell`).forEach((td) => {
     td.style.backgroundColor = ""; // Color de fondo original
   });
 
   // Resaltar la palabra seleccionada
-  if (wordPositions[selectedWord]) {
-    wordPositions[selectedWord].positions.forEach((pos) => {
-      const cellSelector = `div[data-row="${pos.row}"][data-col="${pos.col}"]`;
+  if (wordPositions[index][selectedWord]) {
+    wordPositions[index][selectedWord].positions.forEach((pos) => {
+      const cellSelector = `#${pageId} div[data-row="${pos.row}"][data-col="${pos.col}"]`;
       const cell = document.querySelector(cellSelector);
       if (cell) {
         cell.style.backgroundColor = "yellow"; // Color de resaltado
@@ -449,24 +463,26 @@ function highlightWord(selectedWord) {
   }
 }
 
-function showSolutions(wordPositions) {
-  Object.keys(wordPositions).forEach((word) => {
-    const wordData = wordPositions[word];
-    const positions = wordData.positions;
-
-    const color = getColorForWord(word, wordPositions);
-
-    positions.forEach((pos) => {
-      const cellSelector = `div[data-row="${pos.row}"][data-col="${pos.col}"]`;
-      const cell = document.querySelector(cellSelector);
-      if (cell) {
-        cell.style.backgroundColor = color;
-      }
+function showSolutions(_wordPositions) {
+  for(const [index, posistionWord] of _wordPositions.entries()){
+    Object.keys(posistionWord).forEach((word) => {
+      const wordData = posistionWord[word];
+      const positions = wordData.positions;
+      const pageId = `page_${index}`;
+      const color = getColorForWord(word, posistionWord);
+  
+      positions.forEach((pos) => {
+        const cellSelector = `#${pageId} div[data-row="${pos.row}"][data-col="${pos.col}"]`;
+        const cell = document.querySelector(cellSelector);
+        if (cell) {
+          cell.style.backgroundColor = color;
+        }
+      });
     });
-  });
+  }
 }
 
-function getColorForWord(word, wordPositions) {
+function getColorForWord(word, _wordPositions) {
   // Define una paleta de colores.
   const colors = [
     "#FFADAD",
@@ -479,7 +495,7 @@ function getColorForWord(word, wordPositions) {
     "#FFC6FF",
   ];
 
-  let colorIndex = Object.keys(wordPositions).indexOf(word) % colors.length;
+  let colorIndex = Object.keys(_wordPositions).indexOf(word) % colors.length;
   return colors[colorIndex];
 }
 
