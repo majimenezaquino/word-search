@@ -1,3 +1,11 @@
+#contenido-para-pdf {
+    width: 8.5in;    /* Ancho: 8.5 pulgadas */
+    margin: auto;    /* Centrar en la página */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Opcional: sombra para visualización */
+    background: white; /* Fondo blanco para el contenido */
+    overflow: hidden; /* Ocultar contenido fuera de los límites */
+}
+
 .header {
     margin: auto;
     width: 7in;
@@ -8,15 +16,22 @@
     width: 8.5in;
     height: 11in;
     overflow: hidden;
-    padding-top: 50px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
 }
-#contenido-para-pdf {
-    width: 8.5in;    /* Ancho: 8.5 pulgadas */
-    padding: 0.35in; /* Espaciado interno de 0.35 pulgadas */
-    margin: auto;    /* Centrar en la página */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Opcional: sombra para visualización */
-    background: white; /* Fondo blanco para el contenido */
-    overflow: hidden; /* Ocultar contenido fuera de los límites */
+.footer_page {
+    position: absolute;
+    padding-right: 20px;
+    bottom: 15px;
+    right: 10px;
+    margin: auto;
+    text-align: left;
+    display: flex;
+    justify-content: end;
+    width: 7in;
+    align-items: start;
+    text-transform: capitalize;
 }
 
 .word_search_container {
@@ -53,6 +68,8 @@
     flex-wrap: wrap;
     max-width: 5.5in;/* Centra los elementos de la lista de palabras */
     padding-top: 40px;
+    padding-bottom: 40px;
+    height: 200px;
     font-family: Arial, sans-serif;
 }
 .word_search_container .row {

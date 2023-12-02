@@ -83,6 +83,7 @@ function init() {
         <canvas class="canvas" width="128" height="128" id="canvas_qr_${index}"></canvas>
       </div>
       <div class="container_words" id="${container_words_id}"></div>
+      <div class="footer_page"> page ${index+1}</div>
     </div>
     `
     document.querySelector("#contenido-para-pdf").appendChild(contentPage);
