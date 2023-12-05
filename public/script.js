@@ -10,50 +10,34 @@ document.addEventListener("DOMContentLoaded", function () {
 function getData() {
   return [
     {
-      sumary: "Sopa de letras de programación",
-      size: 20,
-      words: [
-        "JAVASCRIPT",
-        "VARIABLE",
-        "FUNCION",
-        "OBJETO",
-        "CLASE",
-        "HERENCIA",
-        "POLIMORFISMO",
-        "HTML",
-        "CSS",
-        "CODIGO",
-        "DESARROLLO",
-        "CLIENTE",
-        "SERVIDOR",
-        "FRAMEWORK",
-        "LIBRERIA",
-        "NODO",
-        "EVENTO",
-        "LISTENER",
-        "php",
-        "mysql",
-        "java",
-        "CONSTANTE",
-        "PROGRAMACION",
-        "ALGORITMO",
-        "DEPURACION",
-        "COMPILADOR",
-      ],
+      summary: "Basic sports terms",
+      size: 28,
+      words: ["ball", "game", "run", "play", "team", "win", "lose", "coach", "score", "race", "jump", "throw", "kick", "hit", "pass", "goal", "match", "field", "track", "gym", "bat", "net", "hoop", "racket", "glove", "skates", "helmet", "pads"]
     },
     {
-      sumary: "Sopa de letras de programación 2",
-      size: 20,
-      words: [
-        "Mountain", "Eclipse", "Guitar", "Ocean", "Dragonfly", 
-        "Rainbow", "Quartz", "Galaxy", "Elephant", "Orchid", 
-        "Kaleidoscope", "Blizzard", "Butterfly", "Sapphire", "Aurora", 
-        "Violin", "Cactus", "Labyrinth", "Flamingo", "Waterfall", 
-        "Amethyst", "Bonsai", "Volcano", "Sunflower", "Diamond", 
-        "Hurricane", "Bat", "Emerald"
-    ],
+      summary: "Simple sports equipment",
+      size: 28,
+      words: ["jersey", "shorts", "swimsuit", "goggles", "club", "whistle", "towel", "waterbottle", "bench", "bag", "shoes", "socks", "cap", "visor", "sweatband", "bicycle", "skis", "snowboard", "surfboard", "kayak", "paddle", "fins", "mask", "snorkel", "wetsuit", "lifejacket", "buoy", "flippers"]
     },
-  ];
+    {
+      summary: "Popular sports names",
+      size: 28,
+      words: ["soccer", "basketball", "baseball", "tennis", "golf", "swimming", "boxing", "cycling", "volleyball", "skiing", "hockey", "rugby", "cricket", "badminton", "bowling", "karate", "judo", "fencing", "surfing", "skating", "archery", "equestrian", "sailing", "triathlon", "taekwondo", "squash", "sumo", "wrestling"]
+    },
+    {
+      summary: "Sports actions",
+      size: 28,
+      words: ["dribble", "shoot", "block", "tackle", "serve", "volley", "sprint", "jog", "punch", "swing", "catch", "dive", "lift", "run", "bat", "hurdle", "parry", "row", "climb", "cycle", "skate", "ski", "drift", "dodge", "slide", "flip", "thrust", "vault"]
+    },
+    {
+      summary: "Intermediate sports equipment",
+      size: 28,
+      words: ["dumbbell", "kettlebell", "barbell", "rowingmachine", "treadmill", "elliptical", "exercisebike", "yogamat", "punchingbag", "speedrope", "climbingrope", "parachute", "saddle", "golfcart", "golfclubs", "hockeystick", "cricketbat", "shuttlecock", "bobsled", "luge", "skateboard", "rollerskates", "scubagear", "harness", "chalkbag", "carabiner", "quickdraw", "belaydevice"]
+    },
+    // Continúa con más páginas...
+  ]
+  
+  
 }
 function init() {
   const pages = getData();
@@ -72,7 +56,7 @@ function init() {
     contentPage.innerHTML = `
     <div class="header">
       <h3>
-        ${page.sumary}
+        ${page.summary}
       </h3>
     </div>
     <div class="word_search_container"></div>
