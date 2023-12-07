@@ -1,0 +1,57 @@
+[
+    {
+      "summary": "Major global cities",
+      "words": ["london", "paris", "tokyo", "berlin", "sydney", "moscow", "dubai", "rome", "madrid", "mumbai", "toronto", "beijing", "seoul", "bangkok", "vienna", "cairo", "shanghai", "jakarta", "lima", "lisbon", "oslo", "athens", "budapest", "prague", "helsinki", "amsterdam", "brussels", "dublin"]
+    },
+    {
+      "summary": "European countries",
+      "words": ["france", "germany", "spain", "italy", "poland", "greece", "sweden", "norway", "belgium", "austria", "portugal", "finland", "ireland", "croatia", "serbia", "denmark", "switzerland", "netherlands", "romania", "bulgaria", "hungary", "latvia", "slovakia", "slovenia", "estonia", "lithuania", "albania", "macedonia"]
+    },
+    {
+      "summary": "Asian countries",
+      "words": ["china", "india", "japan", "korea", "thailand", "vietnam", "malaysia", "iran", "israel", "pakistan", "nepal", "mongolia", "singapore", "yemen", "oman", "qatar", "indonesia", "philippines", "bangladesh", "taiwan", "saudiarabia", "jordan", "kuwait", "iraq", "syria", "lebanon", "armenia", "georgia"]
+    },
+    {
+      "summary": "African countries",
+      "words": ["nigeria", "egypt", "kenya", "uganda", "algeria", "sudan", "morocco", "angola", "ghana", "zambia", "somalia", "tunisia", "libya", "namibia", "senegal", "ethiopia", "tanzania", "cameroon", "ivorycoast", "mali", "madagascar", "mozambique", "zimbabwe", "rwanda", "niger", "malawi", "southafrica", "congo"]
+    },
+    {
+      "summary": "South American countries",
+      "words": ["brazil", "argentina", "colombia", "chile", "peru", "venezuela", "ecuador", "bolivia", "uruguay", "paraguay", "guyana", "suriname", "belize", "panama", "honduras", "guatemala", "el salvador", "nicaragua", "costa rica", "cuba", "dominican", "haiti", "bahamas", "trinidad", "jamaica", "barbados", "grenada", "saint lucia"]
+    },
+    {
+      "summary": "US states",
+      "words": ["california", "texas", "florida", "newyork", "illinois", "pennsylvania", "ohio", "georgia", "michigan", "newjersey", "virginia", "washington", "arizona", "massachusetts", "tennessee", "indiana", "missouri", "maryland", "wisconsin", "minnesota", "colorado", "alabama", "southcarolina", "louisiana", "kentucky", "oregon", "oklahoma", "connecticut"]
+    },
+    {
+      "summary": "Canadian provinces",
+      "words": ["ontario", "quebec", "alberta", "britishcolumbia", "manitoba", "saskatchewan", "novascotia", "newbrunswick", "newfoundland", "pei", "yukon", "nunavut", "northwest", "vancouver", "toronto", "montreal", "calgary", "ottawa", "edmonton", "mississauga", "winnipeg", "victoria", "halifax", "oakville", "burlington", "surrey", "laval", "london"]
+    },
+    {
+      "summary": "Oceanian countries",
+      "words": ["australia", "newzealand", "fiji", "papua", "samoa", "tonga", "vanuatu", "micronesia", "palau", "kiribati", "marshall", "solomon", "tuvalu", "nauru", "tahiti", "sydney", "melbourne", "brisbane", "perth", "adelaide", "canberra", "hobart", "darwin", "auckland", "wellington", "christchurch", "suva", "port moresby"]
+    },
+    {
+      "summary": "African cities",
+      "words": ["cairo", "lagos", "nairobi", "kinshasa", "johannesburg", "casablanca", "addisababa", "khartoum", "dar", "alexandria", "accra", "kampala", "algiers", "tunis", "abidjan", "dakar", "luanda", "tripoli", "kigali", "lilongwe", "bamako", "conakry", "freetown", "monrovia", "windhoek", "gaborone", "antananarivo", "harare"]
+    },
+    {
+      "summary": "Asian cities",
+      "words": ["shanghai", "mumbai", "karachi", "bangkok", "taipei", "jakarta", "hongkong", "beirut", "kuala", "singapore", "hanoi", "islamabad", "baghdad", "seoul", "tokyo", "delhi", "manila", "ho chi minh", "ankara", "tehran", "dubai", "riyadh", "amman", "doha", "kuwait city", "muscat", "sanaa", "damascus"]
+    },
+    {
+      "summary": "European cities",
+      "words": ["london", "paris", "berlin", "rome", "madrid", "athens", "lisbon", "dublin", "oslo", "stockholm", "helsinki", "warsaw", "prague", "budapest", "vienna", "brussels", "amsterdam", "copenhagen", "zagreb", "belgrade", "sofia", "tallinn", "riga", "vilnius", "luxembourg", "monaco", "bern", "ljubljana"]
+    },
+    {
+      "summary": "South American cities",
+      "words": ["saopaulo", "buenosaires", "riodejaneiro", "lima", "bogota", "caracas", "santiago", "quito", "montevideo", "lapaz", "georgetown", "paramaribo", "sucre", "asuncion", "cayenne", "brasilia", "salvador", "fortaleza", "medellin", "cali", "guayaquil", "la plata", "rosario", "mendoza", "curitiba", "porto alegre", "florianopolis", "belo horizonte"]
+    },
+    {
+      "summary": "North American cities",
+      "words": ["newyork", "losangeles", "chicago", "houston", "phoenix", "philadelphia", "sanantonio", "sandiego", "dallas", "sanjose", "austin", "jacksonville", "fortworth", "columbus", "indianapolis", "denver", "seattle", "detroit", "boston", "memphis", "nashville", "portland", "oklahoma city", "las vegas", "baltimore", "milwaukee", "albuquerque", "tucson"]
+    },
+    {
+      "summary": "Middle Eastern cities",
+      "words": ["dubai", "riyadh", "tehran", "baghdad", "jerusalem", "beirut", "doha", "kuwait", "muscat", "amman", "damascus", "sanaa", "manama", "ankara", "istanbul", "aleppo", "gaza", "jeddah", "mecca", "medina", "sharjah", "abu dhabi", "ajman", "ras al khaimah", "umm al quwain", "fujairah", "al ain", "esfahan"]
+    }]

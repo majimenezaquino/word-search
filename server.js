@@ -1,10 +1,22 @@
 const express = require('express');
+const readAndMergeJSONFiles = require('./file-process');
+
 const app = express();
 const path = require('path');
 const PORT = 3000;
 
 // Static Middleware
 app.use(express.static(path.join(__dirname, 'public')))
+
+app.get('/word-search', async function (req, res) {
+	try {
+		const data = await readAndMergeJSONFiles('./data');
+		res.json(data);
+
+	} catch (error) {
+		console.log(error);
+	}
+});
 
 
 
