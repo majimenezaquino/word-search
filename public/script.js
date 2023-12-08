@@ -42,7 +42,7 @@ async function init() {
       <div class="barcode">
         <!-- <img src="img/01.png" alt="Descripción de la imagen" /> -->
         <div class="qrcode"></div>
-        <canvas class="canvas" width="128" height="128" id="canvas_qr_${index}"></canvas>
+        <canvas class="canvas" width="80" height="80" id="canvas_qr_${index}"></canvas>
       </div>
       <div class="container_words" id="${container_words_id}"></div>
       <div class="footer_page"> page ${index+1}</div>
@@ -93,6 +93,13 @@ function validateWords(words, size) {
   }
 
   // También podrías querer verificar que ninguna palabra sea más larga que el tamaño de la cuadrícula
+  for (const word of words) {
+    if (word.length > size) {
+      throw new Error(
+        "Una o más palabras son demasiado largas para la cuadrícula de la sopa de letras: " + word
+      );
+    }
+  }
   const wordTooLong = words.some((word) => word.length > size);
   if (wordTooLong) {
     throw new Error(
@@ -485,24 +492,23 @@ function generateQR(pageId,text) {
 
   setTimeout(function () {
     let qrCanvas =  document.querySelectorAll(`#${pageId} canvas`)[0];
-    console.log(qrCanvas ,'qrCanvas');
     // Esperar a que el código QR se genere
   
-    context.drawImage(qrCanvas, 0, 0, 128, 128);
+    context.drawImage(qrCanvas, 0, 0, 80, 80);
 
     // Cargar y dibujar la imagen en el centro del código QR
-    let img = new Image();
-    img.onload = function () {
-      let imageSize = 50; // Tamaño de la imagen
-      let imagePosition = (128 - imageSize) / 2; // Posición central
-      context.drawImage(
-        img,
-        imagePosition,
-        imagePosition,
-        imageSize,
-        imageSize
-      );
-    };
-    img.src = "img/06.png"; // Ruta a tu imagen
+    // let img = new Image();
+    // img.onload = function () {
+    //   let imageSize = 50; // Tamaño de la imagen
+    //   let imagePosition = (128 - imageSize) / 2; // Posición central
+    //   context.drawImage(
+    //     img,
+    //     imagePosition,
+    //     imagePosition,
+    //     imageSize,
+    //     imageSize
+    //   );
+    // };
+    // img.src = "img/06.png"; // Ruta a tu imagen
   }, 500);
 }

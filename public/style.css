@@ -63,13 +63,12 @@
 }
 
 .container_words {
-    text-align: left;
     display: flex;
     flex-wrap: wrap;
-    max-width: 5.5in;/* Centra los elementos de la lista de palabras */
     padding-top: 40px;
     padding-bottom: 40px;
     height: 200px;
+    justify-content: start;
     font-family: Arial, sans-serif;
 }
 .word_search_container .row {
@@ -89,12 +88,15 @@
 }
 
 .word-item {
+    width: 175px;
+    flex-grow: 3;
     cursor: pointer;
-    min-width: 1.4in;
     text-align: left;
     display: inline-block;
-    font-size: 15px;
+    font-size: 17px;
     text-transform: uppercase;
+    padding:0  10px;
+    overflow: hidden;
  /* Opcional: bordes redondeados para los elementos de la lista */
 }
 
