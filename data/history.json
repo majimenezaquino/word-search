@@ -65,65 +65,8 @@
       "copernicus"
     ]
   },
-  {
-    "summary": "Famous wars and battles",
-    "words": [
-      "worldwarone",
-      "worldwartwo",
-      "civilwar",
-      "napoleonicwars",
-      "americanrevolution",
-      "frenchrevolution",
-      "vietnamwar",
-      "koreanwar",
-      "crusades",
-      "hundredyearswar",
-      "peloponnesianwar",
-      "punicwars",
-      "trojanwar",
-      "battleofhastings",
-      "battleofthermopylae",
-      "battleofwaterloo",
-      "battleofgettysburg",
-      "battleofstalingrad",
-      "battleofbritain",
-      "battleofmidway",
-      "battleofthebulge",
-      "normandy",
-      "pearlharbor",
-      "antietam"
-    ]
-  },
-  {
-    "summary": "Historical periods",
-    "words": [
-      "renaissance",
-      "middleages",
-      "enlightenment",
-      "industrialrevolution",
-      "victorianera",
-      "bronzeage",
-      "ironage",
-      "stoneage",
-      "classicalperiod",
-      "medieval",
-      "baroque",
-      "romanticism",
-      "prehistoric",
-      "antiquity",
-      "neolithic",
-      "paleolithic",
-      "byzantine",
-      "feudalism",
-      "gothic",
-      "roaringtwenties",
-      "greatdepression",
-      "coldwar",
-      "colonialism",
-      "imperialism",
-      "modernity"
-    ]
-  },
+ 
+
   {
     "summary": "Historical monuments and sites",
     "words": [
@@ -183,39 +126,7 @@
     ]
   },
 
-  {
-    "summary": "Influential historical movements",
-    "words": [
-      "enlightenment",
-      "humanism",
-      "romanticism",
-      "absolutism",
-      "mercantilism",
-      "colonialism",
-      "imperialism",
-      "nationalism",
-      "feminism",
-      "abolitionism",
-      "civilrights",
-      "environmentalism",
-      "suffragism",
-      "renaissance",
-      "reformation",
-      "secularism",
-      "liberalism",
-      "socialism",
-      "capitalism",
-      "communism",
-      "fascism",
-      "anarchism",
-      "zionism",
-      "pacifism",
-      "islamism",
-      "transcendentalism",
-      "existentialism",
-      "modernism"
-    ]
-  },
+
   {
     "summary": "Inventions and discoveries",
     "words": [
@@ -315,36 +226,7 @@
       "caesar"
     ]
   },
-  {
-    "summary": "Major global conflicts",
-    "words": [
-      "worldwarone",
-      "worldwartwo",
-      "vietnamwar",
-      "koreanwar",
-      "american civilwar",
-      "napoleonicwars",
-      "sevenyearswar",
-      "crusades",
-      "thirtyyearswar",
-      "franco-prussianwar",
-      "russianrevolution",
-      "americanrevolution",
-      "spanishcivilwar",
-      "boerwar",
-      "hundredyearswar",
-      "peloponnesianwar",
-      "punicwars",
-      "warsroses",
-      "crimeanwar",
-      "mexicanrevolution",
-      "iran-iraqwar",
-      "gulfwar",
-      "balkanwars",
-      "sixdaywar",
-      "yomkippurwar"
-    ]
-  },
+
   {
     "summary": "Historic cities and capitals",
     "words": [

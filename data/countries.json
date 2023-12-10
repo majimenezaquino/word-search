@@ -47,10 +47,7 @@
       "summary": "South American cities",
       "words": ["saopaulo", "buenosaires", "riodejaneiro", "lima", "bogota", "caracas", "santiago", "quito", "montevideo", "lapaz", "georgetown", "paramaribo", "sucre", "asuncion", "cayenne", "brasilia", "salvador", "fortaleza", "medellin", "cali", "guayaquil", "la plata", "rosario", "mendoza", "curitiba", "porto alegre", "florianopolis", "belo horizonte"]
     },
-    {
-      "summary": "North American cities",
-      "words": ["newyork", "losangeles", "chicago", "houston", "phoenix", "philadelphia", "sanantonio", "sandiego", "dallas", "sanjose", "austin", "jacksonville", "fortworth", "columbus", "indianapolis", "denver", "seattle", "detroit", "boston", "memphis", "nashville", "portland", "oklahoma city", "las vegas", "baltimore", "milwaukee", "albuquerque", "tucson"]
-    },
+  
     {
       "summary": "Middle Eastern cities",
       "words": ["dubai", "riyadh", "tehran", "baghdad", "jerusalem", "beirut", "doha", "kuwait", "muscat", "amman", "damascus", "sanaa", "manama", "ankara", "istanbul", "aleppo", "gaza", "jeddah", "mecca", "medina", "sharjah", "abu dhabi", "ajman", "ras al khaimah", "umm al quwain", "fujairah", "al ain", "esfahan"]
