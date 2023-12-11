@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 async function getData() {
   //http://localhost:3000/word-search
-  const response = await fetch("http://localhost:3000/word-search");
+  const response = await fetch("https://raw.githubusercontent.com/majimenezaquino/word-search/master/data/record.json");
   const data = await response.json();
 
     return data;
