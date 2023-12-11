@@ -1,20 +1,31 @@
 #contenido-para-pdf {
-    width: 8.5in;    /* Ancho: 8.5 pulgadas */
-    margin: auto;    /* Centrar en la página */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Opcional: sombra para visualización */
-    background: white; /* Fondo blanco para el contenido */
-    overflow: hidden; /* Ocultar contenido fuera de los límites */
+    width: 8.5in;   
+    margin: auto;    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+    background: white; 
+    overflow: hidden; 
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .header {
     margin: auto;
-    width: 7in;
-    padding: 20px 0;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    height: 25px;
+    padding: 0 5px;
+    
+    line-height: 25px;
+    
+}
+.header h4 {
+    margin: 0;
+    padding: 0;
 }
 .page{
-    width: 8.5in;
-    height: 11in;
+    width: 4.2in;
     overflow: hidden;
     position: relative;
     overflow: hidden;
@@ -37,8 +48,7 @@
 .word_search_container {
     margin: auto;
     box-sizing: border-box;
-    width: 7in;   
-    height: 7in;
+    width: 100%;
     border:1px #ccc solid;
     display: flex;
     flex-wrap: wrap;
@@ -49,7 +59,7 @@
     text-align: left;
     display: flex;
     justify-content: space-between;
-    width: 7in;
+    width: 100%;
     align-items: start;
 }
 .barcode {
@@ -82,7 +92,7 @@
     align-items: center;
     cursor: pointer;
     font-family: Arial, sans-serif;
-    font-size: 22px;
+    font-size: 12px;
     text-transform: uppercase;
     text-align: center;
 }
@@ -93,7 +103,7 @@
     cursor: pointer;
     text-align: left;
     display: inline-block;
-    font-size: 17px;
+    font-size: 12px;
     text-transform: uppercase;
     padding:0  10px;
     overflow: hidden;
@@ -158,4 +168,49 @@
     height: 0;
     overflow: hidden;
 }
-/* Puedes añadir más estilos para las palabras que van hacia arriba o hacia la izquierda si es necesario */
+/* palabra verticales */
+.word-diagonal.vertical-up, .word-diagonal.vertical-down {
+    border-left: solid 1px red;
+    border-right: solid 1px red;
+    box-sizing: border-box;
+}
+.word-diagonal.word-end.vertical-up,.word-diagonal.word-start.vertical-down{
+    border-top: solid 1px red;
+    box-sizing: border-box;
+}
+.word-diagonal.word-start.vertical-up, .word-diagonal.word-end.vertical-down{
+    border-bottom: solid 1px red;
+    box-sizing: border-box;
+}
+/* palabra horizontales */
+.word-diagonal.horizontal-left , .word-diagonal.horizontal-right {
+    border-top: solid 1px red;
+    border-bottom: solid 1px red;
+    box-sizing: border-box;
+}
+.word-diagonal.word-start.horizontal-right, .word-diagonal.word-end.horizontal-left {
+    border-left: solid 1px red;
+    box-sizing: border-box;
+}
+.word-diagonal.word-start.horizontal-left, .word-diagonal.word-end.horizontal-right {
+    border-right: solid 1px red;
+    box-sizing: border-box;
+}
+.word-diagonal.diagonal-down-left, .word-diagonal.diagonal-up-right {
+   background-color: red;
+   position: relative;
+   /* clip-path: polygon(1% 1%, 0% 100%, 100% 0); */
+   z-index: 2;
+   
+}
+
+.word-diagonal.diagonal-down-left::after{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+  background-color: yellow;
+    right: -5px;
+    top: 0;
+    clip-path: polygon(1% 1%, 0% 100%, 100% 0);
+}

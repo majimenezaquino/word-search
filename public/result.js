@@ -33,19 +33,14 @@ async function init() {
     contentPage.setAttribute("id", pageId);
     contentPage.innerHTML = `
     <div class="header">
-      <h3>
+      <h4>
         ${page.summary}
-      </h3>
+      </h4>
+      <small> page ${index+1}</small>
     </div>
     <div class="word_search_container"></div>
     <div class="footer">
-      <div class="barcode">
-        <!-- <img src="img/01.png" alt="Descripción de la imagen" /> -->
-        <div class="qrcode"></div>
-        <canvas class="canvas" width="80" height="80" id="canvas_qr_${index}"></canvas>
-      </div>
-      <div class="container_words" id="${container_words_id}"></div>
-      <div class="footer_page"> page ${index+1}</div>
+    <small class="qrcode"> page ${index+1}</small>
     </div>
     `
     document.querySelector("#contenido-para-pdf").appendChild(contentPage);
@@ -54,20 +49,17 @@ async function init() {
     const size = 20; //page.size;
     const grid = createGrid(size);
       
-      generateQR(pageId,`pagina ${index}`);
+      // generateQR(pageId,`pagina ${index}`);
       validateWords(words, size); // Validación para asegurarse de que las palabras caben
       wordPositions[index] = insertWords(grid, words, size);
       fillEmptySpaces(grid);
       renderGrid(pageId,grid);
-      rendercontainer_words(pageId,index,container_words_id,words);
+      // rendercontainer_words(pageId,index,container_words_id,words);
   
   
   }
 
-  const btn_soluctions = document.getElementById("btn_soluctions");
-  btn_soluctions.addEventListener("click", function () {
-    showSolutions(wordPositions);
-  });
+  showSolutions(wordPositions);
 
 
 }
@@ -455,14 +447,7 @@ function showSolutions(_wordPositions) {
 function getColorForWord(word, _wordPositions) {
   // Define una paleta de colores.
   const colors = [
-    "#FFADAD",
-    "#FFD6A5",
-    "#FDFFB6",
-    "#CAFFBF",
-    "#9BF6FF",
-    "#A0C4FF",
-    "#BDB2FF",
-    "#FFC6FF",
+    // "#777"
   ];
 
   let colorIndex = Object.keys(_wordPositions).indexOf(word) % colors.length;
