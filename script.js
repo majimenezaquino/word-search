@@ -64,7 +64,7 @@ async function init() {
     words.sort((a, b) => b.length - a.length);
     const size = 20; //page.size;
     const grid = createGrid(size);
-      const qr_text = `https://wordsearch.onbook.es?s=${page.summary}&page=${index+1}`;
+      const qr_text = `https://wordsearch.onbook.es/index.html?s=${page.summary}&page=${index+1}`;
       generateQR(pageId,qr_text);
       validateWords(words, size); // Validación para asegurarse de que las palabras caben
       wordPositions[index] = insertWords(grid, words, size);
