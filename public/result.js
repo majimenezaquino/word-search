@@ -24,8 +24,9 @@ async function init() {
 
   // Ordena las palabras de mayor a menor longitud
 
-
+  const limit = 10;
   for(const  [index, page] of pages.entries()){
+    if(index > limit) break;
     const pageId = `page_${index}`;
     const container_words_id = `list_words_${index}`;
     const contentPage =  document.createElement("div");
@@ -383,6 +384,7 @@ function renderGrid(pageId, grid) {
       }
       td.dataset.row = rowIndex;
       td.dataset.col = colIndex;
+      td.innerHTML = `<span class="letter-container">${td.textContent}</span>`;
       tr.appendChild(td);
     });
     table.appendChild(tr);
