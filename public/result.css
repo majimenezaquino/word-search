@@ -238,8 +238,6 @@
   width: 15px;
   height: 20px;
   background-color: transparent;
-  left: -1px;
-  right: -2px;
   top: 10px;
   border-right: solid 1px red;
   border-left: solid 1px red;
@@ -279,8 +277,6 @@
   width: 15px;
   height: 20px;
   background-color: transparent;
-  left: -1px;
-  right: -2px;
   top: 10px;
   border-right: solid 1px red;
   border-left: solid 1px red;
@@ -295,5 +291,56 @@
     border-top: transparent solid 1px;
 }
 .word-diagonal.word-start.diagonal-up-right::after{
+    display: none;
+}
+
+.word-diagonal.diagonal-up-left{
+  border-right: solid 1px red;
+  border-left: solid 1px red;
+  box-sizing: border-box;
+  position: relative;
+  /* clip-path: polygon(1% 1%, 0% 100%, 100% 0); */
+  z-index: 1;
+  transform: rotate(-45deg);
+  width: 15px !important;
+}
+
+.word-diagonal.diagonal-up-left .letter-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(45deg);
+  /* background-color: transparent;
+    border: red solid 1px; */
+}
+.word-diagonal.diagonal-up-left::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  background-color: transparent;
+  top: 10px;
+  border-right: solid 1px red;
+  border-left: solid 1px red;
+  box-sizing: border-box;
+  z-index: -1;
+}
+.word-diagonal.word-end.diagonal-up-left {
+  border: red solid 1px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom: transparent solid 1px;
+
+}
+
+.word-diagonal.word-start.diagonal-up-left{
+    border: red solid 1px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top: transparent solid 1px;
+}
+.word-diagonal.word-start.diagonal-up-left::after{
     display: none;
 }

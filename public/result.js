@@ -30,7 +30,7 @@ async function init() {
   // Calcular índices de inicio y fin para la paginación
   const startIndex = (currentPage - 1) * limit;
   const endIndex = Math.min(startIndex + limit, pages.length);
-
+  seed = 123456;
   // Iterar solo sobre las páginas dentro del rango de paginación actual
   for (let index = startIndex; index < endIndex; index++) {
     const page = pages[index];
@@ -429,7 +429,16 @@ function highlightWord(pageId,index,selectedWord) {
 }
 
 function showSolutions(_wordPositions) {
+  _wordPositions = _wordPositions.map((wordPosition) => {
+    if (!wordPosition) {
+      return false;
+    }
+    return wordPosition;
+  });
   for(const [index, posistionWord] of _wordPositions.entries()){
+    if (!posistionWord) {
+      continue;
+    }
     Object.keys(posistionWord).forEach((word) => {
       const wordData = posistionWord[word];
       const positions = wordData.positions;
