@@ -364,7 +364,7 @@ function fillEmptySpaces(grid) {
   grid.forEach((row) => {
     row.forEach((cell, index) => {
       if (cell === "-") {
-        row[index] = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+        row[index] = String.fromCharCode(65 +  Math.floor(seededRandom() * 26));
       }
     });
   });
