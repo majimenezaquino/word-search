@@ -21,11 +21,19 @@ async function init() {
   const pages = await getData();
   const size = 20; // Tamaño de la cuadrícula 
   //const size = pages.size;
+  // Obtener parámetros de URL para la paginación
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const currentPage = parseInt(urlParams.get('page')) || 1;
+  const limit = 10; // Cantidad de páginas por vista de paginación
 
-  // Ordena las palabras de mayor a menor longitud
+  // Calcular índices de inicio y fin para la paginación
+  const startIndex = (currentPage - 1) * limit;
+  const endIndex = Math.min(startIndex + limit, pages.length);
 
 
-  for(const  [index, page] of pages.entries()){
+  for(let index = startIndex; index < endIndex; index++){
+    const page = pages[index];
     const pageId = `page_${index}`;
     const container_words_id = `list_words_${index}`;
     const contentPage =  document.createElement("div");

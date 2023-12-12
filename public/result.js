@@ -19,51 +19,52 @@ async function getData() {
 }
 async function init() {
   const pages = await getData();
-  const size = 20; // Tamaño de la cuadrícula 
-  //const size = pages.size;
+  const size = 20; // Tamaño de la cuadrícula
 
-  // Ordena las palabras de mayor a menor longitud
+  // Obtener parámetros de URL para la paginación
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const currentPage = parseInt(urlParams.get('page')) || 1;
+  const limit = 10; // Cantidad de páginas por vista de paginación
 
-  const limit = 10;
-  for(const  [index, page] of pages.entries()){
-    if(index > limit) break;
+  // Calcular índices de inicio y fin para la paginación
+  const startIndex = (currentPage - 1) * limit;
+  const endIndex = Math.min(startIndex + limit, pages.length);
+
+  // Iterar solo sobre las páginas dentro del rango de paginación actual
+  for (let index = startIndex; index < endIndex; index++) {
+    const page = pages[index];
     const pageId = `page_${index}`;
     const container_words_id = `list_words_${index}`;
-    const contentPage =  document.createElement("div");
+    const contentPage = document.createElement("div");
     contentPage.classList.add("page");
     contentPage.setAttribute("id", pageId);
     contentPage.innerHTML = `
-    <div class="header">
-      <h4>
-        ${page.summary}
-      </h4>
-      <small> page ${index+1}</small>
-    </div>
-    <div class="word_search_container"></div>
-    <div class="footer">
-    <small class="qrcode"> page ${index+1}</small>
-    </div>
-    `
+      <div class="header">
+        <h4>${page.summary}</h4>
+        <small> page ${index + 1}</small>
+      </div>
+      <div class="word_search_container"></div>
+      <div class="footer">
+        <small class="qrcode"> page ${index + 1}</small>
+      </div>
+    `;
     document.querySelector("#contenido-para-pdf").appendChild(contentPage);
+
     const words = page.words;
     words.sort((a, b) => b.length - a.length);
-    const size = 20; //page.size;
     const grid = createGrid(size);
-      
-      // generateQR(pageId,`pagina ${index}`);
-      validateWords(words, size); // Validación para asegurarse de que las palabras caben
-      wordPositions[index] = insertWords(grid, words, size);
-      fillEmptySpaces(grid);
-      renderGrid(pageId,grid);
-      // rendercontainer_words(pageId,index,container_words_id,words);
-  
-  
+
+    validateWords(words, size); // Validación para asegurarse de que las palabras caben
+    wordPositions[index] = insertWords(grid, words, size);
+    fillEmptySpaces(grid);
+    renderGrid(pageId, grid);
+    // rendercontainer_words(pageId, index, container_words_id, words);
   }
 
   showSolutions(wordPositions);
-
-
 }
+
 
 function createGrid(size) {
   const grid = [];
