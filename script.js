@@ -23,11 +23,12 @@ async function init() {
   const wordSearch =urlParams.get('s');
   const searchPages =pages.find((page) => page.summary === wordSearch);
 
-  const currentPage = parseInt(urlParams.get('page')) || 1;
+  let currentPage = parseInt(urlParams.get('page')) || 1;
   let limit = 10; // Cantidad de páginas por vista de paginación
   if(wordSearch && wordSearch?.length){
     pages = [searchPages];
     limit=1000;
+    currentPage = 1;
   }
 
   // Calcular índices de inicio y fin para la paginación

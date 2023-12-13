@@ -25,7 +25,7 @@ async function init() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const currentPage = parseInt(urlParams.get('page')) || 1;
-  const limit = 40; // Cantidad de páginas por vista de paginación
+  const limit = 20; // Cantidad de páginas por vista de paginación
 
   // Calcular índices de inicio y fin para la paginación
   const startIndex = (currentPage - 1) * limit;
