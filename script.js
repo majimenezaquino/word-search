@@ -24,7 +24,7 @@ async function init() {
   const searchPages =pages.find((page) => page.summary === wordSearch);
 
   let currentPage = parseInt(urlParams.get('page')) || 1;
-  let limit = 10; // Cantidad de páginas por vista de paginación
+  let limit = 1; // Cantidad de páginas por vista de paginación
   if(wordSearch && wordSearch?.length){
     pages = [searchPages];
     limit=1000;

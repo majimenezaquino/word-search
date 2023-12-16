@@ -8,9 +8,10 @@
 
 .header {
     margin: auto;
-    width: 7in;
-    padding: 20px 0;
+    width: 8in;
+    padding-top: 20px;
     text-align: center;
+    text-transform: uppercase;
 }
 .page{
     width: 8.5in;
@@ -23,22 +24,36 @@
 .footer_page {
     position: absolute;
     padding-right: 20px;
-    bottom: 15px;
-    right: 10px;
+    left: 0;
+    right: 0;
+    bottom: 10px;
     margin: auto;
     text-align: left;
     display: flex;
-    justify-content: end;
-    width: 7in;
+    justify-content: center;
+    width: 8in;
     align-items: start;
     text-transform: capitalize;
+    font-size: 10px;
 }
-
+.container_solution{
+    margin: auto;
+    box-sizing: border-box;
+    width: 8.5in;   
+    display: flex;
+    justify-content: center;
+}
+#btn_soluctions{
+    margin-top: 10px;
+    padding: 20px 40px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
 .word_search_container {
     margin: auto;
     box-sizing: border-box;
-    width: 7in;   
-    height: 7in;
+    width: 8in;   
+    height: 8in;
     border:1px #ccc solid;
     display: flex;
     flex-wrap: wrap;
@@ -49,7 +64,7 @@
     text-align: left;
     display: flex;
     justify-content: space-between;
-    width: 7in;
+    width: 8in;
     align-items: start;
 }
 .barcode {
@@ -65,9 +80,9 @@
 .container_words {
     display: flex;
     flex-wrap: wrap;
-    padding-top: 40px;
+    padding-top: 5px;
     padding-bottom: 40px;
-    height: 200px;
+    height: 180px;
     justify-content: start;
     font-family: Arial, sans-serif;
 }
@@ -88,15 +103,18 @@
 }
 
 .word-item {
-    width: 175px;
-    flex-grow: 3;
+    width: 150px;
     cursor: pointer;
     text-align: left;
-    display: inline-block;
+    vertical-align: middle;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     font-size: 17px;
     text-transform: uppercase;
     padding:0  10px;
     overflow: hidden;
+    line-height: 15px;
  /* Opcional: bordes redondeados para los elementos de la lista */
 }
 

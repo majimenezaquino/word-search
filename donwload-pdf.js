@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("donwload_pdf").addEventListener("click", donwloadPDF);
 });
 function donwloadPDF() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    let currentPage = parseInt(urlParams.get('page')) || 1;
     console.log('Descargando PDF...');
     const contenido = document.getElementById('contenido-para-pdf');
     html2canvas(contenido, {
@@ -27,6 +30,6 @@ function donwloadPDF() {
                 position = heightLeft - imgHeight;
             }
         }
-        pdf.save('documento.pdf');
+        pdf.save(`${currentPage} page.pdf`);
     });
 }
