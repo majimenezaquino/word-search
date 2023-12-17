@@ -9,20 +9,24 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 async function getData() {
   //data
-  // const response = await fetch("https://raw.githubusercontent.com/majimenezaquino/word-search/master/data/record.json");
-  const response = await fetch("http://localhost:3000/data");
+  const response = await fetch("https://raw.githubusercontent.com/majimenezaquino/word-search/master/data/record.json");
+  // const response = await fetch("http://localhost:3000/data");
   const data = await response.json();
   return data;
 }
 async function init() {
   let pages = await getData();
+  if(!pages){
+    console.error("No se encontraron datos");
+    return;
+  }
   const size = 20; // Tamaño de la cuadrícula 
   //const size = pages.size;
   // Obtener parámetros de URL para la paginación
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const wordSearch =urlParams.get('s');
-  const searchPages =pages.find((page) => page.summary === wordSearch);
+  const searchPages =pages?.find((page) => page.summary === wordSearch);
 
   let currentPage = parseInt(urlParams.get('page')) || 1;
   let limit = 10; // Cantidad de páginas por vista de paginación
@@ -79,9 +83,12 @@ async function init() {
   }
 
   const btn_soluctions = document.getElementById("btn_soluctions");
-  btn_soluctions.addEventListener("click", function () {
-    showSolutions(wordPositions);
-  });
+  if(btn_soluctions){
+    btn_soluctions.addEventListener("click", function () {
+      showSolutions(wordPositions);
+    });
+  }
+ 
 
 
 }
