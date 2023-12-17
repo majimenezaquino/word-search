@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
   init();
 });
 async function getData() {
-  //http://localhost:3000/word-search
+  //data
+  // const response = await fetch("https://raw.githubusercontent.com/majimenezaquino/word-search/master/data/record.json");
   const response = await fetch("https://raw.githubusercontent.com/majimenezaquino/word-search/master/data/record.json");
   const data = await response.json();
   return data;
@@ -24,7 +25,7 @@ async function init() {
   const searchPages =pages.find((page) => page.summary === wordSearch);
 
   let currentPage = parseInt(urlParams.get('page')) || 1;
-  let limit = 1; // Cantidad de páginas por vista de paginación
+  let limit = 10; // Cantidad de páginas por vista de paginación
   if(wordSearch && wordSearch?.length){
     pages = [searchPages];
     limit=1000;
@@ -36,6 +37,7 @@ async function init() {
   const endIndex = Math.min(startIndex + limit, pages.length);
 
   seed = 123456;
+  const pageStart =5;
   for(let index = startIndex; index < endIndex; index++){
     const page = pages[index];
     const pageId = `page_${index}`;
@@ -57,11 +59,11 @@ async function init() {
         <canvas class="canvas" width="80" height="80" id="canvas_qr_${index}"></canvas>
       </div>
       <div class="container_words" id="${container_words_id}"></div>
-      <div class="footer_page"> page ${index+1}</div>
+      <div class="footer_page"> page ${index+pageStart}</div>
     </div>
     `
     document.querySelector("#contenido-para-pdf").appendChild(contentPage);
-    const words = page.words;
+    const words = page?.words.filter((word) => allowTest(word));
     words.sort((a, b) => b.length - a.length);
     const size = 20; //page.size;
     const grid = createGrid(size);
@@ -82,6 +84,18 @@ async function init() {
   });
 
 
+}
+function allowTest(input) {
+  // Esta expresión regular permite solo letras y espacios
+  const regex = /^[a-zA-Z]+$/;
+
+  // Prueba si el input cumple con la expresión regular
+  if (regex.test(input)) {
+      return true; // El input solo contiene texto
+  } else {
+    console.error("Word error: ",input);
+      return true; // El input contiene números o símbolos
+  }
 }
 
 function createGrid(size) {

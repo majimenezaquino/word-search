@@ -362,39 +362,7 @@
         "garter"
       ]
     },
-    {
-      "summary": "Arctic and Antarctic animals",
-      "words": [
-        "polarbear",
-        "penguin",
-        "seal",
-        "walrus",
-        "arcticfox",
-        "reindeer",
-        "narwhal",
-        "beluga",
-        "orca",
-        "snowyowl",
-        "muskox",
-        "lemming",
-        "ptarmigan",
-        "puffin",
-        "krill",
-        "squid",
-        "albatross",
-        "glacierworm",
-        "arctictern",
-        "icefish",
-        "sled dog",
-        "arctic hare",
-        "snow goose",
-        "ermine",
-        "arctic wolf",
-        "seabird",
-        "whale",
-        "sealions"
-      ]
-    },
+  
     {
       "summary": "Desert animals from around the world",
       "words": [
@@ -494,40 +462,8 @@
         "kakapo"
       ]
     },
-    {
-      "summary": "Aquatic and amphibian creatures",
-      "words": [
-        "frog",
-        "toad",
-        "newt",
-        "salamander",
-        "axolotl",
-        "tadpole",
-        "caecilian",
-        "mudpuppy",
-        "treefrog",
-        "bullfrog",
-        "leopard frog",
-        "glassfrog",
-        "surinam toad",
-        "olm",
-        "siren",
-        "goliath frog",
-        "hellbender",
-        "waterdog",
-        "firebellied toad",
-        "green frog",
-        "red-eyed tree frog",
-        "dart frog",
-        "mantella",
-        "spadefoot",
-        "marsh frog",
-        "pickerel frog",
-        "wood frog",
-        "natterjack"
-      ]
-    }
-  ,
+ 
+  
   {
     "summary": "Major global cities",
     "words": ["london", "paris", "tokyo", "berlin", "sydney", "moscow", "dubai", "rome", "madrid", "mumbai", "toronto", "beijing", "seoul", "bangkok", "vienna", "cairo", "shanghai", "jakarta", "lima", "lisbon", "oslo", "athens", "budapest", "prague", "helsinki", "amsterdam", "brussels", "dublin"]
