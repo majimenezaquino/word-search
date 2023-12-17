@@ -93,6 +93,10 @@ async function init() {
 
 }
 function allowTest(input) {
+  if(input.length >15){
+    console.error("Word error length: ",input);
+    return true;
+  }
   // Esta expresión regular permite solo letras y espacios
   const regex = /^[a-zA-Z]+$/;
 
