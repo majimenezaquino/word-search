@@ -48,6 +48,9 @@
   align-items: start;
   text-transform: capitalize;
 }
+.cell{
+  opacity: 0.5;
+}
 
 .word_search_container {
   margin: 0px auto;

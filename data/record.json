@@ -1,4 +1,5 @@
-[
+{
+  "data":[
     {
       "summary": "Common household pets",
       "words": [
@@ -277,7 +278,6 @@
         "caribou",
         "lynx",
         "wolverine",
-        "bald eagle",
         "rattlesnake",
         "grizzly",
         "blackbear",
@@ -376,7 +376,7 @@
         "gila",
         "coyote",
         "jackrabbit",
-        "kangaroo rat",
+        "kangaroo",
         "vulture",
         "owl",
         "falcon",
@@ -388,7 +388,7 @@
         "tarantula",
         "roadrunner",
         "javelina",
-        "prairie dog",
+        "prairie",
         "tortoise",
         "iguana",
         "buzzard",
@@ -412,7 +412,7 @@
         "chimpanzee",
         "capuchin",
         "tamarin",
-        "tree frog",
+        "treefrog",
         "iguana",
         "mandrill",
         "okapi",
@@ -482,7 +482,7 @@
   },
   {
     "summary": "South American countries",
-    "words": ["brazil", "argentina", "colombia", "chile", "peru", "venezuela", "ecuador", "bolivia", "uruguay", "paraguay", "guyana", "suriname", "belize", "panama", "honduras", "guatemala", "el salvador", "nicaragua", "costa rica", "cuba", "dominican", "haiti", "bahamas", "trinidad", "jamaica", "barbados", "grenada", "saint lucia"]
+    "words": ["brazil", "argentina", "colombia", "chile", "peru", "venezuela", "ecuador", "bolivia", "uruguay", "paraguay", "guyana", "suriname", "belize", "panama", "honduras", "guatemala", "elsalvador", "nicaragua", "costarica", "cuba", "dominican", "haiti", "bahamas", "trinidad", "jamaica", "barbados", "grenada", "saintlucia"]
   },
   {
     "summary": "US states",
@@ -494,15 +494,45 @@
   },
   {
     "summary": "Oceanian countries",
-    "words": ["australia", "newzealand", "fiji", "papua", "samoa", "tonga", "vanuatu", "micronesia", "palau", "kiribati", "marshall", "solomon", "tuvalu", "nauru", "tahiti", "sydney", "melbourne", "brisbane", "perth", "adelaide", "canberra", "hobart", "darwin", "auckland", "wellington", "christchurch", "suva", "port moresby"]
-  },
+    "words": [
+      "australia",
+      "newzealand",
+      "fiji",
+      "papuanewguinea",  
+      "samoa",
+      "tonga",
+      "vanuatu",
+      "micronesia",
+      "palau",
+      "kiribati",
+      "marshallislands", 
+      "solomonislands",   
+      "tuvalu",
+      "nauru",
+      "tahiti",
+      "sydney",
+      "melbourne",
+      "brisbane",
+      "perth",
+      "adelaide",
+      "canberra",
+      "hobart",
+      "darwin",
+      "auckland",
+      "wellington",
+      "christchurch",
+      "suva",
+      "portmoresby"      
+    ]
+  }
+,  
   {
     "summary": "African cities",
     "words": ["cairo", "lagos", "nairobi", "kinshasa", "johannesburg", "casablanca", "addisababa", "khartoum", "dar", "alexandria", "accra", "kampala", "algiers", "tunis", "abidjan", "dakar", "luanda", "tripoli", "kigali", "lilongwe", "bamako", "conakry", "freetown", "monrovia", "windhoek", "gaborone", "antananarivo", "harare"]
   },
   {
     "summary": "Asian cities",
-    "words": ["shanghai", "mumbai", "karachi", "bangkok", "taipei", "jakarta", "hongkong", "beirut", "kuala", "singapore", "hanoi", "islamabad", "baghdad", "seoul", "tokyo", "delhi", "manila", "ho chi minh", "ankara", "tehran", "dubai", "riyadh", "amman", "doha", "kuwait city", "muscat", "sanaa", "damascus"]
+    "words": ["shanghai", "mumbai", "karachi", "bangkok", "taipei", "jakarta", "hongkong", "beirut", "kuala", "singapore", "hanoi", "islamabad", "baghdad", "seoul", "tokyo", "delhi", "manila",  "ankara", "tehran", "dubai", "riyadh", "amman", "doha", "kuwait", "muscat", "sanaa", "damascus"]
   },
   {
     "summary": "European cities",
@@ -510,13 +540,72 @@
   },
   {
     "summary": "South American cities",
-    "words": ["saopaulo", "buenosaires", "riodejaneiro", "lima", "bogota", "caracas", "santiago", "quito", "montevideo", "lapaz", "georgetown", "paramaribo", "sucre", "asuncion", "cayenne", "brasilia", "salvador", "fortaleza", "medellin", "cali", "guayaquil", "la plata", "rosario", "mendoza", "curitiba", "porto alegre", "florianopolis", "belo horizonte"]
+    "words": [
+      "saopaulo",
+      "buenosaires",
+      "riodejaneiro",
+      "lima",
+      "bogota",
+      "caracas",
+      "santiago",
+      "quito",
+      "montevideo",
+      "lapaz",
+      "georgetown",
+      "paramaribo",
+      "sucre",
+      "asuncion",
+      "cayenne",
+      "brasilia",
+      "salvador",
+      "fortaleza",
+      "medellin",
+      "cali",
+      "guayaquil",
+      "laplata",
+      "rosario",
+      "mendoza",
+      "curitiba",
+      "portoalegre",
+      "florianopolis",
+      "belohorizonte"
+    ]
   },
 
   {
     "summary": "Middle Eastern cities",
-    "words": ["dubai", "riyadh", "tehran", "baghdad", "jerusalem", "beirut", "doha", "kuwait", "muscat", "amman", "damascus", "sanaa", "manama", "ankara", "istanbul", "aleppo", "gaza", "jeddah", "mecca", "medina", "sharjah", "abu dhabi", "ajman", "ras al khaimah", "umm al quwain", "fujairah", "al ain", "esfahan"]
-  },
+    "words": [
+      "dubai",
+      "riyadh",
+      "tehran",
+      "baghdad",
+      "jerusalem",
+      "beirut",
+      "doha",
+      "kuwait",
+      "muscat",
+      "amman",
+      "damascus",
+      "sanaa",
+      "manama",
+      "ankara",
+      "istanbul",
+      "aleppo",
+      "gaza",
+      "jeddah",
+      "mecca",
+      "medina",
+      "sharjah",
+      "abudhabi",        
+      "ajman",
+      "rasalkhaimah",   
+      "ummalquwain",     
+      "fujairah",
+      "alain",           
+      "esfahan"
+    ]
+  }
+,  
   {
     "summary": "Common fruits",
     "words": [
@@ -672,13 +761,13 @@
       "scallop",
       "tilapia",
       "catfish",
-      "sea bass",
+      "seabass",
       "monkfish",
       "flounder",
       "swordfish",
       "grouper",
-      "red snapper",
-      "sea bream",
+      "redsnapper",
+      "seabream",
       "barracuda"
     ]
   },
@@ -1157,7 +1246,7 @@
       "stonehenge",
       "tajmahal",
       "petra",
-      "forbidden city",
+      "forbidden",
       "acropolis",
       "angkorwat",
       "eiffeltower",
@@ -1179,32 +1268,6 @@
     ]
   },
 
-  {
-    "summary": "Historical empires and kingdoms",
-    "words": [
-      "romanempire",
-      "mongolempire",
-      "ottomanempire",
-      "britishempire",
-      "persianempire",
-      "egyptianempire",
-      "greekempire",
-      "byzantineempire",
-      "aztecempire",
-      "mughalempire",
-      "macedonianempire",
-      "frankishempire",
-      "holyromanempire",
-      "carolingianempire",
-      "russianempire",
-      "japaneseempire",
-      "mayanempire",
-      "habsburgempire",
-      "sasanianempire",
-      "babylonianempire",
-      "assyrianempire"
-    ]
-  },
 
 
   {
@@ -1269,8 +1332,8 @@
       "odisseia",
       "paradiselost",
       "faeriequeene",
-      "le morte",
-      "d'arthur"
+      "lemorte",
+      "arthur"
     ]
   },
   {
@@ -1293,7 +1356,6 @@
       "roosevelt",
       "degaulle",
       "attaturk",
-      "ho chi minh",
       "castro",
       "polpot",
       "saladin",
@@ -1383,7 +1445,7 @@
     "thriller",
     "horror",
     "romance",
-    "sci-fi",
+    "sci",
     "fantasy",
     "mystery",
     "adventure",
@@ -1402,7 +1464,7 @@
     "indie",
     "short",
     "cult",
-    "comedy-drama",
+    "comedydrama",
     "psychological",
     "superhero"
   ]
@@ -1487,7 +1549,7 @@
     "vertigo",
     "schindlersList",
     "singingInTheRain",
-    "ben-hur",
+    "benhur",
     "jaws",
     "starWars",
     "et",
@@ -1502,7 +1564,7 @@
     "platoon",
     "forrestGump",
     "braveheart",
-    "apollo13",
+    "apollo",
     "gladiator"
   ]
 },
@@ -2148,7 +2210,7 @@
     "yukon",
     "thames",
     "seine",
-    "rhône",
+    "rhone",
     "loire",
     "douro",
     "tiber",
@@ -2642,10 +2704,9 @@
     "network",
     "internet",
     "cybersecurity",
-    "machinelearning",
     "robotics",
     "userinterface",
-    "operatingsystem",
+    "operating",
     "application",
     "web",
     "development",
@@ -3209,3 +3270,4 @@
 
 
 ]
+}
