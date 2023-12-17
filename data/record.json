@@ -2535,7 +2535,6 @@
     "electrical",
     "energy",
     "automation",
-    "telecommunication",
     "architecture",
     "construction",
     "design"
@@ -2565,7 +2564,6 @@
     "dynamics",
     "kinematics",
     "gravity",
-    "electromagnetism",
     "thermodynamics",
     "quantum",
     "wave",
@@ -2668,7 +2666,6 @@
     "rocket",
     "spaceship",
     "astronaut",
-    "extraterrestrial",
     "alien",
     "lightyear"
   ]
