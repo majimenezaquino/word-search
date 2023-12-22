@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("donwload_pdf").addEventListener("click", donwloadPDF);
+    if (document.getElementById("donwload_pdf")){
+        document.getElementById("donwload_pdf").addEventListener("click", donwloadPDF);
+    }
+    
 });
 function donwloadPDF() {
     const queryString = window.location.search;

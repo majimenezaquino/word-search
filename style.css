@@ -1,14 +1,37 @@
 #contenido-para-pdf {
     width: 8.5in;    /* Ancho: 8.5 pulgadas */
-    margin: auto;    /* Centrar en la página */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Opcional: sombra para visualización */
-    background: white; /* Fondo blanco para el contenido */
-    overflow: hidden; /* Ocultar contenido fuera de los límites */
+    margin:0 auto;    /* Centrar en la página */
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
+
+.page{
+    width: 7.5in;
+    height: 11in;
+    overflow: hidden;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    background-color: white;
+    padding: 0.25in 0;
+    box-sizing: border-box;
+}
+.word_search_container {
+    margin: auto;
+    box-sizing: border-box;
+    width: 7.5in;   
+    height: 7.5in;
+    border:1px #ccc solid;
+    display: flex;
+    flex-wrap: wrap;
+
+}
 .header {
     margin: auto;
-    width: 8in;
+    width: 7.5in;
     padding-top: 20px;
     text-align: center;
     text-transform: uppercase;
@@ -19,20 +42,13 @@
    padding: 10px 0;
    margin: 0 auto;
 }
-.page{
-    width: 8.5in;
-    height: 11in;
-    overflow: hidden;
-    position: relative;
-    overflow: hidden;
-    page-break-after: always;
-}
+
 .footer_page {
     position: absolute;
     padding-right: 20px;
     left: 0;
     right: 0;
-    bottom: 10px;
+    bottom: 0.5in;
     margin: auto;
     text-align: left;
     display: flex;
@@ -55,16 +71,7 @@
     font-size: 18px;
     text-transform: uppercase;
 }
-.word_search_container {
-    margin: auto;
-    box-sizing: border-box;
-    width: 8in;   
-    height: 8in;
-    border:1px #ccc solid;
-    display: flex;
-    flex-wrap: wrap;
 
-}
 .footer {
     margin: auto;
     text-align: left;
@@ -109,16 +116,16 @@
 }
 
 .word-item {
-    width: 150px;
+    width: 140px;
     cursor: pointer;
     text-align: left;
     vertical-align: middle;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    font-size: 16px;
+    font-size: 15px;
     text-transform: uppercase;
-    padding:0  10px;
+    padding:0  5px;
     overflow: hidden;
     line-height: 15px;
  /* Opcional: bordes redondeados para los elementos de la lista */

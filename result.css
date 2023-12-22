@@ -1,32 +1,60 @@
 #contenido-para-pdf {
-  width: 8.5in;
-  margin:0px auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
+  width: 8.5in;    /* Ancho: 8.5 pulgadas */
+  margin:0 auto;    /* Centrar en la página */
+  padding: 0px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  padding: 0 4px;
-  box-sizing: border-box !important;
 }
 
-
 .page {
-  width: 4.2in;
+  width: 3.8in;
   height: 5.5in;
   overflow: hidden;
-  margin: 0px;
-  padding: 0px;
+}
+
+.page:nth-child(2n){
+  margin-left: 2px;
+}
+.page:nth-child(2n+1){
+  margin-right: 2px;
+}
+
+.container_words {
+  width: 3.8in;
+  height: 3.8in;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  font-family: Arial, sans-serif;
+  background: white;
+}
+.word_search_container .row {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(20, 1fr);
+}
+.word_search_container .row > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  width: 18px;
+  height: 18px;
   box-sizing: border-box;
 }
 
 .page .header {
-  margin-top: 50px;
   text-align: center;
   display: flex;
   justify-content: space-between;
   height: 25px;
-  padding: 0 5px;
+  padding: 0px 5px;
+  margin-top: 40px;
   overflow: hidden;
   line-height: 25px;
 }
@@ -73,33 +101,7 @@
   width: 100%;
   height: 100%;
 }
-/* 
-.container_words {
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  height: 200px;
-  justify-content: start;
-  font-family: Arial, sans-serif;
-} */
-.word_search_container .row {
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(20, 1fr);
-}
-.word_search_container .row > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
-  text-transform: uppercase;
-  text-align: center;
-  width: 20px;
-  height: 20px;
-}
+
 
 .word-item {
   width: 175px;
@@ -218,7 +220,7 @@
   position: relative;
   /* clip-path: polygon(1% 1%, 0% 100%, 100% 0); */
   z-index: 1;
-  transform: rotate(45deg);
+  transform: rotate(46deg);
   width: 15px !important;
 }
 .word-diagonal.diagonal-down-left .letter-container,
@@ -228,7 +230,7 @@
   height: 100%;
   justify-content: center;
   align-items: center;
-  transform: rotate(-45deg);
+  transform: rotate(-46deg);
   /* background-color: transparent;
     border: #000  solid 1px; */
 }
@@ -301,7 +303,7 @@
   position: relative;
   /* clip-path: polygon(1% 1%, 0% 100%, 100% 0); */
   z-index: 1;
-  transform: rotate(-45deg);
+  transform: rotate(-46deg);
   width: 15px !important;
 }
 
@@ -311,7 +313,7 @@
   height: 100%;
   justify-content: center;
   align-items: center;
-  transform: rotate(45deg);
+  transform: rotate(46deg);
   /* background-color: transparent;
     border: #000  solid 1px; */
 }
@@ -343,4 +345,51 @@
 }
 .word-diagonal.word-start.diagonal-up-left::after{
     display: none;
+}
+.word-diagonal.diagonal-down-right{
+  border-right: solid 1px #000;
+  border-left: solid 1px #000;
+  box-sizing: border-box;
+  position: relative;
+  /* clip-path: polygon(1% 1%, 0% 100%, 100% 0); */
+  z-index: 1;
+  transform: rotate(-46deg);
+  width: 15px !important;
+}
+.word-diagonal.diagonal-down-right .letter-container{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(46deg);
+  /* background-color: transparent;
+    border: #000  solid 1px; */
+}
+.word-diagonal.diagonal-down-right::after{
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  background-color: transparent;
+  top: 10px;
+  border-right: solid 1px #000;
+  border-left: solid 1px #000;
+  box-sizing: border-box;
+  z-index: -1;
+}
+.word-diagonal.word-start.diagonal-down-right{
+  border: #000  solid 1px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom: transparent solid 1px;
+}
+.word-diagonal.word-end.diagonal-down-right{
+  border: #000  solid 1px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-top: transparent solid 1px;
+}
+.word-diagonal.word-end.diagonal-down-right::after{
+  display: none;
 }
