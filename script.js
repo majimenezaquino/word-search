@@ -8,6 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
   init();
 });
 async function getData() {
+  const input_url = document.getElementById("input_url");
+  if(input_url){
+    const url = input_url.value;
+    if(url?.length){
+      const response = await fetch(url);
+      const data = await response.json();
+      console.log("data",data);
+      return data;
+    }
+  }
   //data
   const response = await fetch("https://raw.githubusercontent.com/majimenezaquino/word-search/master/data/record.json");
   // const response = await fetch("http://localhost:3000/data");
@@ -15,7 +25,8 @@ async function getData() {
   return data;
 }
 async function init() {
-  let pages = await getData();
+  const book = await getData();
+  let pages = book?.data || [];
   if(!pages){
     console.error("No se encontraron datos");
     return;
@@ -98,7 +109,7 @@ function allowTest(input) {
     return true;
   }
   // Esta expresión regular permite solo letras y espacios
-  const regex = /^[a-zA-Z]+$/;
+  const regex = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+$/ ;
 
   // Prueba si el input cumple con la expresión regular
   if (regex.test(input)) {

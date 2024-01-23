@@ -1,4 +1,8 @@
-[
+{
+  "description": "Descripción del libro",
+  "total_words": 2598,
+  "total_pages": 112,
+  "data":[
     {
       "summary": "Common household pets",
       "words": [
@@ -3250,3 +3254,4 @@
 
 
 ]
+}
