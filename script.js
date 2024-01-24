@@ -37,8 +37,7 @@ async function init() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const wordSearch =urlParams.get('s');
-  const searchPages =pages?.find((page) => (page.summary).toUpperCase()
-  === (wordSearch).toUpperCase());
+  const searchPages =pages?.find((page) => page?.summary?.toUpperCase() === wordSearch?.toUpperCase());
 
   let currentPage = parseInt(urlParams.get('page')) || 1;
   let limit = 10; // Cantidad de páginas por vista de paginación
@@ -82,8 +81,13 @@ async function init() {
     const words = page?.words.filter((word) => allowTest(word));
     words.sort((a, b) => b.length - a.length);
     const size = 20; //page.size;
+    console.log("words");
+    const input_url_base = document.getElementById("input_url_base").value;
+    if(!(input_url_base?.length)){
+      alert("No se encontró la url base");
+    }
     const grid = createGrid(size);
-      const qr_text = `https://wordsearch.onbook.es/index.html?s=${page.summary}&page=${index+1}`;
+      const qr_text = `${input_url_base}/index.html?s=${page.summary}&page=${index+1}`;
       generateQR(pageId,qr_text);
       validateWords(words, size); // Validación para asegurarse de que las palabras caben
       wordPositions[index] = insertWords(grid, words, size);
