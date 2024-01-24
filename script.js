@@ -37,7 +37,8 @@ async function init() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const wordSearch =urlParams.get('s');
-  const searchPages =pages?.find((page) => page.summary === wordSearch);
+  const searchPages =pages?.find((page) => (page.summary).toUpperCase()
+  === (wordSearch).toUpperCase());
 
   let currentPage = parseInt(urlParams.get('page')) || 1;
   let limit = 10; // Cantidad de páginas por vista de paginación

@@ -8,17 +8,25 @@ document.addEventListener("DOMContentLoaded", function () {
   init();
 });
 async function getData() {
-  //http://localhost:3000/word-search
+  const input_url = document.getElementById("input_url");
+  if(input_url){
+    const url = input_url.value;
+    if(url?.length){
+      const response = await fetch(url);
+      const data = await response.json();
+      console.log("data",data);
+      return data;
+    }
+  }
+  //data
   const response = await fetch("https://raw.githubusercontent.com/majimenezaquino/word-search/master/data/record.json");
+  // const response = await fetch("http://localhost:3000/data");
   const data = await response.json();
-
-    return data;
-  
-  
-  
+  return data;
 }
 async function init() {
-  const pages = await getData();
+  const book = await getData();
+  let pages = book?.data || [];
   const size = 20; // Tamaño de la cuadrícula
 
   // Obtener parámetros de URL para la paginación

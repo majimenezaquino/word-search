@@ -98,6 +98,8 @@
     height: 180px;
     justify-content: start;
     font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    width: 688px;
 }
 .word_search_container .row {
     display: grid;
@@ -113,22 +115,24 @@
     font-size: 22px;
     text-transform: uppercase;
     text-align: center;
+    
 }
 
 .word-item {
-    width: 140px;
+    box-sizing: border-box;
+    width: 155px !important;
     cursor: pointer;
     text-align: left;
     vertical-align: middle;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    font-size: 15px;
+    font-size: 14px;
     text-transform: uppercase;
     padding:0  5px;
+    margin: 0;
     overflow: hidden;
-    line-height: 15px;
- /* Opcional: bordes redondeados para los elementos de la lista */
+    margin-bottom: 5px;
 }
 
 .word-item:hover {
