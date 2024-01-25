@@ -39,7 +39,7 @@ async function init() {
   const startIndex = (currentPage - 1) * limit;
   const endIndex = Math.min(startIndex + limit, pages.length);
   seed = 123456;
-  const pageStart =5;
+  const pageStart =6;
   // Iterar solo sobre las páginas dentro del rango de paginación actual
   for (let index = startIndex; index < endIndex; index++) {
     const page = pages[index];
