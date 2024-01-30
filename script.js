@@ -14,13 +14,12 @@ async function getData() {
     if(url?.length){
       const response = await fetch(url);
       const data = await response.json();
-      console.log("data",data);
       return data;
     }
   }
   //data
-  const response = await fetch("https://raw.githubusercontent.com/majimenezaquino/word-search/master/data/record.json");
-  // const response = await fetch("http://localhost:3000/data");
+  //const response = await fetch("https://raw.githubusercontent.com/majimenezaquino/word-search/master/data/record.json");
+   const response = await fetch("http://localhost:3000/data");
   const data = await response.json();
   return data;
 }
