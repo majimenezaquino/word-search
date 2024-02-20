@@ -1,5 +1,5 @@
 function generateQR() {
-    var qr = new QRCode(document.getElementById("qrcode"), {
+    let qr = new QRCode(document.getElementById("qrcode"), {
         text: "http://jindo.dev.naver.com/collie",
         width: 128,
         height: 128,
