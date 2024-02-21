@@ -119,10 +119,9 @@
     justify-content:start;
     font-size: 13px;
     align-self: center;
-  color: #000 !important;
+    color: #000 !important;
   }
  .solution .word-item > span {
-    
     color: #000 !important;
   }
 
