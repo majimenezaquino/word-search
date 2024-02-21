@@ -106,6 +106,7 @@
     gap: 0; 
     overflow: hidden;
     color: #000;
+   
   }
   .footer_page {
     display: flex;
@@ -118,6 +119,11 @@
     justify-content:start;
     font-size: 13px;
     align-self: center;
+  color: #000 !important;
+  }
+ .solution .word-item > span {
+    
+    color: #000 !important;
   }
 
   .footer_page {
@@ -427,4 +433,23 @@
         border-bottom-right-radius: 50%;
         border-top-right-radius: 50%;
         border-right: solid 1px #000;
+    }
+    .contariner_footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding-top: 10px;
+        font-size: 10px;
+        padding-bottom: 50px;
+    }
+    #btn_soluctions {
+        display: inline-block;
+        margin: auto;
+        width: 250px;
+        background-color: rgb(48, 225, 95);
+        font-family: 'arial';
+        font-size: 30px;
+        padding: 20px;
+    
     }

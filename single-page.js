@@ -77,7 +77,7 @@ async function init() {
     const words = page?.words.filter((word) => allowTest(word));
     words.sort((a, b) => b.length - a.length);
     const size = 20; //page.size;
-    console.log("words");
+    console.log("words", words);
     const input_url_base = document.getElementById("input_url_base").value;
     if(!(input_url_base?.length)){
       alert("No se encontró la url base");
@@ -89,6 +89,7 @@ async function init() {
       wordPositions[index] = insertWords(grid, words, size);
       fillEmptySpaces(grid);
       renderGrid(pageId,grid);
+      addZIndexClass(words);
       rendercontainer_words(pageId,index,container_words_id,words);
   
   
@@ -97,7 +98,15 @@ async function init() {
   const btn_soluctions = document.getElementById("btn_soluctions");
   if(btn_soluctions){
     btn_soluctions.addEventListener("click", function () {
-      showSolutions(wordPositions);
+      const container = document.getElementById("contenido-para-pdf");
+      if(container.classList.contains("solution")){
+        container.classList.remove("solution");
+        btn_soluctions.innerHTML = "Show solutions";
+        return;
+      }
+      container.classList.add("solution");
+      btn_soluctions.innerHTML = "Hide solutions";
+      // showSolutions(wordPositions);
     });
   }
  
@@ -374,6 +383,7 @@ function placeWord(grid, word, row, col, direction) {
     } else if (i === word.length - 1) {
       cellClass += " word-end"; // Añade 'word-end' para la celda de fin
     }
+    cellClass += " " +  word.toLowerCase(); // Añade la clase de la palabra 
     cellClass += " " + getDirectionClass(direction); // Añade la clase de dirección
 
     grid[newRow][newCol] = { letter: word[i], class: cellClass };
@@ -567,4 +577,16 @@ function generateQR(pageId, text) {
     // Opcional: elimina el div temporal si no se necesita
     tempDiv.remove();
   }, 500);
+}
+
+function addZIndexClass(words) {
+  for (let i = 0; i < words.length; i++) {
+    const _classs = words[i].toLowerCase();
+    const elements = document.querySelectorAll(`.${_classs}`);
+    if (elements.length) {
+      elements.forEach((element) => {
+        element.style.zIndex = i;
+      });
+    }
+  }
 }
