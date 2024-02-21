@@ -121,7 +121,7 @@
     align-self: center;
     color: #000 !important;
   }
- .solution .word-item > span {
+.solution.word-item > span {
     color: #000 !important;
   }
 
@@ -137,57 +137,57 @@
   }
 
   /*solution horizontal*/
-  .solution .horizontal-left,  .solution .horizontal-right{
+ .solution.horizontal-left, .solution.horizontal-right{
     border-top: solid 1px #000;
     border-bottom: solid 1px #000;
     z-index: 13;
     color: #000;
     background-color: yellow;
   }
-  .solution .horizontal-left span,  .solution .horizontal-right span{
+ .solution.horizontal-left span, .solution.horizontal-right span{
     z-index: 13;
     overflow: hidden;
     color: #000;
   }
-  .solution .horizontal-left.word-start, .solution .horizontal-right.word-end{
+ .solution.horizontal-left.word-start,.solution.horizontal-right.word-end{
     border-right: solid 1px #000;
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
     color: #000;
   }
 
-  .solution .horizontal-left.word-end, .solution .horizontal-right.word-start{
+ .solution.horizontal-left.word-end,.solution.horizontal-right.word-start{
     border-left: solid 1px #000;
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
   }
 
   /*solution vertical*/
-    .solution .vertical-up,  .solution .vertical-down{
+   .solution.vertical-up, .solution.vertical-down{
         border-left: solid 1px #000;
         border-right: solid 1px #000;
         z-index: 13;
         background-color: rgb(202, 255, 191);
     }
-    .solution .vertical-up span,  .solution .vertical-down span{
+   .solution.vertical-up span, .solution.vertical-down span{
         z-index: 13;
         overflow: hidden;
         color: #000;
     }
-    .solution .vertical-up.word-start, .solution .vertical-down.word-end{
+   .solution.vertical-up.word-start,.solution.vertical-down.word-end{
         border-bottom: solid 1px #000;
         border-bottom-left-radius: 50%;
         border-bottom-right-radius: 50%;
     }
 
-    .solution .vertical-up.word-end, .solution .vertical-down.word-start{
+   .solution.vertical-up.word-end,.solution.vertical-down.word-start{
         border-top: solid 1px #000;
         border-top-left-radius: 50%;
         border-top-right-radius: 50%;
     }
 
     /*solution diagonal*/
-    .solution .diagonal-up-right{
+   .solution.diagonal-up-right{
         position: relative;
         transform: rotate(-45deg);
         border: solid 1px transparent;
@@ -196,7 +196,7 @@
         
     }
 
-    .solution .diagonal-up-right span{
+   .solution.diagonal-up-right span{
         position: absolute;
         transform: rotate(45deg);
         z-index: 10;
@@ -209,7 +209,7 @@
     }
  
 
-    .solution .diagonal-up-right::after {
+   .solution.diagonal-up-right::after {
         display: block;
         content: "";
         position: absolute;
@@ -224,7 +224,7 @@
         clip-path: polygon(0 0, 48% 0, 100% 0, 78% 48%, 100% 100%, 42% 100%, 0 100%, 0% 30%);
 
     }
-    .solution .word-start.diagonal-up-right {
+   .solution.word-start.diagonal-up-right {
         border: solid 1px #000;
         border-top-left-radius: 50%;
         border-bottom-left-radius: 50%;
@@ -232,7 +232,7 @@
         background-color: rgb(189, 178, 255);
     }
 
-    .solution .word-end.diagonal-up-right {
+   .solution.word-end.diagonal-up-right {
         border: solid 1px #000;
         border-top-right-radius: 50%;
         border-bottom-right-radius: 50%;
@@ -240,7 +240,7 @@
         background-color: rgb(189, 178, 255);
     }
 
-    .solution .word-end.diagonal-up-right::after {
+   .solution.word-end.diagonal-up-right::after {
         display: none;
         content: "";
         position: absolute;
@@ -250,7 +250,7 @@
         border: solid 1px transparent;
     }
     /*solution diagonal left*/
-    .solution .diagonal-up-left{
+   .solution.diagonal-up-left{
         position: relative;
         transform: rotate(45deg);
         border: solid 1px transparent;
@@ -258,7 +258,7 @@
         background-color: rgb(155, 246, 255);
     }
 
-    .solution .diagonal-up-left span{
+   .solution.diagonal-up-left span{
         position: absolute;
         transform: rotate(-45deg);
         z-index: 2;
@@ -266,7 +266,7 @@
         color: #000;
     }
 
-    .solution .diagonal-up-left::after {
+   .solution.diagonal-up-left::after {
         display: block;
         content: "";
         position: absolute;
@@ -281,21 +281,21 @@
        
     }
 
-    .solution .word-start.diagonal-up-left {
+   .solution.word-start.diagonal-up-left {
         border: solid 1px #000;
         border-top-right-radius: 50%;
         border-bottom-right-radius: 50%;
         border-left: solid 1px transparent;
     }
 
-    .solution .word-end.diagonal-up-left {
+   .solution.word-end.diagonal-up-left {
         border: solid 1px #000;
         border-top-left-radius: 50%;
         border-bottom-left-radius: 50%;
         border-right: solid 1px transparent;
     }
 
-    .solution .word-end.diagonal-up-left::after {
+   .solution.word-end.diagonal-up-left::after {
         display: none;
         content: "";
         position: absolute;
@@ -305,13 +305,13 @@
         border: solid 1px transparent;
     }
 
-    .solution .word-start.diagonal-up-left {
+   .solution.word-start.diagonal-up-left {
         border: solid 1px #000;
         border-top-right-radius: 50%;
         border-bottom-right-radius: 50%;
         border-left: solid 1px transparent;
     }
-    .solution .word-start.diagonal-up-left::after {
+   .solution.word-start.diagonal-up-left::after {
 
         border-top-right-radius: 50%;
         border-bottom-right-radius: 50%;
@@ -319,7 +319,7 @@
     }
 
         /*solution diagonal down right*/
-        .solution .diagonal-down-right{
+       .solution.diagonal-down-right{
             position: relative;
             transform: rotate(45deg);
             border: solid 1px transparent;
@@ -329,7 +329,7 @@
 
 
     /*solution diagonal down right*/
-    .solution .diagonal-down-right span{
+   .solution.diagonal-down-right span{
         position: absolute;
         transform: rotate(-45deg);
         z-index: 2;
@@ -340,7 +340,7 @@
        
     }
 
-    .solution .diagonal-down-right::after {
+   .solution.diagonal-down-right::after {
         display: block;
         content: "";
         position: absolute;
@@ -358,30 +358,30 @@
      
     }
 
- .solution .word-end.diagonal-down-right {
+.solution.word-end.diagonal-down-right {
  background-color: transparent;
    
  }
 
- .solution .word-end.diagonal-down-right::after {
+.solution.word-end.diagonal-down-right::after {
     border-bottom-right-radius: 50%;
     border-top-right-radius: 50%;
     border-right: solid 1px #000;
  }
 
 
- .solution .word-start.diagonal-down-right {
+.solution.word-start.diagonal-down-right {
  background-color: transparent;
  border-left: solid 1px #000;
 }
 
-    .solution .word-start.diagonal-down-right::after {
+   .solution.word-start.diagonal-down-right::after {
         border-bottom-left-radius: 50%;
         border-top-left-radius: 50%;
         border-left: solid 1px #000;
     }
     
-    .solution .diagonal-down-left {
+   .solution.diagonal-down-left {
         position: relative;
         transform: rotate(-45deg);
         border: solid 1px transparent;
@@ -389,7 +389,7 @@
         background-color: rgb(255, 173, 173);
     }
 
-    .solution .diagonal-down-left span {
+   .solution.diagonal-down-left span {
         position: absolute;
         transform: rotate(45deg);
         z-index: 2;
@@ -398,7 +398,7 @@
         
     }
 
-    .solution .diagonal-down-left::after {
+   .solution.diagonal-down-left::after {
         display: block;
         content: "";
         position: absolute;
@@ -413,22 +413,22 @@
         clip-path: inset(0); 
     }
 
-    .solution .word-end.diagonal-down-left {
+   .solution.word-end.diagonal-down-left {
         background-color: transparent;
     }
 
-    .solution .word-end.diagonal-down-left::after {
+   .solution.word-end.diagonal-down-left::after {
         border-bottom-left-radius: 50%;
         border-top-left-radius: 50%;
         border-left: solid 1px #000;
     }
 
-    .solution .word-start.diagonal-down-left {
+   .solution.word-start.diagonal-down-left {
         background-color: transparent;
         /* border-right: solid 1px #000; */
     }
 
-    .solution .word-start.diagonal-down-left::after {
+   .solution.word-start.diagonal-down-left::after {
         border-bottom-right-radius: 50%;
         border-top-right-radius: 50%;
         border-right: solid 1px #000;
@@ -451,4 +451,9 @@
         font-size: 30px;
         padding: 20px;
     
+    }
+
+    .active{
+        background-color: #1daece;
+        color: #fff;
     }

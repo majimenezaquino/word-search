@@ -49,7 +49,7 @@ async function init() {
   // Calcular índices de inicio y fin para la paginación
   const startIndex = (currentPage - 1) * limit;
   const endIndex = Math.min(startIndex + limit, pages.length);
-
+  let words = [];
   seed = 123456;
   const pageStart =6;
   for(let index = startIndex; index < endIndex; index++){
@@ -74,7 +74,7 @@ async function init() {
     <div class="footer_page"> page ${index+pageStart}</div>
     `
     document.querySelector("#contenido-para-pdf").appendChild(contentPage);
-    const words = page?.words.filter((word) => allowTest(word));
+    words = page?.words.filter((word) => allowTest(word));
     words.sort((a, b) => b.length - a.length);
     const size = 20; //page.size;
     console.log("words", words);
@@ -83,30 +83,29 @@ async function init() {
       alert("No se encontró la url base");
     }
     const grid = createGrid(size);
-      const qr_text = `${input_url_base}/index.html?page=${index+1}`;
+      const qr_text = `${input_url_base}/index.html?s=${page.summary}`;
       generateQR(pageId,qr_text);
       validateWords(words, size); // Validación para asegurarse de que las palabras caben
       wordPositions[index] = insertWords(grid, words, size);
       fillEmptySpaces(grid);
       renderGrid(pageId,grid);
-      addZIndexClass(words);
+     
       rendercontainer_words(pageId,index,container_words_id,words);
   
   
   }
 
   const btn_soluctions = document.getElementById("btn_soluctions");
+  let show = false;
   if(btn_soluctions){
     btn_soluctions.addEventListener("click", function () {
-      const container = document.getElementById("contenido-para-pdf");
-      if(container.classList.contains("solution")){
-        container.classList.remove("solution");
+      show = !show;
+      addClassSolution(words,show);
+      if(!show){
         btn_soluctions.innerHTML = "Show solutions";
-        return;
+      }else{
+         btn_soluctions.innerHTML = "Hide solutions";
       }
-      container.classList.add("solution");
-      btn_soluctions.innerHTML = "Hide solutions";
-      // showSolutions(wordPositions);
     });
   }
  
@@ -464,7 +463,10 @@ function rendercontainer_words(pageId,index,elementId,words) {
     let wordDiv = document.createElement("div");
     wordDiv.innerHTML = `<span>${word}</span>`;
     wordDiv.classList.add("word-item");
-    wordDiv.addEventListener("click", () => highlightWord(pageId,index,word));
+    wordDiv.addEventListener("click", () =>{
+      // wordDiv.classList.toggle("active");
+      addClassSolution([word],true);
+    });
     container_wordsDiv.appendChild(wordDiv);
   });
 }
@@ -579,13 +581,26 @@ function generateQR(pageId, text) {
   }, 500);
 }
 
-function addZIndexClass(words) {
+function addClassSolution(words,show) {
+  const elements = document.querySelectorAll(".word_search_container > div");
+  if (elements.length) {
+    elements.forEach((element) => {
+      element.classList.remove("solution");
+      element.style.zIndex = 0;
+    });
+  }
+
   for (let i = 0; i < words.length; i++) {
     const _classs = words[i].toLowerCase();
     const elements = document.querySelectorAll(`.${_classs}`);
     if (elements.length) {
       elements.forEach((element) => {
-        element.style.zIndex = i;
+        element.style.zIndex = i + 1;
+        element.classList.remove("solution");
+        if(show){
+          element.classList.add("solution");
+        }
+        
       });
     }
   }
