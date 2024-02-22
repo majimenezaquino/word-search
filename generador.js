@@ -8,33 +8,50 @@ document.addEventListener("DOMContentLoaded", function () {
   init();
 });
 async function getData() {
-  //http://localhost:3000/word-search
-  const response = await fetch("https://raw.githubusercontent.com/majimenezaquino/word-search/master/data/record.json");
+  const input_url = document.getElementById("input_url");
+  if(input_url){
+    const url = input_url.value;
+    if(url?.length){
+      const response = await fetch(url);
+      const data = await response.json();
+      return data;
+    }
+  }
+  //data
+  //const response = await fetch("https://raw.githubusercontent.com/majimenezaquino/word-search/master/data/record.json");
+   const response = await fetch("http://localhost:3000/data");
   const data = await response.json();
   return data;
 }
 async function init() {
-  let pages = await getData();
+  const book = await getData();
+  let pages = book?.data || [];
+  if(!pages){
+    console.error("No se encontraron datos");
+    return;
+  }
   const size = 20; // Tamaño de la cuadrícula 
   //const size = pages.size;
   // Obtener parámetros de URL para la paginación
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const wordSearch =urlParams.get('s');
-  const searchPages =pages.find((page) => page.summary === wordSearch);
+  const searchPages =pages?.find((page) => page?.summary?.toUpperCase() === wordSearch?.toUpperCase());
 
-  const currentPage = parseInt(urlParams.get('page')) || 1;
+  let currentPage = parseInt(urlParams.get('page')) || 1;
   let limit = 10; // Cantidad de páginas por vista de paginación
   if(wordSearch && wordSearch?.length){
     pages = [searchPages];
     limit=1000;
+    currentPage = 1;
   }
 
   // Calcular índices de inicio y fin para la paginación
   const startIndex = (currentPage - 1) * limit;
   const endIndex = Math.min(startIndex + limit, pages.length);
-
+  let words = [];
   seed = 123456;
+  const pageStart =6;
   for(let index = startIndex; index < endIndex; index++){
     const page = pages[index];
     const pageId = `page_${index}`;
@@ -50,37 +67,66 @@ async function init() {
     </div>
     <div class="word_search_container"></div>
     <div class="footer">
-      <div class="barcode">
-        <!-- <img src="img/01.png" alt="Descripción de la imagen" /> -->
-        <div class="qrcode"></div>
-        <canvas class="canvas" width="80" height="80" id="canvas_qr_${index}"></canvas>
-      </div>
+      <div class="container_qr_code"></div>
       <div class="container_words" id="${container_words_id}"></div>
-      <div class="footer_page"> page ${index+1}</div>
+   
     </div>
+    <div class="footer_page"> page ${index+pageStart}</div>
     `
     document.querySelector("#contenido-para-pdf").appendChild(contentPage);
-    const words = page.words;
+    words = page?.words.filter((word) => allowTest(word));
     words.sort((a, b) => b.length - a.length);
     const size = 20; //page.size;
+    console.log("words", words);
+    const input_url_base = document.getElementById("input_url_base").value;
+    if(!(input_url_base?.length)){
+      alert("No se encontró la url base");
+    }
     const grid = createGrid(size);
-      const qr_text = `https://wordsearch.onbook.es?s=${page.summary}&page=${index+1}`;
+      const qr_text = `${input_url_base}/index.html?s=${page.summary}`;
       generateQR(pageId,qr_text);
       validateWords(words, size); // Validación para asegurarse de que las palabras caben
       wordPositions[index] = insertWords(grid, words, size);
       fillEmptySpaces(grid);
       renderGrid(pageId,grid);
+     
       rendercontainer_words(pageId,index,container_words_id,words);
   
   
   }
 
   const btn_soluctions = document.getElementById("btn_soluctions");
-  btn_soluctions.addEventListener("click", function () {
-    showSolutions(wordPositions);
-  });
+  let show = false;
+  if(btn_soluctions){
+    btn_soluctions.addEventListener("click", function () {
+      show = !show;
+      addClassSolution(words,show);
+      if(!show){
+        btn_soluctions.innerHTML = "Show solutions";
+      }else{
+         btn_soluctions.innerHTML = "Hide solutions";
+      }
+    });
+  }
+ 
 
 
+}
+function allowTest(input) {
+  if(input.length >15){
+    console.error("Word error length: ",input);
+    return true;
+  }
+  // Esta expresión regular permite solo letras y espacios
+  const regex = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+$/ ;
+
+  // Prueba si el input cumple con la expresión regular
+  if (regex.test(input)) {
+      return true; // El input solo contiene texto
+  } else {
+    console.error("Word error: ",input);
+      return true; // El input contiene números o símbolos
+  }
 }
 
 function createGrid(size) {
@@ -336,6 +382,7 @@ function placeWord(grid, word, row, col, direction) {
     } else if (i === word.length - 1) {
       cellClass += " word-end"; // Añade 'word-end' para la celda de fin
     }
+    cellClass += " " +  word.toLowerCase(); // Añade la clase de la palabra 
     cellClass += " " + getDirectionClass(direction); // Añade la clase de dirección
 
     grid[newRow][newCol] = { letter: word[i], class: cellClass };
@@ -381,7 +428,7 @@ function fillEmptySpaces(grid) {
   grid.forEach((row) => {
     row.forEach((cell, index) => {
       if (cell === "-") {
-        row[index] = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+        row[index] = String.fromCharCode(65 + Math.floor(seededRandom() * 26));
       }
     });
   });
@@ -391,20 +438,20 @@ function renderGrid(pageId, grid) {
   const table = document.querySelector(`#${pageId} .word_search_container`);
   table.innerHTML = "";
   grid.forEach((row, rowIndex) => {
-    let tr = document.createElement("div");
-    tr.className = "row";
+    // let tr = document.createElement("div");
+    // tr.className = "row";
     row.forEach((cell, colIndex) => {
       let td = document.createElement("div");
       td.className = "cell";
-      td.textContent = typeof cell === "object" ? cell.letter : cell;
+      td.innerHTML = typeof cell === "object" ? `<span> ${cell.letter} </span>` : `<span> ${cell} </span>` ;
       if (typeof cell === "object" && cell.class) {
         td.className = cell.class; // Aplica las clases aquí
       }
       td.dataset.row = rowIndex;
       td.dataset.col = colIndex;
-      tr.appendChild(td);
+      table.appendChild(td);
     });
-    table.appendChild(tr);
+    //table.appendChild(tr);
   });
 }
 
@@ -414,9 +461,12 @@ function rendercontainer_words(pageId,index,elementId,words) {
   words = words.sort();
   words.forEach((word) => {
     let wordDiv = document.createElement("div");
-    wordDiv.textContent = word;
+    wordDiv.innerHTML = `<span>${word}</span>`;
     wordDiv.classList.add("word-item");
-    wordDiv.addEventListener("click", () => highlightWord(pageId,index,word));
+    wordDiv.addEventListener("click", () =>{
+      // wordDiv.classList.toggle("active");
+      addClassSolution([word],true);
+    });
     container_wordsDiv.appendChild(wordDiv);
   });
 }
@@ -489,46 +539,69 @@ function getColorForWord(word, _wordPositions) {
   return colors[colorIndex];
 }
 
-function generateQR(pageId,text) {
-  const element = document.querySelector(`#${pageId} .qrcode`);
-  if (!element) {
-    console.error(`No se encontró el elemento QR para la página ${pageId}`);
+function generateQR(pageId, text) {
+  // Primero, verifica si el contenedor para el QR existe
+  const container = document.querySelector(`#${pageId} .container_qr_code`);
+  if (!container) {
+    console.error(`No se encontró el contenedor para la página ${pageId}`);
     return;
   }
 
+  // Crea un div temporal para contener el QR generado
+  const tempDiv = document.createElement('div');
 
-  let qr = new QRCode(element, {
+  // Genera el QR y lo añade al div temporal
+  let qr = new QRCode(tempDiv, {
     text: text,
-    width: 128,
-    height: 128,
+    width: 160,
+    height: 160,
     colorDark: "#000000",
     colorLight: "#ffffff",
     correctLevel: QRCode.CorrectLevel.H,
   });
- 
- 
-  const canvas = document.querySelector(`#${pageId} .canvas`);
+
+  // Crea un canvas y lo añade al contenedor
+  const canvas = document.createElement('canvas');
+  canvas.width = 160; // Establece el tamaño deseado para el canvas
+  canvas.height = 160;
+  container.appendChild(canvas); // Añade el canvas al contenedor
   let context = canvas.getContext("2d");
 
   setTimeout(function () {
-    let qrCanvas =  document.querySelectorAll(`#${pageId} canvas`)[0];
-    // Esperar a que el código QR se genere
-  
-    context.drawImage(qrCanvas, 0, 0, 80, 80);
-
-    // Cargar y dibujar la imagen en el centro del código QR
-    // let img = new Image();
-    // img.onload = function () {
-    //   let imageSize = 50; // Tamaño de la imagen
-    //   let imagePosition = (128 - imageSize) / 2; // Posición central
-    //   context.drawImage(
-    //     img,
-    //     imagePosition,
-    //     imagePosition,
-    //     imageSize,
-    //     imageSize
-    //   );
-    // };
-    // img.src = "img/06.png"; // Ruta a tu imagen
+    // Encuentra el canvas del QR generado dentro del div temporal
+    let qrCanvas = tempDiv.querySelector('canvas');
+    if (qrCanvas) {
+      // Dibuja el QR en el nuevo canvas
+      context.drawImage(qrCanvas, 0, 0, canvas.width, canvas.height);
+    } else {
+      console.error('No se pudo generar el QR.');
+    }
+    // Opcional: elimina el div temporal si no se necesita
+    tempDiv.remove();
   }, 500);
+}
+
+function addClassSolution(words,show) {
+  const elements = document.querySelectorAll(".word_search_container > div");
+  if (elements.length) {
+    elements.forEach((element) => {
+      element.classList.remove("solution");
+      element.style.zIndex = 0;
+    });
+  }
+
+  for (let i = 0; i < words.length; i++) {
+    const _classs = words[i].toLowerCase();
+    const elements = document.querySelectorAll(`.${_classs}`);
+    if (elements.length) {
+      elements.forEach((element) => {
+        element.style.zIndex = i + 1;
+        element.classList.remove("solution");
+        if(show){
+          element.classList.add("solution");
+        }
+        
+      });
+    }
+  }
 }
