@@ -12,6 +12,7 @@
     color: #000;
     padding: 20px;
     overflow: hidden;
+    text-transform: uppercase;
 }
 .solution > div span {
     color: #ccc;
