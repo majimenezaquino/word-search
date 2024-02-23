@@ -1,6 +1,6 @@
 let wordPositions = [{}]; // Definir wordPositions en un alcance global
 let cellColorMap = new Map();
-let seed = 12345;
+let seed = 123456;
 
 document.addEventListener("DOMContentLoaded", function () {
   // Asumiendo que ya tienes una lista de palabras seleccionadas y validadas
@@ -14,65 +14,109 @@ async function getData() {
     if(url?.length){
       const response = await fetch(url);
       const data = await response.json();
-      console.log("data",data);
-     return data;
+      return data;
     }
   }
   //data
-  const response = await fetch("http://localhost:3000/data");
+  //const response = await fetch("https://raw.githubusercontent.com/majimenezaquino/word-search/master/data/record.json");
+   const response = await fetch("http://localhost:3000/data");
   const data = await response.json();
   return data;
 }
 async function init() {
   const book = await getData();
   let pages = book?.data || [];
-  const size = 20; // Tamaño de la cuadrícula
-
+  if(!pages){
+    console.error("No se encontraron datos");
+    return;
+  }
+  const size = 20; // Tamaño de la cuadrícula 
+  //const size = pages.size;
   // Obtener parámetros de URL para la paginación
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const currentPage = parseInt(urlParams.get('page')) || 1;
-  const limit = 20; // Cantidad de páginas por vista de paginación
+  const wordSearch =urlParams.get('s');
+  const searchPages =pages?.find((page) => page?.summary?.toUpperCase() === wordSearch?.toUpperCase());
+
+  let currentPage = parseInt(urlParams.get('page')) || 1;
+  let limit = 10; // Cantidad de páginas por vista de paginación
+  if(wordSearch && wordSearch?.length){
+    pages = [searchPages];
+    limit=1000;
+    currentPage = 1;
+  }
 
   // Calcular índices de inicio y fin para la paginación
   const startIndex = (currentPage - 1) * limit;
   const endIndex = Math.min(startIndex + limit, pages.length);
+  let words = [];
   seed = 123456;
   const pageStart =6;
-  // Iterar solo sobre las páginas dentro del rango de paginación actual
-  for (let index = startIndex; index < endIndex; index++) {
+  for(let index = startIndex; index < endIndex; index++){
     const page = pages[index];
     const pageId = `page_${index}`;
     const container_words_id = `list_words_${index}`;
-    const contentPage = document.createElement("div");
+    const contentPage =  document.createElement("div");
     contentPage.classList.add("page");
     contentPage.setAttribute("id", pageId);
     contentPage.innerHTML = `
-      <div class="header">
-        <h4>${page.summary}</h4>
-        <small> page ${index + pageStart}</small>
-      </div>
-      <div class="word_search_container"></div>
-      <div class="footer">
-        <small class="qrcode"> page ${index + 1}</small>
-      </div>
-    `;
+    <div class="header">
+   
+      <b>
+        ${page.summary}  
+      </b>
+      <small> page (${index+pageStart})</small>
+    </div>
+    <div class="word_search_container"></div>
+    <div class="footer">
+      <div class="container_words" id="${container_words_id}"></div>
+   
+    </div>
+    `
     document.querySelector("#contenido-para-pdf").appendChild(contentPage);
-
-    const words = page.words;
+    words = page?.words.filter((word) => allowTest(word));
     words.sort((a, b) => b.length - a.length);
+    const size = 20; //page.size;
+    // console.log("words", words);
+    const input_url_base = document.getElementById("input_url_base").value;
+    if(!(input_url_base?.length)){
+      alert("No se encontró la url base");
+    }
     const grid = createGrid(size);
-
-    validateWords(words, size); // Validación para asegurarse de que las palabras caben
-    wordPositions[index] = insertWords(grid, words, size);
-    fillEmptySpaces(grid);
-    renderGrid(pageId, grid);
-    // rendercontainer_words(pageId, index, container_words_id, words);
+      const qr_text = `${input_url_base}/index.html?s=${page.summary}`;
+      generateQR(pageId,qr_text);
+      validateWords(words, size); // Validación para asegurarse de que las palabras caben
+      wordPositions[index] = insertWords(grid, words, size);
+      fillEmptySpaces(grid);
+      renderGrid(pageId,grid);
+     
+      addClassSolution(words,true);
+      rendercontainer_words(pageId,index,container_words_id,words);
+  
+  
   }
 
-  showSolutions(wordPositions);
-}
+  
+ 
 
+
+}
+function allowTest(input) {
+  if(input.length >15){
+    console.error("Word error length: ",input);
+    return true;
+  }
+  // Esta expresión regular permite solo letras y espacios
+  const regex = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+$/ ;
+
+  // Prueba si el input cumple con la expresión regular
+  if (regex.test(input)) {
+      return true; // El input solo contiene texto
+  } else {
+    console.error("Word error: ",input);
+      return true; // El input contiene números o símbolos
+  }
+}
 
 function createGrid(size) {
   const grid = [];
@@ -327,6 +371,7 @@ function placeWord(grid, word, row, col, direction) {
     } else if (i === word.length - 1) {
       cellClass += " word-end"; // Añade 'word-end' para la celda de fin
     }
+    cellClass += " " +  word.toLowerCase(); // Añade la clase de la palabra 
     cellClass += " " + getDirectionClass(direction); // Añade la clase de dirección
 
     grid[newRow][newCol] = { letter: word[i], class: cellClass };
@@ -372,7 +417,7 @@ function fillEmptySpaces(grid) {
   grid.forEach((row) => {
     row.forEach((cell, index) => {
       if (cell === "-") {
-        row[index] = String.fromCharCode(65 +  Math.floor(seededRandom() * 26));
+        row[index] = String.fromCharCode(65 + Math.floor(seededRandom() * 26));
       }
     });
   });
@@ -382,21 +427,20 @@ function renderGrid(pageId, grid) {
   const table = document.querySelector(`#${pageId} .word_search_container`);
   table.innerHTML = "";
   grid.forEach((row, rowIndex) => {
-    let tr = document.createElement("div");
-    tr.className = "row";
+    // let tr = document.createElement("div");
+    // tr.className = "row";
     row.forEach((cell, colIndex) => {
       let td = document.createElement("div");
       td.className = "cell";
-      td.textContent = typeof cell === "object" ? cell.letter : cell;
+      td.innerHTML = typeof cell === "object" ? `<span> ${cell.letter} </span>` : `<span> ${cell} </span>` ;
       if (typeof cell === "object" && cell.class) {
         td.className = cell.class; // Aplica las clases aquí
       }
       td.dataset.row = rowIndex;
       td.dataset.col = colIndex;
-      td.innerHTML = `<span class="letter-container">${td.textContent}</span>`;
-      tr.appendChild(td);
+      table.appendChild(td);
     });
-    table.appendChild(tr);
+    //table.appendChild(tr);
   });
 }
 
@@ -406,9 +450,12 @@ function rendercontainer_words(pageId,index,elementId,words) {
   words = words.sort();
   words.forEach((word) => {
     let wordDiv = document.createElement("div");
-    wordDiv.textContent = word;
+    wordDiv.innerHTML = `<span>${word}</span>`;
     wordDiv.classList.add("word-item");
-    wordDiv.addEventListener("click", () => highlightWord(pageId,index,word));
+    wordDiv.addEventListener("click", () =>{
+      // wordDiv.classList.toggle("active");
+      addClassSolution([word],true);
+    });
     container_wordsDiv.appendChild(wordDiv);
   });
 }
@@ -467,53 +514,78 @@ function showSolutions(_wordPositions) {
 function getColorForWord(word, _wordPositions) {
   // Define una paleta de colores.
   const colors = [
-    // "#777"
+    "#FFADAD",
+    "#FFD6A5",
+    "#FDFFB6",
+    "#CAFFBF",
+    "#9BF6FF",
+    "#A0C4FF",
+    "#BDB2FF",
+    "#FFC6FF",
   ];
 
   let colorIndex = Object.keys(_wordPositions).indexOf(word) % colors.length;
   return colors[colorIndex];
 }
 
-function generateQR(pageId,text) {
-  const element = document.querySelector(`#${pageId} .qrcode`);
-  if (!element) {
-    console.error(`No se encontró el elemento QR para la página ${pageId}`);
+function generateQR(pageId, text) {
+  // Primero, verifica si el contenedor para el QR existe
+  const container = document.querySelector(`#${pageId} .container_qr_code`);
+  if (!container) {
+    console.error(`No se encontró el contenedor para la página ${pageId}`);
     return;
   }
 
+  // Crea un div temporal para contener el QR generado
+  const tempDiv = document.createElement('div');
 
-  let qr = new QRCode(element, {
+  // Genera el QR y lo añade al div temporal
+  let qr = new QRCode(tempDiv, {
     text: text,
-    width: 128,
-    height: 128,
+    width: 160,
+    height: 160,
     colorDark: "#000000",
     colorLight: "#ffffff",
     correctLevel: QRCode.CorrectLevel.H,
   });
- 
- 
-  const canvas = document.querySelector(`#${pageId} .canvas`);
+
+  // Crea un canvas y lo añade al contenedor
+  const canvas = document.createElement('canvas');
+  canvas.width = 160; // Establece el tamaño deseado para el canvas
+  canvas.height = 160;
+  container.appendChild(canvas); // Añade el canvas al contenedor
   let context = canvas.getContext("2d");
 
   setTimeout(function () {
-    let qrCanvas =  document.querySelectorAll(`#${pageId} canvas`)[0];
-    // Esperar a que el código QR se genere
-  
-    context.drawImage(qrCanvas, 0, 0, 80, 80);
-
-    // Cargar y dibujar la imagen en el centro del código QR
-    // let img = new Image();
-    // img.onload = function () {
-    //   let imageSize = 50; // Tamaño de la imagen
-    //   let imagePosition = (128 - imageSize) / 2; // Posición central
-    //   context.drawImage(
-    //     img,
-    //     imagePosition,
-    //     imagePosition,
-    //     imageSize,
-    //     imageSize
-    //   );
-    // };
-    // img.src = "img/06.png"; // Ruta a tu imagen
+    // Encuentra el canvas del QR generado dentro del div temporal
+    let qrCanvas = tempDiv.querySelector('canvas');
+    if (qrCanvas) {
+      // Dibuja el QR en el nuevo canvas
+      context.drawImage(qrCanvas, 0, 0, canvas.width, canvas.height);
+    } else {
+      console.error('No se pudo generar el QR.');
+    }
+    // Opcional: elimina el div temporal si no se necesita
+    tempDiv.remove();
   }, 500);
+}
+
+function addClassSolution(words,show) {
+
+
+
+  for (let i = 0; i < words.length; i++) {
+   
+    const _classs = words[i].toLowerCase();
+    const elements = document.querySelectorAll(`.${_classs}`);
+  
+    if (elements.length) {
+      console.log("addClassSolution", elements[0]);
+      elements.forEach((element) => {
+        element.style.zIndex = i + 1;
+        element.classList.add("solution");
+        
+      });
+    }
+  }
 }
