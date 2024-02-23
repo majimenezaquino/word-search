@@ -38,12 +38,15 @@ async function init() {
   const wordSearch =urlParams.get('s');
   const searchPages =pages?.find((page) => page?.summary?.toUpperCase() === wordSearch?.toUpperCase());
 
-  let currentPage = parseInt(urlParams.get('page')) || 1;
+  let currentPage =  1;
   let limit = 10; // Cantidad de páginas por vista de paginación
   if(wordSearch && wordSearch?.length){
     pages = [searchPages];
     limit=1000;
     currentPage = 1;
+  }else{
+    pages =[];
+    alert("sorry the page this page is not available");
   }
 
   // Calcular índices de inicio y fin para la paginación
@@ -64,14 +67,13 @@ async function init() {
       <h3>
         ${page.summary}
       </h3>
+      <small>page (${index+pageStart})</small>
     </div>
     <div class="word_search_container"></div>
     <div class="footer">
-      <div class="container_qr_code"></div>
       <div class="container_words" id="${container_words_id}"></div>
    
     </div>
-    <div class="footer_page"> page ${index+pageStart}</div>
     `
     document.querySelector("#contenido-para-pdf").appendChild(contentPage);
     words = page?.words.filter((word) => allowTest(word));
