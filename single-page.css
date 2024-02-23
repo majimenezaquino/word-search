@@ -12,7 +12,7 @@
     color: #000;
     padding: 20px;
     overflow: hidden;
-    text-transform: uppercase;
+   
 }
 .solution > div span {
     color: #ccc;
@@ -45,6 +45,7 @@
     gap: 0; 
     width: 100%; 
     overflow: hidden;
+    text-transform: uppercase;
 }
 .word_search_container > div {
     aspect-ratio: 1 / 1;
@@ -124,6 +125,7 @@
     color: blue !important;
     text-decoration: underline;
     cursor: pointer;
+    text-transform: uppercase;
   }
 .solution.word-item > span {
     color: #000 !important;
