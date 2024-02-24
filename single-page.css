@@ -101,12 +101,10 @@
     
   }
   .container_words{
-    padding-left: 5px;
-    flex-grow: 1;
-    width: 100px;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
-    gap: 0; 
+    gap: 1; 
     overflow: hidden;
     color: #000;
    
@@ -119,22 +117,37 @@
   }
   .word-item {
     display: flex;
-    justify-content:start;
-    font-size: 15px;
-    align-self: center;
-    color: blue !important;
-    text-decoration: underline;
+    justify-content: center;
+    align-items: center; /* Asegura que el contenido esté centrado verticalmente */
+    font-size: 17px;
+    color: blue;
     cursor: pointer;
     text-transform: uppercase;
+    padding: 10px 20px; /* Ajusta el padding para un mejor aspecto */
+    border: 1px solid blue; /* Hace el borde más visible y en concordancia con el color del texto */
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f0f0f0; /* Un color de fondo más suave */
+    margin: 5px;
+    transition: all 0.3s ease; /* Transición suave para los efectos */
   }
-.solution.word-item > span {
+  
+  .word-item:hover, .word-item:focus {
+    background-color: blue; /* Cambia el fondo al color principal al pasar el mouse o enfocar */
+    color: white; /* Cambia el color del texto a blanco para contraste */
+    border-color: darkblue; /* Hace el borde más oscuro para un efecto más profundo */
+    outline: none; /* Elimina el contorno que aparece al enfocar */
+  }
+/* .solution.word-item > span {
     color: #000 !important;
-  }
+  } */
 
   @media (max-width: 600px) {
+    .container_words {
+      grid-template-columns: repeat(3, 1fr);}
      .word-item {
-      font-size: 12px; 
-      margin: 1px 10px;
+      font-size: 12px;
+      padding: 5px; 
     }
   }
   .footer_page {
@@ -222,7 +235,7 @@
         content: "";
         position: absolute;
         left: 0;
-        width: 150%;
+        width: 170%;
         height: 100%;
         top: -1px;
         border-top: solid 1px #000;
@@ -279,7 +292,7 @@
         content: "";
         position: absolute;
         left: -50%;
-        width: 150%;
+        width: 170%;
         height: 100%;
         top: -1px;
         z-index: 1;

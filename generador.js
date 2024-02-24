@@ -30,12 +30,11 @@ async function init() {
     console.error("No se encontraron datos");
     return;
   }
-  const size = 20; // Tamaño de la cuadrícula 
-  //const size = pages.size;
-  // Obtener parámetros de URL para la paginación
+  const size = 20;
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const wordSearch =urlParams.get('s');
+  let wordSearch =urlParams.get('s');
+  wordSearch = decodeURIComponent(wordSearch);
   const searchPages =pages?.find((page) => page?.summary?.toUpperCase() === wordSearch?.toUpperCase());
 
   let currentPage = parseInt(urlParams.get('page')) || 1;
@@ -83,7 +82,8 @@ async function init() {
       alert("No se encontró la url base");
     }
     const grid = createGrid(size);
-      const qr_text = `${input_url_base}/index.html?s=${page.summary}`;
+      const textEndode = encodeURIComponent(page.summary);
+      const qr_text = `${input_url_base}/index.html?s=${textEndode}`;
       generateQR(pageId,qr_text);
       validateWords(words, size); // Validación para asegurarse de que las palabras caben
       wordPositions[index] = insertWords(grid, words, size);
