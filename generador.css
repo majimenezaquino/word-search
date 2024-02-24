@@ -51,6 +51,7 @@
     gap: 0; 
     width: 100%; 
     overflow: hidden;
+    text-transform: uppercase;
 }
 .word_search_container > div {
     aspect-ratio: 1 / 1;
@@ -114,6 +115,7 @@
     gap: 0; 
     overflow: hidden;
     color: #000;
+    text-transform: uppercase;
    
   }
   .footer_page {
@@ -125,9 +127,11 @@
   .word-item {
     display: flex;
     justify-content:start;
-    font-size: 12px;
+    font-size: 13px;
     align-self: center;
     color: #000 !important;
+    text-transform: uppercase;
+    padding-right: 5px;
   }
 .solution.word-item > span {
     color: #000 !important;

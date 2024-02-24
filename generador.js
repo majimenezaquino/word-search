@@ -75,7 +75,7 @@ async function init() {
     words = page?.words.filter((word) => allowTest(word));
     words.sort((a, b) => b.length - a.length);
     const size = 20; //page.size;
-    console.log("words", words);
+    //console.log("words");
     const input_url_base = document.getElementById("input_url_base").value;
     if(!(input_url_base?.length)){
       alert("No se encontró la url base");

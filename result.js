@@ -39,7 +39,7 @@ async function init() {
   const searchPages =pages?.find((page) => page?.summary?.toUpperCase() === wordSearch?.toUpperCase());
 
   let currentPage = parseInt(urlParams.get('page')) || 1;
-  let limit = 10; // Cantidad de páginas por vista de paginación
+  let limit = 40; // Cantidad de páginas por vista de paginación
   if(wordSearch && wordSearch?.length){
     pages = [searchPages];
     limit=1000;
@@ -84,7 +84,7 @@ async function init() {
     }
     const grid = createGrid(size);
       const qr_text = `${input_url_base}/index.html?s=${page.summary}`;
-      generateQR(pageId,qr_text);
+      //generateQR(pageId,qr_text);
       validateWords(words, size); // Validación para asegurarse de que las palabras caben
       wordPositions[index] = insertWords(grid, words, size);
       fillEmptySpaces(grid);
@@ -580,7 +580,7 @@ function addClassSolution(words,show) {
     const elements = document.querySelectorAll(`.${_classs}`);
   
     if (elements.length) {
-      console.log("addClassSolution", elements[0]);
+      // console.log("addClassSolution", elements[0]);
       elements.forEach((element) => {
         element.style.zIndex = i + 1;
         element.classList.add("solution");

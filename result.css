@@ -31,6 +31,7 @@
     overflow: hidden;
     margin: 0 auto;
   
+  
 }
 .page:nth-of-type(2n) {
   /* left: 1in;
@@ -76,11 +77,12 @@
     gap: 0; 
     width: 100%; 
     overflow: hidden;
+    text-transform: uppercase;
+    background-color: #eee; 
+    color: #888;
 }
 .word_search_container > div {
     aspect-ratio: 1 / 1;
-    background-color: #eee; 
-    color: #888;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -140,6 +142,7 @@
     gap: 0; 
     overflow: hidden;
     color: #000;
+    text-transform: uppercase;
    
   }
   .footer_page {
@@ -500,11 +503,11 @@
         color: #fff;
     }
 
-    .solution {
+    .word-diagonal {
         background-color: #fff !important;
         color: #000 !important;
     }
-    .solution::after{
+    .word-diagonal::after{
       background-color: #fff !important;
       color: #000 !important;
     }
