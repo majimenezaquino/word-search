@@ -33,8 +33,7 @@ async function init() {
   const size = 20;
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  let wordSearch =urlParams.get('s');
-  wordSearch = decodeURIComponent(wordSearch);
+  const wordSearch =urlParams.get('s');
   const searchPages =pages?.find((page) => page?.summary?.toUpperCase() === wordSearch?.toUpperCase());
 
   let currentPage = parseInt(urlParams.get('page')) || 1;
