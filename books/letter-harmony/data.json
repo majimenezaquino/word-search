@@ -28,9 +28,7 @@
                     "VITALITY",
                     "HARMONY",
                     "PEACE",
-                    "CELEBRATION",
-                    "ENJOYMENT"
-                ],
+                    "CELEBRATION"                ],
                 "len": 24
             },
             {
@@ -1073,7 +1071,6 @@
                     "FELLOWSHIP",
                     "GRANTS",
                     "COURSEWORK",
-                    "TRAINING",
                     "LECTURING",
                     "ASSESSMENTS"
                 ],

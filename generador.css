@@ -83,7 +83,8 @@
   
   @media (min-width: 1000px) {
     .word_search_container > div > span{
-      font-size: 20px; 
+      font-size: 22px; 
+      font-family: 'arial';
     }
   }
   .footer {
