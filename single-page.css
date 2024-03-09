@@ -531,9 +531,13 @@
     }
 
     #container_books .book h3 {
-        font-size: 15px;
-        margin-bottom: 5px;
-    }
+      font-size: 17px;
+      color: blue;
+  }
+  #container_books .book p{
+      font-size: 15px;
+      color: #444;
+  }
 
     .bounce {
         cursor: pointer;

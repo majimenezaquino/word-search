@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded", async function () {
             alt="${book.title}"
           />
         </a>
-        <h3>
+       
           <a href="${book.link}"
-            >${book.title}: ${book.sub_title}</a
+            > <h3>${book.title}:</h3> <p> ${book.sub_title}</p></a
           >
-        </h3>
+       
 
             `
         container_books.appendChild(article)
