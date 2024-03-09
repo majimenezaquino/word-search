@@ -4,23 +4,22 @@ document.addEventListener("DOMContentLoaded", async function () {
    if(container_books){
     const response = await fetch("https://raw.githubusercontent.com/majimenezaquino/word-search/master/books.json");
     const books = await response.json();
-     for(const book in books){
-        console.log(data)
+     for(const book of books){
+        console.log("books",book.title)
         const article = document.createElement("article")
+             article.classList.add('book')
             article.innerHTML =`
-            <article class="book">
-        <a href="https://raw.githubusercontent.com/majimenezaquino/word-search/master/img/${article.link}">
+        <a href="${book.link}">
           <img
-            src="${article.image}"
-            alt="${article.title}"
+            src="https://raw.githubusercontent.com/majimenezaquino/word-search/master/img/${book.image}"
+            alt="${book.title}"
           />
         </a>
         <h3>
-          <a href="${article.link}"
-            >${article.title}: ${article.sub_title}</a
+          <a href="${book.link}"
+            >${book.title}: ${book.sub_title}</a
           >
         </h3>
-      </article>
 
             `
         container_books.appendChild(article)
