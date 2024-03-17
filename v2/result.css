@@ -9,6 +9,12 @@
     width: 8.5in;
     margin:0 auto;
     color: #000;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* gap: 0; */
+    padding-left: 0.8in;
+    padding-right: 0.8in;
+ 
 }
 .solution > div span {
     color: #ccc;
@@ -20,46 +26,67 @@
     overflow: hidden;
     page-break-after: always;
     box-sizing: border-box;
-    width: 7in;
-    height: 11in;
+    width: 3.2in;
+    height: 5.5in;
     overflow: hidden;
+    margin: 0 auto;
+  
   
 }
 .page:nth-of-type(2n) {
-  left: 1in;
-  position: relative; 
+  /* left: 1in;
+  position: relative;  */
 }
 .page:nth-of-type(2n+1) {
-  left: 0.5in;
-  position: relative; 
+  /* left: 0.5in;
+  position: relative;  */
 }
 
 .header {
+
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px;
     padding-bottom: 5px;
+    overflow: hidden;
+    flex-wrap: nowrap;
+}
+.header > b {
+    font-size: 10px;
+    color: #000;
+    font-family: 'arial';
+    text-align: center;
+
+}
+.header  > small {
+    font-size: 7px;
+    color: #000;
+    font-family: 'arial';
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 .word_search_container {
     margin: auto;
     box-sizing: border-box;
     border:1px #ccc solid;
     display: grid;
-    grid-template-columns: repeat(16, 1fr); 
+    grid-template-columns: repeat(20, 1fr); 
     gap: 0; 
     width: 100%; 
     overflow: hidden;
     text-transform: uppercase;
+    background-color: #eee; 
+    color: #888;
 }
 .word_search_container > div {
     aspect-ratio: 1 / 1;
-    background-color: white; 
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 1px #eee;
+    border: solid 1px transparent;
     box-sizing: border-box;
 }
 
@@ -77,15 +104,13 @@
 
   @media (max-width: 600px) {
     .word_search_container > div > span {
-      font-size: 12px; 
+      font-size: 10px; 
     }
   }
   
   @media (min-width: 1000px) {
     .word_search_container > div > span{
-      font-size: 26px; 
-      font-family: 'arial';
-      font-weight: bold;
+      font-size: 10px; 
     }
   }
   .footer {
@@ -113,7 +138,7 @@
     flex-grow: 1;
     width: 100px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(4, 1fr); 
     gap: 0; 
     overflow: hidden;
     color: #000;
@@ -129,16 +154,11 @@
   .word-item {
     display: flex;
     justify-content:start;
-    font-size: 17px;
+    font-size: 8px;
     align-self: center;
     color: #000 !important;
-    text-transform: uppercase;
-    padding-right: 5px;
-    box-sizing: border-box;
-    padding: 4px;
-    border-left: solid 1px #ccc;
+    font-family: 'Courier New', Courier, monospace;
   }
-
 .solution.word-item > span {
     color: #000 !important;
   }
@@ -217,12 +237,10 @@
    .solution.diagonal-up-right span{
         position: absolute;
         transform: rotate(45deg);
-        z-index: 10;
+        z-index: 1;
         overflow: hidden;
         color: #000;
-        background-color: rgb(189, 178, 255);     
-        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); 
-        border: solid 1px #000;
+      
         
     }
  
@@ -231,16 +249,23 @@
         display: block;
         content: "";
         position: absolute;
-        left: 50%;
-        width: 150%;
+        left: 0%;
+        width: 170%;
         height: 100%;
         top: -1px;
         border-top: solid 1px #000;
         border-bottom: solid 1px #000;
         background-color: rgb(189, 178, 255);
+        border-bottom: #000 1px solid;
         z-index: -1;
-        clip-path: polygon(0 0, 48% 0, 100% 0, 78% 48%, 100% 100%, 42% 100%, 0 100%, 0% 30%);
+        /* clip-path: polygon(0 0, 48% 0, 100% 0, 78% 48%, 100% 100%, 42% 100%, 0 100%, 0% 30%); */
 
+    }
+
+    .solution.word-start.diagonal-up-right::after{
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        border-left: solid 1px #000;
     }
    .solution.word-start.diagonal-up-right {
         border: solid 1px #000;
@@ -266,6 +291,7 @@
         width: 0;
         z-index: -1;
         border: solid 1px transparent;
+        background-color: red;
     }
     /*solution diagonal left*/
    .solution.diagonal-up-left{
@@ -282,14 +308,15 @@
         z-index: 2;
         overflow: hidden;
         color: #000;
+       
     }
 
    .solution.diagonal-up-left::after {
         display: block;
         content: "";
         position: absolute;
-        left: -50%;
-        width: 150%;
+        left: -60%;
+        width: 170%;
         height: 100%;
         top: -1px;
         z-index: 1;
@@ -333,7 +360,7 @@
 
         border-top-right-radius: 50%;
         border-bottom-right-radius: 50%;
-        border-right: solid 1px transparent;
+        border-right: solid 1px #000;
     }
 
         /*solution diagonal down right*/
@@ -363,7 +390,7 @@
         content: "";
         position: absolute;
         left: -50%;
-        width: 150%;
+        width: 170%;
         height: 100%;
         top: -1px;
         z-index: 1;
@@ -420,10 +447,10 @@
         display: block;
         content: "";
         position: absolute;
-        left: -51%;
-        width: 150%;
+        /* left: -50%; */
+        width: 170%;
         height: 100%;
-        top: 0px;
+        top: -1px;
         z-index: 1;
         border-top: solid 1px #000;
         border-bottom: solid 1px #000;
@@ -474,4 +501,13 @@
     .active{
         background-color: #1daece;
         color: #fff;
+    }
+
+    .word-diagonal {
+        background-color: #fff !important;
+        color: #000 !important;
+    }
+    .word-diagonal::after{
+      background-color: #fff !important;
+      color: #000 !important;
     }

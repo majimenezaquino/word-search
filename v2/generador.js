@@ -30,7 +30,7 @@ async function init() {
     console.error("No se encontraron datos");
     return;
   }
-  const size = 20;
+ 
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const wordSearch =urlParams.get('s');
@@ -49,6 +49,9 @@ async function init() {
   const endIndex = Math.min(startIndex + limit, pages.length);
   let words = [];
   seed = 123456;
+  // const size = book.grid?parseInt(book.grid) :20;
+  const size = 16;
+  console.log("size: ",size);
   const pageStart =6;
   for(let index = startIndex; index < endIndex; index++){
     const page = pages[index];
@@ -74,7 +77,7 @@ async function init() {
     document.querySelector("#contenido-para-pdf").appendChild(contentPage);
     words = page?.words.filter((word) => allowTest(word));
     words.sort((a, b) => b.length - a.length);
-    const size = 20; //page.size;
+     //page.size;
     //console.log("words");
     const input_url_base = document.getElementById("input_url_base").value;
     if(!(input_url_base?.length)){
