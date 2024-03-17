@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sopa de Letras</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../../single-page.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-2BD65SM0HS"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-2BD65SM0HS");
+    </script>
+  </head>
+  <body>
+    <div id="contenido-para-pdf">
+      <input
+        type="hidden"
+        value="https://raw.githubusercontent.com/majimenezaquino/word-search/master/books/armonia-de-detras/data.json"
+        id="input_url"
+      />
+      <input
+        type="hidden"
+        value="https://wordsearch.onbook.es/books/armonia-de-detras"
+        id="input_url_base"
+      />
+    </div>
+    <div class="container_solution">
+      <!-- <button id="donwload_pdf">Descargar PDF</button> -->
+      <div class="contariner_footer">
+        <button id="btn_soluctions">Show solutions</button>
+        <div class="bounce"><p>👇</p></div>
+      </div>
+    </div>
+    <div id="container_book_header">
+      <h1>Other books created by me</h1>
+    </div>
+    <div id="container_books">
+      <article class="book">
+        <a href="https://www.amazon.com/dp/B0CTYKHB3T">
+          <img
+            src="../../img/uplifting-word-search-puzzles.png"
+            alt="Uplifting word search puzzles"
+          />
+        </a>
+        <h3>
+          <a href="https://www.amazon.com/dp/B0CTYKHB3T"
+            >Uplifting word search puzzles: Calming Anxiety while Finding Peace
+            and Igniting Joy through Over 2500 Uplifting Words in Large Print
+            alongside QR Code for Interactive Solutions</a
+          >
+        </h3>
+      </article>
+
+      <article class="book">
+        <a href="https://www.amazon.com/dp/B0CQTL759N">
+          <img
+            src="../../img/Word Adventures for Adults.jpg"
+            alt="Word Adventures for Adults"
+          />
+        </a>
+        <h3>
+          <a href="https://www.amazon.com/dp/B0CQTL759N"
+            >Word Adventures for Adults: Word Adventures for Adults: A 2600-Word Puzzle Journey with QR-Linked Interactive Online Solutions, Large-Print Puzzles, and Answers Compiled in the Final Pages </a
+          >
+        </h3>
+      </article>
+
+      <article class="book">
+        <a href="https://www.amazon.com/dp/B0CTMHRQCS">
+          <img
+            src="../../img/Sopa de letras en espanol.jpg"
+            alt="Sopa de letras en español"
+          />
+        </a>
+        <h3>
+          <a href="https://www.amazon.com/dp/B0CTMHRQCS"
+            >Sopa de letras en español: Aprende y Relájate con Más de 2500 Palabras y Soluciones Interactivas a Través de Códigos QR</a
+          >
+        </h3>
+      </article>
+
+      
+    
+    </div>
+    <script src="../../single-page.js"></script>
+    <script src="../../donwload-pdf.js"></script>
+  </body>
+</html>

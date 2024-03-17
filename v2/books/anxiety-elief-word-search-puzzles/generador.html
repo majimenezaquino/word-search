@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sopa de Letras</title>
+    <link rel="stylesheet" type="text/css" href="../../generador.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-2BD65SM0HS"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-2BD65SM0HS");
+    </script>
+  </head>
+  <body>
+    <div>
+      <button id="donwload_pdf">Descargar PDF</button>
+      <!-- <button id="btn_soluctions">Mostrar Soluciones</button> -->
+  </div>
+    <div id="contenido-para-pdf">
+      <input
+        type="hidden"
+        value="https://raw.githubusercontent.com/majimenezaquino/word-search/master/books/armonia-de-detras/data.json"
+        id="input_url"
+      />
+      <input
+        type="hidden"
+        value="https://wordsearch.onbook.es/books/armonia-de-detras"
+        id="input_url_base"
+      />
+    </div>
+    <div class="container_solution">
+      <!-- <button id="donwload_pdf">Descargar PDF</button> -->
+      <!-- <div class="contariner_footer">
+        <button id="btn_soluctions">Show solutions</button>
+      </div> -->
+    </div>
+    <script src="../../generador.js"></script>
+    <script src="../../donwload-pdf.js"></script>
+  </body>
+</html>
