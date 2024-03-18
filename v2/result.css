@@ -73,7 +73,7 @@
     box-sizing: border-box;
     border:1px #ccc solid;
     display: grid;
-    grid-template-columns: repeat(20, 1fr); 
+    grid-template-columns: repeat(16, 1fr); 
     gap: 0; 
     width: 100%; 
     overflow: hidden;

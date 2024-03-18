@@ -190,15 +190,14 @@
         {
             "summary": "Methods Of Psychological Support",
             "words": [
+                "TRANSFORMATION",
                 "GUIDANCE",
                 "REFLECTION",
                 "PROGRESS",
                 "ADAPTATION",
                 "INTERVENTION",
-                "DESENSITIZATION",
                 "STRATEGY",
                 "PLANNING",
-                "TRANSFORMATION",
                 "REALIZATION",
                 "COLLABORATION",
                 "FEEDBACK",
@@ -405,7 +404,6 @@
                 "EDUCATION",
                 "REVELATION",
                 "EXPERIENCE",
-                "COMPREHENSION",
                 "ILLUMINATION",
                 "SKILL",
                 "EXPERTISE",
@@ -424,8 +422,7 @@
         {
             "summary": "Aspects Of Loyalty",
             "words": [
-                "DEPENDABILITY",
-                "LOYALTY",
+                "DUTY",
                 "ENGAGEMENT",
                 "FIRMNESS",
                 "GENUINENESS",
@@ -441,9 +438,8 @@
                 "STABILITY",
                 "AUTHENTICITY",
                 "CONSISTENCY",
-                "RESPONSIBILITY",
-                "TRUSTWORTHINESS",
-                "FAITHFULNESS"
+                "FAITHFULNESS",
+                "LOYALTY"
             ],
             "len": 20
         },
@@ -555,9 +551,9 @@
             "summary": "Self-Care Activities",
             "words": [
                 "CODING",
+                "GEOGRAPHING",
                 "DOODLING",
                 "BUILDING",
-                "PHOTOGRAPHING",
                 "SCULPTING",
                 "COMPOSING",
                 "JOURNALING",
@@ -572,7 +568,7 @@
                 "SKETCHING",
                 "DESIGNING",
                 "EXPERIMENTING",
-                "SELFREFLECTION",
+                "INFECTIONAL",
                 "CREATIVITY"
             ],
             "len": 20
@@ -771,7 +767,6 @@
                 "APPREHENSION",
                 "UNFETTERING",
                 "AWAKENMENT",
-                "COMPLETENESS",
                 "SATORI",
                 "DAWNING",
                 "PERCIPIENCE",
@@ -1507,7 +1502,7 @@
                 "REGARD",
                 "RELISH",
                 "RECOGNIZE",
-                "HOLD DEAR",
+                "HERALIC",
                 "ESTEEM"
             ],
             "len": 20
@@ -1777,7 +1772,6 @@
             "words": [
                 "CONDENSE",
                 "RECALL",
-                "INTERROGATE",
                 "SCHEMATIC",
                 "ARTICULATE",
                 "RECITE",
@@ -2011,7 +2005,6 @@
                 "NURTURED",
                 "UPLIFTED",
                 "EMPATHIZED",
-                "HARMONIOUS",
                 "GROUNDED",
                 "AFFIRMED",
                 "GRACIOUS",
@@ -2024,7 +2017,6 @@
                 "EMBRACED",
                 "SUSTAIN",
                 "VALIDATE",
-                "ACKNOWLEDGE",
                 "RADIATE",
                 "CELEBRATE"
             ],
