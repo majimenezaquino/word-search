@@ -1,6 +1,7 @@
 let wordPositions = [{}]; // Definir wordPositions en un alcance global
 let cellColorMap = new Map();
-let seed = 123456;
+let seed = 1234;
+const size =18;
 
 document.addEventListener("DOMContentLoaded", function () {
   // Asumiendo que ya tienes una lista de palabras seleccionadas y validadas
@@ -9,6 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 async function getData() {
   const input_url = document.getElementById("input_url");
+  // const url = window.location.href;
+  // const response = await fetch("http://localhost:3000/data");
+  // const data = await response.json();
+  // return data;
   if(input_url){
     const url = input_url.value;
     if(url?.length){
@@ -17,11 +22,7 @@ async function getData() {
       return data;
     }
   }
-  //data
-  //const response = await fetch("https://raw.githubusercontent.com/majimenezaquino/word-search/master/data/record.json");
-   const response = await fetch("http://localhost:3000/data");
-  const data = await response.json();
-  return data;
+
 }
 async function init() {
   const book = await getData();
@@ -48,10 +49,7 @@ async function init() {
   const startIndex = (currentPage - 1) * limit;
   const endIndex = Math.min(startIndex + limit, pages.length);
   let words = [];
-  seed = 123456;
-  // const size = book.grid?parseInt(book.grid) :20;
-  const size = 16;
-  console.log("size: ",size);
+
   const pageStart =6;
   for(let index = startIndex; index < endIndex; index++){
     const page = pages[index];
@@ -77,8 +75,6 @@ async function init() {
     document.querySelector("#contenido-para-pdf").appendChild(contentPage);
     words = page?.words.filter((word) => allowTest(word));
     words.sort((a, b) => b.length - a.length);
-     //page.size;
-    //console.log("words");
     const input_url_base = document.getElementById("input_url_base").value;
     if(!(input_url_base?.length)){
       alert("No se encontró la url base");

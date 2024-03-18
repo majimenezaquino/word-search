@@ -73,7 +73,7 @@
     box-sizing: border-box;
     border:1px #ccc solid;
     display: grid;
-    grid-template-columns: repeat(16, 1fr); 
+    grid-template-columns: repeat(18, 1fr); 
     gap: 0; 
     width: 100%; 
     overflow: hidden;
@@ -134,11 +134,10 @@
     
   }
   .container_words{
-    padding-left: 5px;
     flex-grow: 1;
     width: 100px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(3, 1fr); 
     gap: 0; 
     overflow: hidden;
     color: #000;

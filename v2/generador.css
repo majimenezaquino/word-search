@@ -42,12 +42,21 @@
     margin-top: 50px;
     padding-bottom: 5px;
 }
+.header h3 {
+    font-size: 23px;
+    font-family: 'arial';
+    /* font-weight: bold; */
+    text-transform: uppercase;
+    color: #000;
+
+}
+
 .word_search_container {
     margin: auto;
     box-sizing: border-box;
     border:1px #ccc solid;
     display: grid;
-    grid-template-columns: repeat(16, 1fr); 
+    grid-template-columns: repeat(18, 1fr); 
     gap: 0; 
     width: 100%; 
     overflow: hidden;

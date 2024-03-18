@@ -1,6 +1,8 @@
 let wordPositions = [{}]; // Definir wordPositions en un alcance global
 let cellColorMap = new Map();
-let seed = 123456;
+let seed = 1234;
+const size = 18; 
+
 
 document.addEventListener("DOMContentLoaded", function () {
   // Asumiendo que ya tienes una lista de palabras seleccionadas y validadas
@@ -9,9 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 async function getData() {
   const input_url = document.getElementById("input_url");
-  const response = await fetch("http://localhost:3000/data");
-  const data = await response.json();
-  return data;
+  // const url = window.location.href;
+  // const response = await fetch("http://localhost:3000/data");
+  // const data = await response.json();
+  // return data;
   if(input_url){
     const url = input_url.value;
     if(url?.length){
@@ -29,7 +32,7 @@ async function init() {
     console.error("No se encontraron datos");
     return;
   }
-  const size = 16; // Tamaño de la cuadrícula 
+// Tamaño de la cuadrícula 
   //const size = pages.size;
   // Obtener parámetros de URL para la paginación
   const queryString = window.location.search;
@@ -49,7 +52,7 @@ async function init() {
   const startIndex = (currentPage - 1) * limit;
   const endIndex = Math.min(startIndex + limit, pages.length);
   let words = [];
-  seed = 123456;
+
   const pageStart =6;
   for(let index = startIndex; index < endIndex; index++){
     const page = pages[index];
