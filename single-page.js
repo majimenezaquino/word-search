@@ -67,7 +67,6 @@ async function init() {
       <h3>
         ${page.summary}
       </h3>
-      <small>page (${index+pageStart})</small>
     </div>
     <div class="word_search_container"></div>
     <div class="footer">

@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", async function () {
           />
         </a>
        
-          <a href="${book.link}"
-            > <h3>${book.title}:</h3> <p> ${book.sub_title}</p></a
-          >
+         <div class="book__info">
+         <a href="${book.link}"> <h3>${book.title}:</h3> <p> ${book.sub_title}</p></a>
+         </div>
        
 
             `

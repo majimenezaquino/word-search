@@ -43,11 +43,10 @@
     padding-bottom: 5px;
 }
 .header h3 {
-    font-size: 23px;
+    font-size: 25px;
     font-family: 'arial';
-    /* font-weight: bold; */
-    text-transform: uppercase;
     color: #000;
+    font-weight: 400;
 
 }
 
