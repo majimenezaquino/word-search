@@ -53,6 +53,7 @@ async function init() {
   let words = [];
   const pageStart =6;
   for(let index = startIndex; index < endIndex; index++){
+    seed = 1234;
     const page = pages[index];
     const pageId = `page_${index}`;
     const container_words_id = `list_words_${index}`;
