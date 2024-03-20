@@ -542,7 +542,7 @@ function generateQR(pageId, text) {
   // Primero, verifica si el contenedor para el QR existe
   const container = document.querySelector(`#${pageId} .container_qr_code`);
   if (!container) {
-    console.error(`No se encontró el contenedor para la página ${pageId}`);
+  //  console.error(`No se encontró el contenedor para la página ${pageId}`);
     return;
   }
 

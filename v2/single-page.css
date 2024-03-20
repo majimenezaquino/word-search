@@ -4,6 +4,22 @@
     box-sizing: border-box;
     border: 0;
 }
+body {
+  position: relative;
+}
+.body::before {
+  content: ""; /* Necesario para que el pseudoelemento se genere */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://raw.githubusercontent.com/majimenezaquino/word-search/master/img/mandala.jpeg'); /* Ruta a la imagen de fondo */
+  background-position: center; 
+  background-repeat: repeat;
+  opacity: 0.5; /* Ajusta la opacidad del fondo entre 0 (transparente) y 1 (opaco) */
+  z-index: -1; /* Asegura que el fondo esté detrás del contenido */
+}
 
 #contenido-para-pdf {
     width: 100%;
@@ -14,6 +30,7 @@
     overflow: hidden;
    
 }
+
 .solution > div span {
     color: #ccc;
    }
@@ -577,3 +594,4 @@
   }
 
  
+  

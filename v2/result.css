@@ -4,7 +4,20 @@
     box-sizing: border-box;
     border: 0;
 }
-
+body {
+  position: relative;
+}
+body::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://raw.githubusercontent.com/majimenezaquino/word-search/master/img/mandala.jpeg'); /* Ruta a la imagen de fondo */
+  background-position: center; 
+  background-repeat: repeat;
+  opacity: 0.05; /* Ajusta la opacidad del fondo entre 0 (transparente) y 1 (opaco) */
+  z-index: -1; 
+}
 #contenido-para-pdf {
     width: 8.5in;
     margin:0 auto;
@@ -14,8 +27,25 @@
     /* gap: 0; */
     padding-left: 0.8in;
     padding-right: 0.8in;
+    
  
 }
+
+
+#contenido-para-pdf::before {
+  content: ""; /* Necesario para que el pseudoelemento se genere */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://raw.githubusercontent.com/majimenezaquino/word-search/master/img/mandala.jpeg'); /* Ruta a la imagen de fondo */
+  background-position: center; 
+  background-repeat: repeat;
+  opacity: 0.05; /* Ajusta la opacidad del fondo entre 0 (transparente) y 1 (opaco) */
+  z-index: -1; /* Asegura que el fondo esté detrás del contenido */
+}
+
 .solution > div span {
     color: #ccc;
    }

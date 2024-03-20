@@ -57,9 +57,9 @@ async function init() {
     const pageId = `page_${index}`;
     const container_words_id = `list_words_${index}`;
     const contentPage =  document.createElement("div");
-    contentPage.classList.add("page");
+    contentPage.classList.add("container_page");
     contentPage.setAttribute("id", pageId);
-    contentPage.innerHTML = `
+    contentPage.innerHTML = `<div class="page">
     <div class="header">
       <h3>
         ${page.summary}
@@ -72,6 +72,7 @@ async function init() {
    
     </div>
     <div class="footer_page"> page ${index+pageStart}</div>
+    </div>
     `
     document.querySelector("#contenido-para-pdf").appendChild(contentPage);
     words = page?.words.filter((word) => allowTest(word));
