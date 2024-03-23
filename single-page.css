@@ -576,3 +576,28 @@
   }
 
  
+  .alert {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffcc00; /* Fondo amarillo */
+    color: #000; /* Texto negro */
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #f90; /* Borde naranja */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    font-family: Arial, sans-serif;
+  }
+
+  .alert a {
+    color: #0056b3; /* Enlaces en azul */
+    text-decoration: underline;
+  }
+
+  .alert p {
+    margin: 10px 0;
+  }
+
+  .alert emoji {
+    font-size: 24px;
+  }

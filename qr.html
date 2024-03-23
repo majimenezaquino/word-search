@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Generador de QR con Logotipo</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <style>
+        #qr-container {
+            position: relative;
+            width: 300px; /* Ajustado para dar más espacio al logo */
+            height: 300px; /* Ajustado para dar más espacio al logo */
+            margin-top: 15px;
+        }
+        #logo {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px; /* Logotipo más grande */
+            height: 100px; /* Logotipo más grande */
+        }
+    </style>
+</head>
+<body>
+    <div id="qr-container">
+        <div id="qrcode"></div>
+        <img src="png-transparent-computer-icons-heart-symbol-handshake-web-love-text-hand-thumbnail.png" id="logo">
+    </div>
+    <input type="text" id="text" placeholder="Ingrese su texto o URL aquí">
+    <select id="tipo">
+        <option value="url">URL</option>
+        <option value="texto">Texto</option>
+        <!-- Agrega más tipos según necesites -->
+    </select>
+    <button onclick="generarQR()">Generar QR</button>
+
+    <script>
+        function generarQR() {
+            // Limpia el contenedor del QR para generar uno nuevo
+            var qrcodeContainer = document.getElementById("qrcode");
+            qrcodeContainer.innerHTML = "";
+
+            var tipo = document.getElementById("tipo").value;
+            var text = document.getElementById("text").value;
+            var data;
+
+            switch(tipo) {
+                case 'url':
+                    data = text;
+                    break;
+                case 'texto':
+                    data = text;
+                    break;
+                // Agrega más casos según los tipos que desees manejar
+            }
+
+            new QRCode(qrcodeContainer, {
+                text: data,
+                width: 300, /* Ajustado para dar más espacio al logo */
+                height: 300, /* Ajustado para dar más espacio al logo */
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        }
+    </script>
+</body>
+</html>
