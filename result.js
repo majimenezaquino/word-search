@@ -50,9 +50,10 @@ async function init() {
   const startIndex = (currentPage - 1) * limit;
   const endIndex = Math.min(startIndex + limit, pages.length);
   let words = [];
-  seed = 123456;
+
   const pageStart =6;
   for(let index = startIndex; index < endIndex; index++){
+    seed = 123456;
     const page = pages[index];
     const pageId = `page_${index}`;
     const container_words_id = `list_words_${index}`;

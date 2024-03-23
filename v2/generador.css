@@ -169,12 +169,12 @@
     align-self: center;
     color: #000 !important;
     text-transform: uppercase;
-    padding-right: 5px;
     box-sizing: border-box;
-    padding: 4px;
+    padding: 1px 4px;
     border-left: solid 1px #ccc;
     font-family: calibri;
     font-weight: 600;
+    line-height: 18px;
   }
 
 .solution.word-item > span {
