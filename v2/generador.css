@@ -6,7 +6,7 @@
 }
 
 #contenido-para-pdf {
-    width: 8.5in;
+    width: 8.625in;
     margin:0 auto;
     color: #000;
 
@@ -17,7 +17,7 @@
   overflow: hidden; 
   z-index: 1;
   width: 100%;
-  height: 11in;
+  height: 11.25in;
 }
 
 .container_page::before {
