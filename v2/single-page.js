@@ -51,7 +51,7 @@ async function init() {
   const startIndex = (currentPage - 1) * limit;
   const endIndex = Math.min(startIndex + limit, pages.length);
   let words = [];
-  const pageStart =6;
+  const pageStart =4;
   for(let index = startIndex; index < endIndex; index++){
     seed = 1234;
     const page = pages[index];

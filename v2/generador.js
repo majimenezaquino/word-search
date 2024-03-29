@@ -539,36 +539,7 @@ function getColorForWord(word, _wordPositions) {
   return colors[colorIndex];
 }
 
-function generateQR(pageId, text) {
-  // Primero, verifica si el contenedor para el QR existe
-  const container = document.querySelector(`#${pageId} .container_qr_code`);
-  if (!container) {
-    console.error(`No se encontró el contenedor para la página ${pageId}`);
-    return;
-  }
 
-  const qrCode = new QRCodeStyling({
-    width: 160,
-    height: 160,
-    type: "svg",
-    data: "https://www.facebook.com/",
-    image: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
-    dotsOptions: {
-        color: "#000",
-        type: "dots"
-    },
-    backgroundOptions: {
-        color: "#fff",
-    },
-    imageOptions: {
-        crossOrigin: "anonymous",
-        margin: 20
-    }
-});
-
-qrCode.append(container);
-// qrCode.download({ name: "qr", extension: "svg" });
-}
 
 function addClassSolution(words,show) {
   const elements = document.querySelectorAll(".word_search_container > div");
@@ -593,4 +564,46 @@ function addClassSolution(words,show) {
       });
     }
   }
+}
+
+function generateQR(pageId, text) {
+  // Primero, verifica si el contenedor para el QR existe
+  const container = document.querySelector(`#${pageId} .container_qr_code`);
+  if (!container) {
+  //  console.error(`No se encontró el contenedor para la página ${pageId}`);
+    return;
+  }
+
+  // Crea un div temporal para contener el QR generado
+  const tempDiv = document.createElement('div');
+
+  // Genera el QR y lo añade al div temporal
+  let qr = new QRCode(tempDiv, {
+    text: text,
+    width: 160,
+    height: 160,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H,
+  });
+
+  // Crea un canvas y lo añade al contenedor
+  const canvas = document.createElement('canvas');
+  canvas.width = 160; // Establece el tamaño deseado para el canvas
+  canvas.height = 160;
+  container.appendChild(canvas); // Añade el canvas al contenedor
+  let context = canvas.getContext("2d");
+
+  setTimeout(function () {
+    // Encuentra el canvas del QR generado dentro del div temporal
+    let qrCanvas = tempDiv.querySelector('canvas');
+    if (qrCanvas) {
+      // Dibuja el QR en el nuevo canvas
+      context.drawImage(qrCanvas, 0, 0, canvas.width, canvas.height);
+    } else {
+      console.error('No se pudo generar el QR.');
+    }
+    // Opcional: elimina el div temporal si no se necesita
+    tempDiv.remove();
+  }, 500);
 }
