@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 async function getData() {
   const input_url = document.getElementById("input_url");
-  // const url = window.location.href;
-  // const response = await fetch("http://localhost:3000/data");
-  // const data = await response.json();
-  // return data;
+  const url = window.location.href;
+  const response = await fetch("http://localhost:3000/data");
+  const data = await response.json();
+  return data;
   if(input_url){
     const url = input_url.value;
     if(url?.length){

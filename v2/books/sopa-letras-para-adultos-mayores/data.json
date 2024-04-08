@@ -21,7 +21,7 @@
                 "DEPORTES",
                 "HIDROTERAPIA",
                 "ACUPUNTURA",
-                "ATENCION PLENA",
+                "ATENCIONPLENA",
                 "GRATITUD",
                 "YOGA",
                 "MEDITACION",
@@ -33,11 +33,11 @@
             "summary": "Alimentos Que Ayudan A Calmar La Ansiedad",
             "words": [
                 "MANZANILLA",
-                "TE VERDE",
+                "TEVERDE",
                 "CHOCOLATE",
                 "PLATANO",
                 "AVENA",
-                "FRUTOS SECOS",
+                "FRUTOSSECOS",
                 "ALMENDRAS",
                 "ESPINACAS",
                 "YOGUR",
@@ -49,7 +49,7 @@
                 "MIEL",
                 "LECHUGA",
                 "TOMATE",
-                "ARROZ INTEGRAL",
+                "ARROZ",
                 "ZANAHORIA",
                 "QUINOA"
             ],
@@ -237,14 +237,12 @@
                 "TRANSFORMACION",
                 "REALIZACION",
                 "COLABORACION",
-                "RETROALIMENTACION",
                 "MEDIACION",
                 "ENTRENAMIENTO",
                 "INTERVENCION",
                 "DINAMICAS",
                 "EJERCICIOS",
                 "ANALISIS",
-                "DESENSIBILIZACION",
                 "EMPODERAMIENTO",
                 "CONFRONTACION"
             ],
@@ -826,9 +824,9 @@
                 "OBELISCO",
                 "BODHI",
                 "LOTO",
-                "YIN YANG",
+                "YINYANG",
                 "CRUZ",
-                "MEDIA LUNA",
+                "MEDIALUNA",
                 "DAVID",
                 "MANDALA",
                 "ANKH",
@@ -952,7 +950,7 @@
                 "DESINTERES",
                 "ASCETISMO",
                 "CELIBATO",
-                "DAR LIMOSNA",
+                "LIMOSNA",
                 "SERVICIO",
                 "MANTRA",
                 "CONTEMPLACION",
@@ -970,7 +968,7 @@
                 "CIELO",
                 "INFIERNO",
                 "KARMA",
-                "MAS ALLA",
+                "MASALLA",
                 "ESPIRITISMO",
                 "RENACIMIENTO",
                 "REVIVAL",
@@ -1031,7 +1029,6 @@
                 "ELEMENTAL",
                 "SERES",
                 "CHAMANICO",
-                "VIAJE CHAMANICO",
                 "DRUIDISMO",
                 "ADORACION"
             ],
@@ -1170,7 +1167,7 @@
                 "SECLUSION",
                 "ANIDACION",
                 "CALIDEZ",
-                "HACER HOGAR",
+                "HOGAR",
                 "HOSPITALIDAD"
             ],
             "len": 16
@@ -1222,7 +1219,7 @@
         {
             "summary": "Valores Familiares",
             "words": [
-                "TRABAJO DURO",
+                "TRABAJODURO",
                 "AUTONOMIA",
                 "CONFORMIDAD",
                 "SOLEMNIDAD",
@@ -1277,7 +1274,7 @@
                 "VALORES",
                 "RITUALES",
                 "RELIQUIAS",
-                "USOS POPULARES",
+                "POPULARES",
                 "LEYENDAS",
                 "GENEALOGIA",
                 "PASAJES",
@@ -1288,7 +1285,7 @@
         {
             "summary": "Enfoques De Meditacion",
             "words": [
-                "CONCIENCIA PLENA",
+                "PLENA",
                 "REPOSO",
                 "SABOREAR",
                 "CENTRADO",
@@ -1915,30 +1912,6 @@
                 "GRATITUD"
             ],
             "len": 20
-        },
-        {
-            "summary": "Agilidad Mental Y Salud Cognitiva",
-            "words": [
-                "CELERIDAD",
-                "PROFICIENCIA",
-                "AGILIZACION",
-                "DESTREZAS",
-                "PRONTITUD",
-                "EFICIENCIA",
-                "ASTUCIA",
-                "PRESTEZA",
-                "EFICACIA",
-                "RESPUESTA",
-                "ADAPTACION",
-                "AGILIDAD",
-                "DESTREZA",
-                "FLUIDEZ",
-                "TALENTO",
-                "VERSATILIDAD",
-                "REACCION",
-                "AJUSTE"
-            ],
-            "len": 18
         }
     ]
 }
