@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sopa de Letras</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../../single-page.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-2BD65SM0HS"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-2BD65SM0HS");
+    </script>
+  </head>
+  <body>
+    <div id="contenido-para-pdf">
+      <input
+        type="hidden"
+        value="https://raw.githubusercontent.com/majimenezaquino/word-search/master/v2/books/mother-day/data.json"
+        id="input_url"
+      />
+      <input
+        type="hidden"
+        value="https://wordsearch.onbook.es/v2/books/mother-day"
+        id="input_url_base"
+      />
+    </div>
+    <div class="container_solution">
+      <!-- <button id="donwload_pdf">Descargar PDF</button> -->
+      <div class="contariner_footer">
+        <button id="btn_soluctions">Show solutions</button>
+        <div class="bounce"><p>👇</p></div>
+      </div>
+    </div>
+    <div id="container_book_header">
+      <h1>Other books created by me</h1>
+    </div>
+    <div id="container_books"> 
+    </div>
+    <script src="../../single-page.js"></script>
+    <script src="../../../all-books.js"></script>
+  </body>
+</html>
