@@ -31,17 +31,17 @@
         },
         {
             "summary": "Bienestar Sostenible",
-            "words": ["Equilibrio", "Salud", "Sostenibilidad", "Naturaleza", "Comunidad", "Autocuidado", "Resiliencia", "Conexión", "Progreso", "Energía", "Vitalidad", "Recursos", "Bienestar", "Calidad de vida", "Educación", "Responsabilidad", "Armonía", "Innovación", "Cuidado", "Felicidad", "Meditación", "Crecimiento", "Compromiso", "Respeto"],
+            "words": ["Equilibrio", "Salud", "Sostenibilidad", "Naturaleza", "Comunidad", "Autocuidado", "Resiliencia", "Conexión", "Progreso", "Energía", "Vitalidad", "Recursos", "Bienestar", "Educación", "Responsabilidad", "Armonía", "Innovación", "Cuidado", "Felicidad", "Meditación", "Crecimiento", "Compromiso", "Respeto"],
             "len": 24
         },
         {
             "summary": "Naturaleza Sanadora",
-            "words": ["Sanación", "Equilibrio", "Curación", "Serenidad", "Conexión", "Terapia", "Respiración", "Jardinería", "Flora", "Fauna", "Tranquilidad", "Bienestar", "Vitalidad", "Naturaleza", "Espiritualidad", "Espacios verdes", "Meditación", "Paisajes", "Autocuidado", "Refugio", "Paz", "Armonía", "Energía", "Resiliencia"],
+            "words": ["Sanación", "Equilibrio", "Curación", "Serenidad", "Conexión", "Terapia", "Respiración", "Jardinería", "Flora", "Fauna", "Tranquilidad", "Bienestar", "Vitalidad", "Naturaleza", "Espiritualidad", "Meditación", "Paisajes", "Autocuidado", "Refugio", "Paz", "Armonía", "Energía", "Resiliencia"],
             "len": 24
         },
         {
             "summary": "Cuidado Ambiental",
-            "words": ["Conservación", "Sostenibilidad", "Reciclaje", "Protección", "Biodiversidad", "Ecosistema", "Responsabilidad", "Energía", "Contaminación", "Recursos", "Educación", "Cambio climático", "Flora", "Fauna", "Aire", "Agua", "Hábitat", "Polución", "Renovable", "Residuos", "Restauración", "Comunidad", "Activismo", "Equilibrio"],
+            "words": ["Conservación", "Sostenibilidad", "Reciclaje", "Protección", "Biodiversidad", "Ecosistema", "Responsabilidad", "Energía", "Contaminación", "Recursos", "Educación",  "Flora", "Fauna", "Aire", "Agua", "Hábitat", "Polución", "Renovable", "Residuos", "Restauración", "Comunidad", "Activismo", "Equilibrio"],
             "len": 24
         },
         {
@@ -116,12 +116,12 @@
         },
         {
             "summary": "Naturaleza y Bienestar",
-            "words": ["Equilibrio", "Serenidad", "Vitalidad", "Salud", "Armonía", "Conexión", "Meditación", "Aire puro", "Espacios verdes", "Tranquilidad", "Biodiversidad", "Cuidado", "Restauración", "Felicidad", "Mindfulness", "Autocuidado", "Crecimiento", "Espiritualidad", "Energía", "Refugio", "Flora", "Fauna", "Caminatas", "Relajación"],
+            "words": ["Equilibrio", "Serenidad", "Vitalidad", "Salud", "Armonía", "Conexión", "Meditación", "Airepuro",  "Tranquilidad", "Biodiversidad", "Cuidado", "Restauración", "Felicidad", "Mindfulness", "Autocuidado", "Crecimiento", "Espiritualidad", "Energía", "Refugio", "Flora", "Fauna", "Caminatas", "Relajación"],
             "len": 24
         },
         {
             "summary": "Caminos Verdes",
-            "words": ["Senderos", "Naturaleza", "Sostenibilidad", "Aventura", "Exploración", "Ecología", "Conexión", "Respeto", "Jardines", "Caminatas", "Tranquilidad", "Flora", "Fauna", "Respira", "Renovación", "Descubrimiento", "Cuidado", "Espacios verdes", "Armonía", "Comunidad", "Energía", "Reciclaje", "Paisajes", "Bienestar"],
+            "words": ["Senderos", "Naturaleza", "Sostenibilidad", "Aventura", "Exploración", "Ecología", "Conexión", "Respeto", "Jardines", "Caminatas", "Tranquilidad", "Flora", "Fauna", "Respira", "Renovación", "Descubrimiento", "Cuidado",  "Armonía", "Comunidad", "Energía", "Reciclaje", "Paisajes", "Bienestar"],
             "len": 24
         },
         {
@@ -156,7 +156,7 @@
         },
         {
             "summary": "Bienestar y Naturaleza",
-            "words": ["Equilibrio", "Salud", "Armonía", "Vitalidad", "Conexión", "Tranquilidad", "Serenidad", "Respiración", "Espacios verdes", "Cuidado", "Restauración", "Meditación", "Crecimiento", "Naturaleza", "Felicidad", "Energía", "Reflexión", "Autocuidado", "Biodiversidad", "Actividad física", "Comunidad", "Plenitud", "Rejuvenecimiento"],
+            "words": ["Equilibrio", "Salud", "Armonía", "Vitalidad", "Conexión", "Tranquilidad", "Serenidad", "Respiración",  "Cuidado", "Restauración", "Meditación", "Crecimiento", "Naturaleza", "Felicidad", "Energía", "Reflexión", "Autocuidado", "Biodiversidad", "Comunidad", "Plenitud", "Rejuvenecimiento"],
             "len": 24
         },
         {
@@ -166,7 +166,7 @@
         },
         {
             "summary": "Cuidado de la Salud",
-            "words": ["Bienestar", "Prevención", "Nutrición", "Ejercicio", "Salud", "Medicina", "Autocuidado", "Equilibrio", "Higiene", "Descanso", "Vitalidad", "Educación", "Consciencia", "Atención", "Terapia", "Mindfulness", "Resiliencia", "Inmunidad", "Apoyo", "Estilo de vida", "Relajación", "Consultas", "Diagnóstico", "Cuidado"],
+            "words": ["Bienestar", "Prevención", "Nutrición", "Ejercicio", "Salud", "Medicina", "Autocuidado", "Equilibrio", "Higiene", "Descanso", "Vitalidad", "Educación", "Consciencia", "Atención", "Terapia", "Mindfulness", "Resiliencia", "Inmunidad", "Apoyo", "Relajación", "Consultas", "Diagnóstico", "Cuidado"],
             "len": 24
         },
         {
@@ -187,7 +187,7 @@
 
         {
             "summary": "Viviendo en Equilibrio",
-            "words": ["Armonía", "Paz", "Salud", "Conexión", "Bienestar", "Serenidad", "Cuidado", "Autenticidad", "Vitalidad", "Respeto", "Tranquilidad", "Sostenibilidad", "Compasión", "Reflexión", "Crecimiento", "Adaptación", "Comunidad", "Energía", "Equilibrio emocional", "Plenitud", "Empatía", "Mindfulness", "Estilo de vida", "Felicidad"],
+            "words": ["Armonía", "Paz", "Salud", "Conexión", "Bienestar", "Serenidad", "Cuidado", "Autenticidad", "Vitalidad", "Respeto", "Tranquilidad", "Sostenibilidad", "Compasión", "Reflexión", "Crecimiento", "Adaptación", "Comunidad", "Energía",  "Plenitud", "Empatía", "Mindfulness", "Felicidad"],
             "len": 24
         },
         {
@@ -197,12 +197,12 @@
         },
         {
             "summary": "Ecología y Salud Mental",
-            "words": ["Bienestar", "Naturaleza", "Conexión", "Serenidad", "Equilibrio", "Cuidado", "Mindfulness", "Vitalidad", "Espacios verdes", "Resiliencia", "Paz", "Autocuidado", "Meditación", "Tranquilidad", "Flora", "Fauna", "Reflexión", "Sostenibilidad", "Armonía", "Comunidad", "Salud", "Restauración", "Energía", "Adaptación", "Empatía"],
+            "words": ["Bienestar", "Naturaleza", "Conexión", "Serenidad", "Equilibrio", "Cuidado", "Mindfulness", "Vitalidad", "Resiliencia", "Paz", "Autocuidado", "Meditación", "Tranquilidad", "Flora", "Fauna", "Reflexión", "Sostenibilidad", "Armonía", "Comunidad", "Salud", "Restauración", "Energía", "Adaptación", "Empatía"],
             "len": 25
         },
         {
             "summary": "Naturaleza y Reflexión",
-            "words": ["Silencio", "Serenidad", "Tranquilidad", "Observación", "Conexión", "Armonía", "Paz", "Autoconocimiento", "Espacios verdes", "Meditación", "Sabiduría", "Respeto", "Ciclos", "Crecimiento", "Inspiración", "Renovación", "Flora", "Fauna", "Equilibrio", "Sentido", "Reflexión", "Naturaleza", "Luz", "Sentimiento"],
+            "words": ["Silencio", "Serenidad", "Tranquilidad", "Observación", "Conexión", "Armonía", "Paz", "Autoconocimiento", "Meditación", "Sabiduría", "Respeto", "Ciclos", "Crecimiento", "Inspiración", "Renovación", "Flora", "Fauna", "Equilibrio", "Sentido", "Reflexión", "Naturaleza", "Luz", "Sentimiento"],
             "len": 24
         },
         {
@@ -267,7 +267,7 @@
         },
         {
             "summary": "Conciencia Ambiental",
-            "words": ["Sostenibilidad", "Educación", "Cuidado", "Responsabilidad", "Conservación", "Biodiversidad", "Acción", "Ecoamigable", "Naturaleza", "Reciclaje", "Reducción", "Energía", "Impacto", "Justicia", "Recursos", "Protección", "Hábitat", "Cambio climático", "Participación", "Adaptación", "Activismo", "Innovación", "Ética", "Comunidad"],
+            "words": ["Sostenibilidad", "Educación", "Cuidado", "Responsabilidad", "Conservación", "Biodiversidad", "Acción", "Ecoamigable", "Naturaleza", "Reciclaje", "Reducción", "Energía", "Impacto", "Justicia", "Recursos", "Protección", "Hábitat",  "Participación", "Adaptación", "Activismo", "Innovación", "Ética", "Comunidad"],
             "len": 24
         },
         {
@@ -298,7 +298,7 @@
         },
         {
             "summary": "Reconexión con la Naturaleza",
-            "words": ["Armonía", "Cuidado", "Serenidad", "Tranquilidad", "Fluir", "Biodiversidad", "Reflexión", "Exploración", "Vitalidad", "Presencia", "Espacios verdes", "Conexión", "Renovación", "Inspiración", "Ciclos", "Respeto", "Naturaleza", "Autenticidad", "Encuentro", "Ecoamigable", "Autocuidado", "Crecimiento", "Sabiduría", "Meditación"],
+            "words": ["Armonía", "Cuidado", "Serenidad", "Tranquilidad", "Fluir", "Biodiversidad", "Reflexión", "Exploración", "Vitalidad", "Presencia", "Conexión", "Renovación", "Inspiración", "Ciclos", "Respeto", "Naturaleza", "Autenticidad", "Encuentro", "Ecoamigable", "Autocuidado", "Crecimiento", "Sabiduría", "Meditación"],
             "len": 24
         },
         {

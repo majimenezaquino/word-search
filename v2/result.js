@@ -104,7 +104,12 @@ async function init() {
 
 
 }
+function quitarAcentos(texto) {
+  return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Elimina los acentos
+}
+
 function allowTest(input) {
+  input = quitarAcentos(input);
   if(input.length >15){
     console.error("Word error length: ",input);
     return true;
