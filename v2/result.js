@@ -89,7 +89,7 @@ async function init() {
       const qr_text = `${input_url_base}/index.html?s=${page.summary}`;
       //generateQR(pageId,qr_text);
       validateWords(words, size); // Validación para asegurarse de que las palabras caben
-      wordPositions[index] = insertWords(grid, words, size);
+      wordPositions[index] = insertWords(grid, words, size,page.summary);
       fillEmptySpaces(grid);
       renderGrid(pageId,grid);
      
@@ -177,7 +177,7 @@ function getAxis(direction) {
   }
 }
 
-function insertWords(grid, words, size) {
+function insertWords(grid, words, size,summary="") {
   let _wordPositions = {};
   let maxAttempts = 200; // Número máximo de intentos para colocar una palabra
 
@@ -203,7 +203,7 @@ function insertWords(grid, words, size) {
 
     if (!placed) {
       console.log(
-        `No se pudo colocar la palabra "${word}" después de ${maxAttempts} intentos.`
+        `No se pudo colocar la palabra "${word}" después de ${maxAttempts} intentos.  ${summary}`
       );
     }
   });
