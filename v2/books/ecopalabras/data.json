@@ -66,7 +66,7 @@
         },
         {
             "summary": "Espiritualidad Natural",
-            "words": ["Conexión", "Naturaleza", "Serenidad", "Armonía", "Intuición", "Meditación", "Sabiduría", "Equilibrio", "Vitalidad", "Energía", "Trascendencia", "Autoconocimiento", "Silencio", "Presencia", "Fluidez", "Gracia", "Cuidado", "Respeto", "Compasión", "Reflexión", "Renovación", "Tierra", "Espiritualidad", "Luz"],
+            "words": ["Conexión", "Naturaleza", "Serenidad", "Armonía", "Intuición", "Meditación", "Sabiduría", "Equilibrio", "Vitalidad", "Energía", "Trascendencia", "Silencio", "Presencia", "Fluidez", "Gracia", "Cuidado", "Respeto", "Compasión", "Reflexión", "Renovación", "Tierra", "Espiritualidad", "Luz"],
             "len": 24
         },
         {
@@ -81,7 +81,7 @@
         },
         {
             "summary": "Conservación Ecológica",
-            "words": ["Biodiversidad", "Sostenibilidad", "Protección", "Hábitat", "Recursos", "Restauración", "Investigación", "Ecología", "Fauna", "Flora", "Resiliencia", "Educación", "Conservación", "Políticas", "Acción", "Cambio climático", "Recuperación", "Manejo", "Cuidado", "Especies", "Ecoamigable", "Responsabilidad", "Comunidad", "Equilibrio"],
+            "words": ["Biodiversidad", "Sostenibilidad", "Protección", "Hábitat", "Recursos", "Restauración", "Investigación", "Ecología", "Fauna", "Flora", "Resiliencia", "Educación", "Conservación", "Políticas", "Acción", "Recuperación", "Manejo", "Cuidado", "Especies", "Ecoamigable", "Responsabilidad", "Comunidad", "Equilibrio"],
             "len": 24
         },
         {
@@ -151,12 +151,12 @@
         },
         {
             "summary": "Reflexiones Naturales",
-            "words": ["Silencio", "Serenidad", "Conexión", "Intuición", "Armonía", "Paz", "Autoconocimiento", "Observación", "Respiración", "Ciclos", "Sabiduría", "Tranquilidad", "Adaptación", "Belleza", "Naturaleza", "Gratitud", "Crecimiento", "Equilibrio", "Vitalidad", "Compasión", "Presencia", "Meditación", "Reflexión", "Sentido"],
+            "words": ["Silencio", "Serenidad", "Conexión", "Intuición", "Armonía", "Paz", "Observación", "Respiración", "Ciclos", "Sabiduría", "Tranquilidad", "Adaptación", "Belleza", "Naturaleza", "Gratitud", "Crecimiento", "Equilibrio", "Vitalidad", "Compasión", "Presencia", "Meditación", "Reflexión", "Sentido"],
             "len": 24
         },
         {
             "summary": "Bienestar y Naturaleza",
-            "words": ["Equilibrio", "Salud", "Armonía", "Vitalidad", "Conexión", "Tranquilidad", "Serenidad", "Respiración",  "Cuidado", "Restauración", "Meditación", "Crecimiento", "Naturaleza", "Felicidad", "Energía", "Reflexión", "Autocuidado", "Biodiversidad", "Comunidad", "Plenitud", "Rejuvenecimiento"],
+            "words": ["Equilibrio", "Salud", "Armonía", "Vitalidad", "Conexión", "Tranquilidad", "Serenidad", "Respiración",  "Cuidado", "Restauración", "Meditación", "Crecimiento", "Naturaleza", "Felicidad", "Energía", "Reflexión", "Autocuidado", "Biodiversidad", "Comunidad", "Plenitud"],
             "len": 24
         },
         {
@@ -202,7 +202,7 @@
         },
         {
             "summary": "Naturaleza y Reflexión",
-            "words": ["Silencio", "Serenidad", "Tranquilidad", "Observación", "Conexión", "Armonía", "Paz", "Autoconocimiento", "Meditación", "Sabiduría", "Respeto", "Ciclos", "Crecimiento", "Inspiración", "Renovación", "Flora", "Fauna", "Equilibrio", "Sentido", "Reflexión", "Naturaleza", "Luz", "Sentimiento"],
+            "words": ["Silencio", "Serenidad", "Tranquilidad", "Observación", "Conexión", "Armonía", "Paz", "Meditación", "Sabiduría", "Respeto", "Ciclos", "Crecimiento", "Inspiración", "Renovación", "Flora", "Fauna", "Equilibrio", "Sentido", "Reflexión", "Naturaleza", "Luz", "Sentimiento"],
             "len": 24
         },
         {
@@ -232,7 +232,7 @@
         },
         {
             "summary": "Sabiduría Natural",
-            "words": ["Intuición", "Conocimiento", "Ciclos", "Observación", "Armonía", "Reflexión", "Serenidad", "Conexión", "Adaptación", "Vitalidad", "Cuidado", "Experiencia", "Aprendizaje", "Equilibrio", "Naturaleza", "Crecimiento", "Tranquilidad", "Sensibilidad", "Autenticidad", "Sostenibilidad", "Sabiduría ancestral", "Fluir", "Presencia", "Meditación"],
+            "words": ["Intuición", "Conocimiento", "Ciclos", "Observación", "Armonía", "Reflexión", "Serenidad", "Conexión", "Adaptación", "Vitalidad", "Cuidado", "Experiencia", "Aprendizaje", "Equilibrio", "Naturaleza", "Crecimiento", "Tranquilidad", "Sensibilidad", "Autenticidad", "Sostenibilidad",  "Fluir", "Presencia", "Meditación"],
             "len": 24
         },
         {
